@@ -1,20 +1,24 @@
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
 import { isAuthenticated } from "@/lib/auth";
-import { dataDirectory } from "@/lib/db";
+import { readUpload } from "@/lib/media-storage";
+import { isUploadFilename } from "@/lib/media-urls";
 export const runtime = "nodejs";
 export async function GET(
   _request: Request,
   context: { params: Promise<{ filename: string }> },
 ) {
   const { filename } = await context.params;
-  if (!/^(project|inquiry)-[a-f0-9-]{36}\.(jpg|png|webp|pdf)$/.test(filename))
+  if (!isUploadFilename(filename))
     return new Response("Not found", { status: 404 });
   const privateFile = filename.startsWith("inquiry-");
+  const cacheHeaders = {
+    "Cache-Control": privateFile ? "private, no-store" : "no-store",
+  };
   if (privateFile && !(await isAuthenticated()))
-    return new Response("Unauthorized", { status: 401 });
+    return new Response("Unauthorized", { status: 401, headers: cacheHeaders });
   try {
-    const bytes = await readFile(join(dataDirectory(), "uploads", filename));
+    const bytes = await readUpload(filename);
+    if (!bytes)
+      return new Response("Not found", { status: 404, headers: cacheHeaders });
     const extension = filename.split(".").pop()!;
     const types: Record<string, string> = {
       jpg: "image/jpeg",
@@ -22,7 +26,7 @@ export async function GET(
       webp: "image/webp",
       pdf: "application/pdf",
     };
-    return new Response(bytes, {
+    return new Response(new Uint8Array(bytes), {
       headers: {
         "Content-Type": types[extension],
         "X-Content-Type-Options": "nosniff",
@@ -37,6 +41,9 @@ export async function GET(
       },
     });
   } catch {
-    return new Response("Not found", { status: 404 });
+    return new Response("The file is temporarily unavailable", {
+      status: 503,
+      headers: cacheHeaders,
+    });
   }
 }

@@ -1,4 +1,6 @@
 import type { NextConfig } from "next";
+import { mediaCloudName } from "./lib/media-urls";
+const cloudName = mediaCloudName();
 const config: NextConfig = {
   poweredByHeader: false,
   turbopack: { root: process.cwd() },
@@ -6,6 +8,16 @@ const config: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 3600,
+    maximumRedirects: 0,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        port: "",
+        pathname: `/${cloudName}/image/upload/*/reliant/**`,
+        search: "",
+      },
+    ],
     localPatterns: [
       { pathname: "/images/**" },
       { pathname: "/api/uploads/**" },
@@ -28,7 +40,7 @@ const config: NextConfig = {
             value:
               "default-src 'self'; script-src 'self' 'unsafe-inline'" +
               (process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : "") +
-              " https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.google-analytics.com; font-src 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'",
+              ` https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.google-analytics.com https://*.googleusercontent.com https://res.cloudinary.com/${cloudName}/; font-src 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'`,
           },
         ],
       },

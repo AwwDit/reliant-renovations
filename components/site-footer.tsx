@@ -100,6 +100,7 @@ export function SiteFooter({ projects = [] }: { projects?: Project[] }) {
         <span>© {new Date().getFullYear()} Reliant Renovations Inc.</span>
         <nav aria-label="Site information">
           <Link href="/privacy">Privacy</Link>
+          <Link href="/terms">Terms</Link>
           <Link href="/admin">Owner login</Link>
         </nav>
         <div className="rf-footer-theme">

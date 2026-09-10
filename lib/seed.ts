@@ -1,4 +1,5 @@
 import type { Project, ProjectImage } from "./types";
+import { projectMediaSource } from "./project-media";
 
 // Scope and selection are transcribed from the supplied September 3, 2026 brief.
 // This date records preparation of the website content, not project completion.
@@ -110,7 +111,9 @@ const photoDescriptions: Record<string, string[]> = {
 
 function gallery(slug: string, description: string): ProjectImage[] {
   return Array.from({ length: 8 }, (_, index) => ({
-    src: `/images/projects/${slug}/${String(index + 1).padStart(2, "0")}.webp`,
+    src: projectMediaSource(
+      `/images/projects/${slug}/${String(index + 1).padStart(2, "0")}.webp`,
+    ),
     alt: photoDescriptions[slug]?.[index] ?? description,
   }));
 }

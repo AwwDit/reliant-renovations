@@ -1,11 +1,9 @@
 import { readFormBody, bodyReadError } from "@/lib/auth";
 import { randomUUID } from "node:crypto";
-import { mkdir, writeFile } from "node:fs/promises";
-import { join } from "node:path";
 import sharp from "sharp";
 import { requireAdmin } from "@/lib/auth";
-import { dataDirectory } from "@/lib/db";
 import { detectFileType } from "@/lib/validation";
+import { storeUpload } from "@/lib/media-storage";
 export const runtime = "nodejs";
 export async function POST(request: Request) {
   const denied = await requireAdmin(request, true);
@@ -56,8 +54,14 @@ export async function POST(request: Request) {
     );
   }
   const filename = `project-${randomUUID()}.webp`;
-  const directory = join(dataDirectory(), "uploads");
-  await mkdir(directory, { recursive: true });
-  await writeFile(join(directory, filename), optimized, { flag: "wx" });
-  return Response.json({ src: `/api/uploads/${filename}` }, { status: 201 });
+  try {
+    const stored = await storeUpload(filename, optimized);
+    return Response.json(stored, { status: 201 });
+  } catch {
+    console.error("Project image storage failed");
+    return Response.json(
+      { error: "The image could not be stored. Please try again." },
+      { status: 503 },
+    );
+  }
 }

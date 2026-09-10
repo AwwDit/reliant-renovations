@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import { getProjects } from "@/lib/db";
 import { pageMetadata } from "@/lib/seo";
+import { isProjectMediaSource } from "@/lib/project-media";
 import "@/components/unfold/about.css";
 export const dynamic = "force-dynamic";
 export const metadata = pageMetadata(
@@ -29,11 +30,15 @@ export default async function About() {
   const photo =
     main?.images.find(
       (image) =>
-        image.src === "/images/projects/upper-west-side-apartment/06.webp",
+        isProjectMediaSource(
+          image.src,
+          "/images/projects/upper-west-side-apartment/06.webp",
+        ),
     ) || main?.images[0];
   const work =
     detail?.images.find(
-      (image) => image.src === "/images/projects/lidl-harlem/02.webp",
+      (image) =>
+        isProjectMediaSource(image.src, "/images/projects/lidl-harlem/02.webp"),
     ) || detail?.images[0];
   return (
     <div className="uf-about rf-container">

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowRight, LockKey, Eye, EyeSlash } from "@phosphor-icons/react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { projectMediaSource } from "@/lib/project-media";
 
 export function AdminAuthShell({ children }: { children: React.ReactNode }) {
   return (
@@ -24,7 +25,9 @@ export function AdminAuthShell({ children }: { children: React.ReactNode }) {
       <main className="ad-auth-layout">
         <figure className="ad-auth-visual">
           <Image
-            src="/images/projects/upper-west-side-apartment/01.webp"
+            src={projectMediaSource(
+              "/images/projects/upper-west-side-apartment/01.webp",
+            )}
             alt="Custom wood kitchen cabinetry and sink in an Upper West Side apartment"
             fill
             sizes="(max-width: 860px) 100vw, 45vw"

@@ -35,6 +35,7 @@ If transferring an existing SQLite installation, migrate **before starting the s
 - Homepage arrival animation traces the actual RELIANT lettering with architectural construction guides, then draws the navigation, photo seams and content alignments before revealing the finished homepage. It plays once per tab session, supports Skip, and respects reduced motion.
 - About page with an immediate company introduction, one residential hero photograph, a finished commercial project alongside Why Reliant, and the original approved copy.
 - Five-project accordion below the hero: horizontal on desktop and vertical photo bands on mobile.
+- Live Google Maps rating and reviews below the homepage projects, with manual review navigation, expandable original wording, reviewer attribution and direct Google Maps links.
 - Dark theme by default, with a persistent light/dark toggle covering navigation, photo treatments, project sliders, galleries, forms, footer and owner dashboard.
 - Fixed desktop navigation and a mobile menu containing navigation links and utility controls.
 - Transparent original-color and white logo assets; the white logo uses regular-weight INC lettering throughout the site and dashboard.
@@ -76,11 +77,13 @@ Run `npm run email:preview` to open an offline gallery of all four emails, with 
 
 Set the private `ADMIN_EMAIL` to enable owner password recovery. The login screen links to `/admin/forgot-password`; reset links expire after 30 minutes. A reset stores the new password hash in MongoDB and signs out existing sessions. `ADMIN_PASSWORD_HASH` remains the bootstrap credential until the first reset, after which the MongoDB credential takes precedence. Keep `ADMIN_SESSION_SECRET` and the bootstrap environment values configured.
 
+For Google reviews, set server-only `GOOGLE_PLACES_API_KEY` and `GOOGLE_PLACES_PLACE_ID`. The example environment contains the verified Reliant Renovations listing ID. Google supplies up to five reviews in relevance order. Requests are made fresh through the server; reviews are not saved to MongoDB or a persistent cache. Missing configuration or an unavailable Google API omits this optional section while the rest of the homepage remains available. See [Google reviews setup](docs/GOOGLE-REVIEWS.md).
+
 Keep `SITE_INDEXABLE=false` for development and staging. Set it to `true` and rebuild only after launch review. Search Console and Analytics properties must be created or connected separately. The application does not change the existing website, DNS or third-party accounts.
 
 ## Production hosting and storage
 
-This application uses the official MongoDB Node.js driver and filesystem uploads. Use **MongoDB Atlas or a replica set**, and deploy the app as a **Node.js server with a persistent uploads volume**, behind HTTPS. The current upload storage is not suitable for ephemeral/serverless filesystems or a static export.
+This application uses the official MongoDB Node.js driver and supports **Cloudinary media storage**, including DigitalOcean App Platform deployments. Use **MongoDB Atlas or a replica set**, and deploy the app as a **Node.js web service**, behind HTTPS. A static export does not support the application's admin, inquiry and database functionality.
 
 ```sh
 npm ci
@@ -88,11 +91,15 @@ npm run build
 npm start
 ```
 
-Configure server-only `MONGODB_URI` and `MONGODB_DB` in the host environment. Mount persistent storage at `DATA_DIR` for images and private attachments under `DATA_DIR/uploads/`. Seed content is inserted once for a new database and does not overwrite owner edits or restore deleted projects. Catalogue writes and reordering use transactions; login and inquiry rate limits use atomic MongoDB counters.
+Configure server-only `MONGODB_URI` and `MONGODB_DB` in the host environment. Set `MEDIA_STORAGE=cloudinary`, `CLOUDINARY_CLOUD_NAME=dbg0zy3al`, `CLOUDINARY_ASSET_FOLDER=reliant`, and the private `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET`. New project photos are public Cloudinary images; inquiry attachments are authenticated assets downloaded only through the owner-protected server route. The dynamic folder is `reliant`; public IDs also use a separate `reliant/` namespace to isolate this site in the shared account. Cloudinary failures never silently fall back to local storage.
+
+Run `npm run media:migrate` to preview migration of existing catalog photos and inquiry attachments, then `npm run media:migrate -- --apply` to upload and update existing project image references. Run it on the machine with the original files and database before deploying. It preserves source files, image order and alternative text. See [Cloudinary configuration and migration](docs/CLOUDINARY.md). For local development without Cloudinary credentials, explicitly set `MEDIA_STORAGE=local`; this stores files under `DATA_DIR/uploads/` and requires persistent disk when used on a production host.
+
+Seed content is inserted once for a new database and does not overwrite owner edits or restore deleted projects. Catalogue writes and reordering use transactions; login and inquiry rate limits use atomic MongoDB counters. Migrate/restore the existing MongoDB database when moving hosts to retain current edits and image references.
 
 Set `SITE_URL` to the public HTTPS origin so proxy-origin checks work. Set `TRUST_PROXY=true` only when the reverse proxy overwrites client IP headers and the Node server cannot be accessed directly. Otherwise leave it false: rate limits use a conservative shared bucket. Configure reverse-proxy request limits and HTTPS security policy on the host.
 
-Configure database backups through the MongoDB host and back up uploaded files separately to access-controlled storage. Test restoration before launch and on a regular maintenance schedule. Configure host monitoring and dependency update alerts; those services are not provisioned by this repository. The SQLite migration retains the original file and creates a private snapshot under `DATA_DIR/backups/`.
+Configure database backups through the MongoDB host and maintain backups of media independently; database backups contain image references, not image bytes. Retain the local media originals after migration and configure Cloudinary's backup options as appropriate for the account. Test restoration before launch and on a regular maintenance schedule. Configure host monitoring and dependency update alerts; those services are not provisioned by this repository. The SQLite migration retains the original file and creates a private snapshot under `DATA_DIR/backups/`.
 
 ## Checks
 

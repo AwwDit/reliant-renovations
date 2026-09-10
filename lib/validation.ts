@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { isCloudinaryProjectUrl } from "./media-urls";
 
 const text = (max: number) => z.string().trim().max(max);
 const imagePath = z
@@ -6,10 +7,13 @@ const imagePath = z
   .trim()
   .max(2048)
   .refine((value) => {
-    return /^\/(?:images\/[a-zA-Z0-9/_-]+\.(?:jpg|jpeg|png|webp)|api\/uploads\/project-[a-f0-9-]{36}\.(?:jpg|png|webp))$/.test(
-      value,
+    return (
+      isCloudinaryProjectUrl(value) ||
+      /^\/(?:images\/[a-zA-Z0-9/_-]+\.(?:jpg|jpeg|png|webp)|api\/uploads\/project-[a-f0-9-]{36}\.(?:jpg|png|webp))$/.test(
+        value,
+      )
     );
-  }, "Upload a project photo or use an existing /images/ file path.");
+  }, "Upload a project photo or use an existing project image.");
 
 export const projectSchema = z.object({
   id: z.string().uuid().optional(),

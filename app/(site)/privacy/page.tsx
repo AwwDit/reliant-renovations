@@ -47,6 +47,19 @@ export default function Privacy() {
           and stores your analytics preference in your browser. You can reset
           your choice by clearing this site’s browser storage.
         </p>
+        <h2>Google Maps reviews</h2>
+        <p>
+          We retrieve public business ratings and reviews from Google Maps
+          through our server. Reviewer profile images load from Google when
+          displayed, which may share your IP address and browser information
+          with Google. Review and reviewer links open Google Maps. Google’s
+          handling of this information is described in the{" "}
+          <a href="https://policies.google.com/privacy">
+            Google Privacy Policy
+          </a>
+          , which is incorporated into this notice by reference for these Google
+          Maps features.
+        </p>
         <h2>Access and retention</h2>
         <p>
           Inquiry information is available to authorized administrators and the

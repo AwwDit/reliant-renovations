@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { ArrowUpRight } from "@phosphor-icons/react";
 import { websiteCopy } from "@/lib/website-copy";
+import { isProjectMediaSource } from "@/lib/project-media";
 import type { Division, Project } from "@/lib/types";
 import "./portfolio.css";
 
@@ -27,13 +28,15 @@ function collectionPhoto(project: Project) {
   const image =
     project.images.find(
       ({ src }) =>
-        src ===
-        `/images/projects/${project.slug}/${collectionCovers[project.slug]}`,
+        isProjectMediaSource(
+          src,
+          `/images/projects/${project.slug}/${collectionCovers[project.slug]}`,
+        ),
     ) || project.images[0];
   return {
     image,
     position:
-      image?.src === `/images/projects/${project.slug}/01.webp`
+      isProjectMediaSource(image?.src, `/images/projects/${project.slug}/01.webp`)
         ? coverPositions[project.slug] || "50% 50%"
         : "50% 50%",
   };

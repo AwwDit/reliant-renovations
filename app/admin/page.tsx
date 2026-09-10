@@ -3,6 +3,7 @@ import { authConfigured, isAuthenticated } from "@/lib/auth";
 import { getInquiries, getProjects } from "@/lib/db";
 import { AdminDashboard } from "@/components/admin/AdminDashboard";
 import { AdminAuthShell, AdminLogin } from "@/components/admin/AdminLogin";
+import { mediaCloudName } from "@/lib/media-urls";
 export default async function AdminPage({
   searchParams,
 }: {
@@ -35,8 +36,8 @@ export default async function AdminPage({
           </ol>
           <div className="ad-callout">
             Your dashboard is locked until credentials are configured. Project
-            and inquiry data is stored in MongoDB. Uploaded files remain in your
-            persistent data directory.
+            and inquiry data is stored in MongoDB. Uploaded files use the media
+            storage configured for this website.
           </div>
           <Link className="ad-text-link" href="/">
             ← Back to the website
@@ -57,6 +58,7 @@ export default async function AdminPage({
       initialTab={initialTab}
       initialProjects={projects}
       initialInquiries={inquiries}
+      cloudName={mediaCloudName()}
     />
   );
 }

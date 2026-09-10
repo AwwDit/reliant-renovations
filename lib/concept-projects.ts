@@ -1,4 +1,5 @@
 import type { Project } from "./types";
+import { isProjectMediaSource } from "./project-media";
 
 export interface ConceptProject extends Project {
   presentation: {
@@ -72,21 +73,12 @@ const curations: Record<string, Curation> = {
   },
 };
 
-function sourcePath(src: string): string {
-  // Handles local paths, absolute delivery URLs, and cache query strings.
-  try {
-    return new URL(src, "https://local.invalid").pathname;
-  } catch {
-    return src.split(/[?#]/, 1)[0];
-  }
-}
-
 function present(project: Project): ConceptProject {
   const curation = curations[project.slug];
   const preferred = curation?.photos ?? [0, 1, 2];
   const matched = preferred.map((number) => {
     const path = `/images/projects/${project.slug}/${String(number + 1).padStart(2, "0")}.webp`;
-    return project.images.findIndex((image) => sourcePath(image.src) === path);
+    return project.images.findIndex((image) => isProjectMediaSource(image.src, path));
   });
 
   // Reserve every surviving preferred photo before allocating any fallback.

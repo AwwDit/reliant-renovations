@@ -1,14 +1,7 @@
 import { readFormBody, bodyReadError } from "@/lib/auth";
 import { randomUUID } from "node:crypto";
-import { mkdir, unlink, writeFile } from "node:fs/promises";
-import { join } from "node:path";
 import { clientKey, requireAdmin, sameOrigin } from "@/lib/auth";
-import {
-  consumeRateLimit,
-  dataDirectory,
-  getInquiries,
-  saveInquiry,
-} from "@/lib/db";
+import { consumeRateLimit, getInquiries, saveInquiry } from "@/lib/db";
 import {
   detectFileType,
   inquirySchema,
@@ -16,6 +9,7 @@ import {
 } from "@/lib/validation";
 import { sendInquiryEmails } from "@/lib/email/delivery";
 import type { Inquiry } from "@/lib/types";
+import { storeUpload, deleteUpload } from "@/lib/media-storage";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export async function GET(request: Request) {
@@ -103,7 +97,7 @@ export async function POST(request: Request) {
     );
   const file = form.get("attachment");
   let attachment: string | null = null;
-  let savedPath: string | null = null;
+  let savedFilename: string | null = null;
   let savedInquiry: Inquiry;
   try {
     if (file instanceof File && file.size) {
@@ -120,15 +114,16 @@ export async function POST(request: Request) {
           { status: 400 },
         );
       const filename = `inquiry-${randomUUID()}.${type.extension}`;
-      const directory = join(dataDirectory(), "uploads");
-      await mkdir(directory, { recursive: true });
-      savedPath = join(directory, filename);
-      await writeFile(savedPath, bytes, { flag: "wx" });
-      attachment = `/api/uploads/${filename}`;
+      const stored = await storeUpload(filename, bytes);
+      savedFilename = filename;
+      attachment = stored.src;
     }
     savedInquiry = await saveInquiry(parsed.data, attachment);
   } catch {
-    if (savedPath) await unlink(savedPath).catch(() => {});
+    if (savedFilename)
+      await deleteUpload(savedFilename).catch(() => {
+        console.error("Inquiry attachment cleanup failed");
+      });
     console.error("Inquiry storage failed");
     return Response.json(
       {

@@ -14,6 +14,7 @@ import {
   X,
 } from "@phosphor-icons/react";
 import type { Project, ProjectImage } from "@/lib/types";
+import { isCloudinaryProjectUrl } from "@/lib/media-urls";
 import { adminRequest } from "./AdminDashboard";
 
 const emptyProject = {
@@ -32,11 +33,13 @@ const emptyProject = {
 };
 export function ProjectEditor({
   project,
+  cloudName,
   returnFocusRef,
   onClose,
   onSaved,
 }: {
   project?: Project;
+  cloudName: string;
   returnFocusRef: RefObject<HTMLButtonElement | null>;
   onClose: () => void;
   onSaved: () => Promise<void>;
@@ -106,11 +109,12 @@ export function ProjectEditor({
   function addImageUrl() {
     if (!imageUrl.trim() || imageAlt.trim().length < 3) {
       setError(
-        "Enter an existing image path and descriptive alternative text.",
+        "Enter an existing image URL or path and descriptive alternative text.",
       );
       return;
     }
     if (
+      !isCloudinaryProjectUrl(imageUrl.trim(), cloudName) &&
       !/^\/images\/[a-zA-Z0-9/_-]+\.(jpg|jpeg|png|webp)$/.test(
         imageUrl.trim(),
       ) &&
@@ -118,7 +122,9 @@ export function ProjectEditor({
         imageUrl.trim(),
       )
     ) {
-      setError("Upload a photo or use an existing /images/ file path.");
+      setError(
+        "Upload a photo, use a Reliant Cloudinary image URL, or enter an existing image path.",
+      );
       return;
     }
     if (form.images.length >= 30) {
@@ -457,16 +463,17 @@ export function ProjectEditor({
                     onClick={() => setShowUrl(!showUrl)}
                   >
                     <LinkSimple size={15} />
-                    Or use an existing image path
+                    Or use an existing image URL or path
                   </button>
                   {showUrl && (
                     <div className="ad-url-panel">
                       <label className="ad-field">
-                        <span>Existing image path</span>
+                        <span>Existing image URL or path</span>
                         <input
                           type="text"
                           value={imageUrl}
-                          placeholder="/images/project-photo.jpg"
+                          placeholder="Cloudinary URL or /images/project-photo.jpg"
+                          maxLength={2048}
                           onChange={(event) => setImageUrl(event.target.value)}
                         />
                       </label>

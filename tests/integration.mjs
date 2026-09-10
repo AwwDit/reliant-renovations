@@ -42,6 +42,10 @@ const child = spawn(
       ...process.env,
       NODE_ENV: "production",
       DATA_DIR: directory,
+      MEDIA_STORAGE: "local",
+      CLOUDINARY_API_KEY: "",
+      CLOUDINARY_API_SECRET: "",
+      GOOGLE_PLACES_API_KEY: "",
       // Explicit process env takes precedence over Next's .env.local settings.
       MONGODB_URI: mongoUri,
       MONGODB_DB: databaseName,

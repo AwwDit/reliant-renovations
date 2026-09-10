@@ -1,6 +1,6 @@
 # MongoDB setup and migration
 
-The application now stores projects, inquiries, application settings and request rate limits in MongoDB using the official Node.js driver. IDs, slugs, image URLs and the public API response shape remain unchanged. Password hashes and session secrets remain server environment variables. Uploaded photographs and private inquiry attachments remain in `DATA_DIR/uploads/`; MongoDB contains their references.
+The application stores projects, inquiries, application settings and request rate limits in MongoDB using the official Node.js driver. IDs, slugs and the public API response shape remain unchanged. Bootstrap password hashes and session secrets remain server environment variables. Media is stored in Cloudinary when `MEDIA_STORAGE=cloudinary`, or `DATA_DIR/uploads/` in local mode; MongoDB contains image and attachment references. See [Cloudinary setup and media migration](CLOUDINARY.md) before moving to App Platform.
 
 ## Local development
 

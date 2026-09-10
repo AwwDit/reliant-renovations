@@ -185,6 +185,18 @@ test("MongoDB seeds once across concurrent access and preserves edits and deleti
         expectedIds,
       );
       assert.equal(new Set(projects.map((project) => project.slug)).size, 10);
+      assert.deepEqual(
+        projects.map((project) => project.images),
+        seedProjects.map((project) => project.images),
+      );
+      assert.equal(projects.flatMap((project) => project.images).length, 80);
+      assert.ok(
+        projects.every((project) =>
+          project.images.every((image) =>
+            image.src.startsWith("https://res.cloudinary.com/dbg0zy3al/image/upload/"),
+          ),
+        ),
+      );
     }
     const edited = await saveProject({
       ...snapshots[0][0],

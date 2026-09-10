@@ -35,10 +35,12 @@ export async function adminRequest(url: string, options?: RequestInit) {
 export function AdminDashboard({
   initialProjects,
   initialInquiries,
+  cloudName,
   initialTab = "projects",
 }: {
   initialProjects: Project[];
   initialInquiries: Inquiry[];
+  cloudName: string;
   initialTab?: "projects" | "inquiries";
 }) {
   const router = useRouter();
@@ -632,6 +634,7 @@ export function AdminDashboard({
       </div>
       {editor && (
         <ProjectEditor
+          cloudName={cloudName}
           project={editor === "new" ? undefined : editor}
           returnFocusRef={editorReturnFocus}
           onClose={() => setEditor(null)}
