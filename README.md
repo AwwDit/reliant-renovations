@@ -56,11 +56,13 @@ To replay the homepage arrival animation during review, open `/?intro=1` (for ex
 
 ## Link previews
 
-The homepage and general pages share a branded 1200 × 630 JPEG containing the original logo, real residential/commercial project photography, and the approved homepage headline. Individual project links retain their own project photograph. The preview is a bundled static asset, so messaging apps can fetch it without image generation or database access.
+The homepage and general pages share a branded 1200 × 630 JPEG containing the original logo, real residential/commercial project photography, and the approved homepage headline. The homepage also advertises a seven-second silent H.264 MP4 through Open Graph video metadata for clients that support animated previews. It uses the website's RR construction geometry, measured lettering guides and pencil hatching, then fills in the photographs, logo and headline. The JPEG remains the fallback, including for Twitter's large-image card. Other pages use still previews, and individual project links retain their own project photograph. Both files are bundled static assets, so messaging apps can fetch them without runtime generation or database access.
 
 Run `npm run social:preview` to regenerate `public/images/social/reliant-share-v3.jpg` after changing its layout or approved copy. The generator reads bundled originals and fonts; no credentials or external services are required. When replacing published artwork, bump the filename in `lib/social-preview.ts` and include the new JPEG in the deployment.
 
-Set `NEXT_PUBLIC_SITE_URL` to the public HTTPS origin (for example, `https://reliantrenovationsinc.com`) at build time and runtime so the absolute sharing-image URL is reachable. After deploying, test a newly sent link in Messages. Existing previews may remain cached by the receiving app.
+Run `npm run social:animate` to regenerate `public/videos/social/reliant-share-v2.mp4`. This local generation command requires `ffmpeg` and `ffprobe` on your PATH; neither is needed on the deployed server. Commit the generated MP4 with the site, and bump its filename in `lib/social-preview.ts` when replacing a published animation.
+
+Set `NEXT_PUBLIC_SITE_URL` to the public HTTPS origin (for example, `https://reliantrenovationsinc.com`) at build time and runtime so the absolute sharing-image and video URLs are reachable. After deploying, test a newly sent homepage link in Messages on an actual iPhone. Animation and autoplay depend on the receiving client and device settings; they are not guaranteed. Existing previews may remain cached by the receiving app.
 
 ## Owner handoff
 

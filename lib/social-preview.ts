@@ -8,3 +8,10 @@ export const socialPreview = {
   type: "image/jpeg",
   alt: `Reliant Renovations Inc. ${websiteCopy.headline} Residential kitchen and commercial storefront project photography.`,
 } as const;
+
+export const socialPreviewVideo = {
+  path: "/videos/social/reliant-share-v2.mp4",
+  width: 1200,
+  height: 630,
+  type: "video/mp4",
+} as const;
