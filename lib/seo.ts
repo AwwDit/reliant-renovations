@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "./site";
+import { socialPreview } from "./social-preview";
 import type { Project } from "./types";
 
 export function absoluteUrl(path: string): string {
@@ -14,7 +15,7 @@ export function pageMetadata(
 ): Metadata {
   const fullTitle = `${title} | ${site.shortName}`;
   const canonical = absoluteUrl(path);
-  const imageUrl = image ? absoluteUrl(image) : undefined;
+  const imageUrl = absoluteUrl(image || socialPreview.path);
   return {
     metadataBase: new URL(site.url),
     title: { absolute: fullTitle },
@@ -38,13 +39,23 @@ export function pageMetadata(
       url: canonical,
       title: fullTitle,
       description,
-      images: imageUrl ? [{ url: imageUrl, alt: title }] : [],
+      images: [
+        image
+          ? { url: imageUrl, alt: title }
+          : {
+              url: imageUrl,
+              width: socialPreview.width,
+              height: socialPreview.height,
+              type: socialPreview.type,
+              alt: socialPreview.alt,
+            },
+      ],
     },
     twitter: {
-      card: imageUrl ? "summary_large_image" : "summary",
+      card: "summary_large_image",
       title: fullTitle,
       description,
-      images: imageUrl ? [imageUrl] : [],
+      images: [{ url: imageUrl, alt: image ? title : socialPreview.alt }],
     },
   };
 }
