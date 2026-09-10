@@ -127,6 +127,7 @@ try {
     "/about",
     "/contact",
     "/privacy",
+    "/terms",
     "/projects/upper-west-side-apartment",
     "/projects/raising-canes-forest-hills",
   ]) {

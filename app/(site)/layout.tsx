@@ -7,12 +7,15 @@ import { SiteTransitions } from "@/components/unfold/site-transitions";
 import { getProjects } from "@/lib/db";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { connection } from "next/server";
 import "./foundation.css";
 export default async function SiteLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // The shared footer reads live projects; deployment builds must not query MongoDB.
+  await connection();
   const projects = await getProjects();
   return (
     <SiteTransitions>
