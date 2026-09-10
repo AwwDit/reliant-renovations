@@ -26,19 +26,20 @@ const coverPositions: Record<string, string> = {
 };
 function collectionPhoto(project: Project) {
   const image =
-    project.images.find(
-      ({ src }) =>
-        isProjectMediaSource(
-          src,
-          `/images/projects/${project.slug}/${collectionCovers[project.slug]}`,
-        ),
+    project.images.find(({ src }) =>
+      isProjectMediaSource(
+        src,
+        `/images/projects/${project.slug}/${collectionCovers[project.slug]}`,
+      ),
     ) || project.images[0];
   return {
     image,
-    position:
-      isProjectMediaSource(image?.src, `/images/projects/${project.slug}/01.webp`)
-        ? coverPositions[project.slug] || "50% 50%"
-        : "50% 50%",
+    position: isProjectMediaSource(
+      image?.src,
+      `/images/projects/${project.slug}/01.webp`,
+    )
+      ? coverPositions[project.slug] || "50% 50%"
+      : "50% 50%",
   };
 }
 

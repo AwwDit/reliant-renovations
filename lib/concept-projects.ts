@@ -78,7 +78,9 @@ function present(project: Project): ConceptProject {
   const preferred = curation?.photos ?? [0, 1, 2];
   const matched = preferred.map((number) => {
     const path = `/images/projects/${project.slug}/${String(number + 1).padStart(2, "0")}.webp`;
-    return project.images.findIndex((image) => isProjectMediaSource(image.src, path));
+    return project.images.findIndex((image) =>
+      isProjectMediaSource(image.src, path),
+    );
   });
 
   // Reserve every surviving preferred photo before allocating any fallback.

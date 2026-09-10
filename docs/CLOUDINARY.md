@@ -2,6 +2,10 @@
 
 The website uses Cloudinary for durable project photographs and private inquiry attachments on DigitalOcean App Platform. MongoDB continues to hold project details, image order and alternative text, inquiries, and owner account data. Cloudinary does not replace MongoDB.
 
+The initial project-image migration completed on September 10, 2026: all 80 photographs across 10 projects were uploaded to cloud `dbg0zy3al` in the dynamic folder `reliant`. All 80 public delivery URLs were verified, and the existing database's image references were updated while preserving copy, order, alternative text and other project fields. The source files and a private pre-migration project-record backup were retained locally.
+
+`lib/project-media-manifest.ts` contains only the verified public source-to-Cloudinary URL mapping. Fresh databases seed these Cloudinary URLs automatically. The shared resolver also preserves selected cover photographs, crop positions and original gallery dimensions after migration. Existing databases still retain owner edits; seeding never replaces them. Future uploads are handled by the Cloudinary upload integration and do not require adding entries to this initial catalog manifest.
+
 ## Configuration
 
 Add these values to the local `.env.local` file when ready to connect the account, and to the App Platform web service's environment variables before deployment:
@@ -82,4 +86,4 @@ If migrating from a local MongoDB database to a production database as well, tra
 node --conditions=react-server --import tsx --test tests/media-migration.test.ts
 ```
 
-Cloudinary adapter and media URL tests separately verify signed uploads, safe response URLs, retry byte comparison, and authenticated retrieval. Account credentials and production upload behavior still require a live smoke test once credentials are installed.
+Cloudinary adapter and media URL tests separately verify signed uploads, safe response URLs, retry byte comparison, and authenticated retrieval. The initial 80 project photographs passed live upload and public delivery checks. There were no existing inquiry attachments to migrate; authenticated attachment behavior is covered by mocked adapter tests and the application's isolated route integration checks. Verify a real attachment download as part of the production launch test.

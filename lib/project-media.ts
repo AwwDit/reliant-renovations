@@ -1,8 +1,27 @@
 import { projectMedia } from "./project-media-manifest";
 
+const originalSources = new Map(
+  Object.entries(projectMedia).map(([original, migrated]) => [
+    migrated,
+    original,
+  ]),
+);
+
 /** Public catalog URLs only; safe to use in both server and client components. */
 export function projectMediaSource(source: string): string {
   return projectMedia[source] ?? source;
+}
+
+/** Recover catalog metadata such as dimensions after a photo moves to the CDN. */
+export function originalProjectMediaSource(source: string): string {
+  try {
+    const url = new URL(source);
+    url.search = "";
+    url.hash = "";
+    return originalSources.get(url.href) ?? source;
+  } catch {
+    return source;
+  }
 }
 
 /** Keep curated photo identity when its storage URL or gallery position changes. */
@@ -19,7 +38,9 @@ export function isProjectMediaSource(
       projectMediaSource(originalSource),
       "https://local.invalid",
     );
-    return image.origin === migrated.origin && image.pathname === migrated.pathname;
+    return (
+      image.origin === migrated.origin && image.pathname === migrated.pathname
+    );
   } catch {
     return false;
   }

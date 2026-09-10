@@ -28,17 +28,15 @@ export default async function About() {
   // Select the finished-work images by source, so reordering a project gallery
   // does not silently replace them with construction-progress photographs.
   const photo =
-    main?.images.find(
-      (image) =>
-        isProjectMediaSource(
-          image.src,
-          "/images/projects/upper-west-side-apartment/06.webp",
-        ),
+    main?.images.find((image) =>
+      isProjectMediaSource(
+        image.src,
+        "/images/projects/upper-west-side-apartment/06.webp",
+      ),
     ) || main?.images[0];
   const work =
-    detail?.images.find(
-      (image) =>
-        isProjectMediaSource(image.src, "/images/projects/lidl-harlem/02.webp"),
+    detail?.images.find((image) =>
+      isProjectMediaSource(image.src, "/images/projects/lidl-harlem/02.webp"),
     ) || detail?.images[0];
   return (
     <div className="uf-about rf-container">

@@ -193,7 +193,9 @@ test("MongoDB seeds once across concurrent access and preserves edits and deleti
       assert.ok(
         projects.every((project) =>
           project.images.every((image) =>
-            image.src.startsWith("https://res.cloudinary.com/dbg0zy3al/image/upload/"),
+            image.src.startsWith(
+              "https://res.cloudinary.com/dbg0zy3al/image/upload/",
+            ),
           ),
         ),
       );

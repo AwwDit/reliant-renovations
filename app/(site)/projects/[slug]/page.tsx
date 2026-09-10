@@ -4,6 +4,7 @@ import { pageMetadata, breadcrumbJsonLd, projectJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/json-ld";
 import { ProjectDetail } from "@/components/craft/project-detail";
 import imageManifest from "@/docs/PROJECT-IMAGE-MANIFEST.json";
+import { originalProjectMediaSource } from "@/lib/project-media";
 
 export const dynamic = "force-dynamic";
 
@@ -40,7 +41,7 @@ export default async function CaseStudy({
   const imageAspectRatios = Object.fromEntries(
     project.images.map(({ src }) => {
       const knownImage = imageManifest.files.find(
-        ({ file }) => file === `public${src}`,
+        ({ file }) => file === `public${originalProjectMediaSource(src)}`,
       );
       return [
         src,
