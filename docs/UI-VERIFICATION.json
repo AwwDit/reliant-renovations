@@ -1,0 +1,77 @@
+{
+  "checkedAt": "2026-09-07T04:59:52.188925+00:00",
+  "scope": "Editorial redesign of homepage, commercial/residential pages, project collection and shared public surfaces; authentic photography, light/dark themes and SEO preservation",
+  "checks": {
+    "productionBuild": "passed",
+    "lint": "passed",
+    "typecheck": "passed",
+    "backendTests": 5,
+    "integrationAssertions": 54,
+    "homepageThemeViewportCombinations": 6,
+    "divisionThemeViewportCombinations": 12,
+    "collectionViewThemeViewportCombinations": 12,
+    "aboutAndContactThemeViewportCombinations": 12,
+    "publicSeoRoutes": 17,
+    "publishedProjectRoutes": 10,
+    "seoRegressionIssues": [],
+    "runtimeOrHydrationErrors": []
+  },
+  "accessibility": {
+    "homeAxeViolations": 0,
+    "viewportWidths": [1440, 390, 320],
+    "themes": ["light", "dark"],
+    "checks": [
+      "Mobile navigation traps keyboard focus, Escape closes and restores trigger focus",
+      "Theme toggle works and persists after reload",
+      "No horizontal overflow in checked public layouts",
+      "Server-rendered photograph, headings and links work without JavaScript",
+      "List/Grid views and commercial/residential filters preserve 10/5/5 project counts",
+      "Project title and View project text links remain available",
+      "Production gallery advances and closes with Escape",
+      "Shared dark CTA eyebrow corrected and verified as rgb(188,199,199) on rgb(21,34,38)"
+    ],
+    "photoContrast": {
+      "method": "Sampled rendered background pixels behind hero text to resolve axe image/gradient manual checks",
+      "allSamplesMeetTheirThreshold": true,
+      "minimumLargeTextRatio": 3.11,
+      "minimumSmallTextRatio": 4.9,
+      "limitation": "These checks cover the current image and tested crops. Recheck contrast when changing hero photography."
+    }
+  },
+  "lighthouse": {
+    "version": "13.4.1",
+    "environment": "Local production build; Lighthouse mobile simulation, not field Core Web Vitals",
+    "scores": {
+      "performance": 92,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 69
+    },
+    "metrics": {
+      "first-contentful-paint": "1.5\u00a0s",
+      "largest-contentful-paint": "3.2\u00a0s",
+      "total-blocking-time": "20\u00a0ms",
+      "cumulative-layout-shift": "0.001",
+      "speed-index": "1.5\u00a0s"
+    },
+    "seoNote": "The only failed weighted SEO audit is indexability: SITE_INDEXABLE remains false for the prelaunch preview. All other weighted SEO audits pass.",
+    "performanceNote": "The real hero image is eagerly loaded with high fetch priority and a responsive source sized for its cover crop. Slow-mobile lab LCP remains above the 2.5-second target; render-blocking CSS is the largest reported remaining opportunity."
+  },
+  "design": {
+    "hero": "Authentic completed Upper West Side living room, large white headline, transparent white logo",
+    "divisionSeparation": "Dedicated routes and navigation, prominent homepage entry links and contrasting full-width sections",
+    "projectPresentation": "Large unframed photography, alternating List and staggered Grid layouts, visible case-study links",
+    "motion": "Brief hover/focus transitions only, with reduced-motion support; no autoplay, canvas, decorative model, drawing animation or comparison sliders",
+    "ownerControls": "Existing publishing, featured selection, ordering, uploads and inquiry handling preserved"
+  },
+  "evidence": {
+    "homepage": "/tmp/reliant-editorial-home-qa/results.json",
+    "contrast": "/tmp/reliant-editorial-home-qa/contrast.json",
+    "collectionAndSupportingPages": "/tmp/reliant-editorial-final/results.json",
+    "seo": "/tmp/reliant-editorial-seo-qa/seo.json",
+    "divisions": "/tmp/reliant-editorial-seo-qa/visuals.json",
+    "productionGallery": "/tmp/reliant-editorial-review/production.json",
+    "lighthouse": "/tmp/reliant-editorial-lighthouse.json",
+    "productionScreenshot": "/tmp/reliant-editorial-review/production-home.png"
+  }
+}

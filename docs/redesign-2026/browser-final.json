@@ -1,0 +1,25 @@
+{
+  "errors": [],
+  "interactions": "PASS: filters, Back, selected-project query, photo query, lightbox arrows/Escape/focus, mocked contact error/retry/success, mobile navigation, no-JS portfolio",
+  "screenChecks": {
+    "source": "Observed production browser/axe output from the preceding complete screen-audit run, before separately completing interaction assertions.",
+    "routes": [
+      "/",
+      "/projects",
+      "/projects/upper-west-side-apartment?photo=3",
+      "/contact?type=commercial",
+      "/residential"
+    ],
+    "widths": [
+      1440,
+      390
+    ],
+    "themes": [
+      "dark",
+      "light"
+    ],
+    "combinations": 20,
+    "axeWcagViolations": 0,
+    "horizontalOverflow": false
+  }
+}

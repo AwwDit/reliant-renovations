@@ -1,0 +1,28 @@
+{
+  "license": "CC0",
+  "source": "https://polyhaven.com/a/oak_veneer_01",
+  "licenseUrl": "https://polyhaven.com/license",
+  "assets": [
+    {
+      "file": "veneer-color.webp",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/oak_veneer_01/oak_veneer_01_diff_1k.jpg",
+      "md5": "39a99df4e328d62d74f3122722a64a95",
+      "originalFile": "docs/source-assets/apartment/veneer-color.jpg",
+      "processing": "Original 1024x1024 dimensions; WebP quality 91 (color/roughness) or 96 (normal)."
+    },
+    {
+      "file": "veneer-normal.webp",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/oak_veneer_01/oak_veneer_01_nor_gl_1k.jpg",
+      "md5": "d05406f5fdaf51f0d7b115b35d9af1b7",
+      "originalFile": "docs/source-assets/apartment/veneer-normal.jpg",
+      "processing": "Original 1024x1024 dimensions; WebP quality 91 (color/roughness) or 96 (normal)."
+    },
+    {
+      "file": "veneer-roughness.webp",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/oak_veneer_01/oak_veneer_01_rough_1k.jpg",
+      "md5": "a19b44176a078b9ae93314133848c9aa",
+      "originalFile": "docs/source-assets/apartment/veneer-roughness.jpg",
+      "processing": "Original 1024x1024 dimensions; WebP quality 91 (color/roughness) or 96 (normal)."
+    }
+  ]
+}

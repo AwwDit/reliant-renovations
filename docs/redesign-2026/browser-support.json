@@ -1,0 +1,165 @@
+{
+  "report": [
+    {
+      "route": "/",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": "Your vision.Built right.",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "route": "/residential",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": "Made forthe way you live.",
+      "brokenImages": [],
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [
+                "small"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.8 (foreground color: #d4e0fb, background color: #2665ed, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/commercial",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": "Built aroundyour business.",
+      "brokenImages": [],
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [
+                "small"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.8 (foreground color: #d4e0fb, background color: #2665ed, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/about",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": "Built onfollow-through.",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "route": "/contact?type=commercial",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": "Good spacesstart here.",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "route": "/privacy",
+      "width": 1440,
+      "status": 200,
+      "overflow": false,
+      "h1": "Privacy notice",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": "Your vision.Built right.",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "route": "/residential",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": "Made forthe way you live.",
+      "brokenImages": [],
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [
+                "small"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.8 (foreground color: #d4e0fb, background color: #2665ed, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/commercial",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": "Built aroundyour business.",
+      "brokenImages": [],
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": [
+                "small"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.8 (foreground color: #d4e0fb, background color: #2665ed, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/about",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": "Built onfollow-through.",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "route": "/contact?type=commercial",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": "Good spacesstart here.",
+      "brokenImages": [],
+      "violations": []
+    },
+    {
+      "route": "/privacy",
+      "width": 390,
+      "status": 200,
+      "overflow": false,
+      "h1": "Privacy notice",
+      "brokenImages": [],
+      "violations": []
+    }
+  ],
+  "errors": []
+}

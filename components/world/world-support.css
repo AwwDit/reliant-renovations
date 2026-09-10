@@ -1,0 +1,586 @@
+/* Supporting routes occupy the foreground of the shared WorldPage scene.
+   All selectors are scoped so inquiry/admin and portfolio styles stay separate. */
+.ws-page {
+  --ws-paper: var(--world-paper, #f4f2ec);
+  --ws-ink: var(--world-ink, #222d2a);
+  --ws-muted: #59635e;
+  --ws-line: #c9cec6;
+  --ws-field: #fcfcf8;
+  --ws-field-line: #87958a;
+  --ws-accent: var(--world-accent, #235acc);
+  --ws-error: #a02d28;
+  --ws-gutter: clamp(22px, 4.3vw, 76px);
+  min-width: 0;
+  min-height: 100dvh;
+  padding: 116px var(--ws-gutter) 64px;
+  color: var(--ws-ink);
+}
+html[data-theme="dark"] .ws-page {
+  --ws-paper: #202b27;
+  --ws-ink: #f4f2ec;
+  --ws-muted: #c0c9c0;
+  --ws-line: #4b5a50;
+  --ws-field: #18231e;
+  --ws-field-line: #8c9c8f;
+  --ws-accent: #adc7fa;
+  --ws-error: #ffb5b0;
+}
+.ws-page :is(h1, h2, h3, p, figure) {
+  margin: 0;
+}
+.ws-page :is(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--ws-accent);
+  outline-offset: 5px;
+}
+.ws-paper {
+  min-width: 0;
+  padding: clamp(30px, 3.5vw, 56px);
+  background: var(--ws-paper);
+  color: var(--ws-ink);
+}
+.ws-page .ws-eyebrow {
+  margin-bottom: 22px;
+  color: var(--ws-muted);
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.ws-opening h1 {
+  max-width: 13ch;
+  font-size: clamp(38px, 4.1vw, 64px);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+.ws-opening > p:not(.ws-eyebrow) {
+  max-width: 34ch;
+  margin-top: 28px;
+  color: var(--ws-muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+.ws-link,
+.ws-primary-link {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  min-height: 48px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.ws-link {
+  border-bottom: 1px solid var(--ws-line);
+  color: inherit;
+}
+.ws-link:hover {
+  color: var(--ws-accent);
+  border-color: currentColor;
+}
+.ws-link svg,
+.ws-primary-link svg {
+  flex: 0 0 auto;
+}
+.ws-primary-link {
+  padding: 13px 20px;
+  background: #235acc;
+  color: #f9faf7;
+}
+.ws-primary-link:hover {
+  background: #1c49a7;
+}
+.ws-chapter {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  column-gap: clamp(32px, 8vw, 150px);
+  min-height: calc(100dvh - 150px);
+  scroll-margin-top: 110px;
+}
+.ws-chapter + .ws-chapter {
+  padding-top: clamp(100px, 20vh, 220px);
+}
+.ws-about-opening .ws-opening {
+  max-width: 610px;
+  padding-block: clamp(40px, 5vw, 80px);
+}
+.ws-about-opening .ws-link {
+  margin-top: 36px;
+}
+.ws-scene-link {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  align-items: center;
+  justify-self: end;
+  align-self: end;
+  width: min(100%, 320px);
+  min-height: 88px;
+  margin-bottom: 12px;
+  padding: 18px 24px;
+  background: #222d2a;
+  color: #f4f2ec;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.ws-scene-link small {
+  display: block;
+  color: #c3cdc3;
+  font-size: 10px;
+  line-height: 1.9;
+}
+.ws-scene-link span > small:first-child {
+  margin-bottom: 4px;
+}
+.ws-scene-link:hover {
+  background: #303f37;
+}
+.ws-chapter-right > .ws-paper {
+  grid-column: 2;
+}
+.ws-story[id] {
+  scroll-margin-top: 16px;
+}
+.ws-story h2,
+.ws-service-area h2 {
+  max-width: 24ch;
+  font-size: clamp(28px, 2.7vw, 41px);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+.ws-story > div {
+  margin-top: 28px;
+}
+.ws-story p,
+.ws-service-area > p:not(.ws-eyebrow),
+.ws-invitation > p:not(.ws-eyebrow) {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--ws-muted);
+}
+.ws-story p + p {
+  margin-top: 20px;
+}
+.ws-approach {
+  margin-top: 42px;
+  padding-top: 32px;
+  border-top: 1px solid var(--ws-line);
+}
+.ws-approach > h2 {
+  font-size: 25px;
+}
+.ws-approach-list article {
+  margin-top: 25px;
+}
+.ws-approach-list h3 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+.ws-approach-list p {
+  margin-top: 7px;
+  font-size: 13px;
+  line-height: 1.85;
+}
+.ws-service-area > p:not(.ws-eyebrow) {
+  margin-top: 25px;
+}
+.ws-service-area > .ws-link {
+  margin-top: 20px;
+}
+.ws-invitation {
+  margin-top: 42px;
+  padding-top: 34px;
+  border-top: 1px solid var(--ws-line);
+}
+.ws-invitation h3 {
+  max-width: 15ch;
+  margin-bottom: 15px;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.17;
+  letter-spacing: -0.04em;
+}
+.ws-invitation .ws-primary-link {
+  margin-top: 25px;
+}
+.ws-contact > .world-page-content {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  align-items: start;
+  gap: clamp(40px, 9vw, 160px);
+}
+.ws-ink-panel {
+  --ws-ink: #f4f2ec;
+  --ws-muted: #c3cdc3;
+  --ws-line: #5c6a61;
+  --ws-accent: #adc7fa;
+  background: #222d2a;
+  color: var(--ws-ink);
+  padding: clamp(28px, 2.8vw, 44px);
+}
+.ws-contact-intro {
+  position: sticky;
+  top: 116px;
+  max-width: 500px;
+}
+.ws-contact .ws-opening h1 {
+  max-width: 12ch;
+  font-size: clamp(36px, 3.2vw, 50px);
+}
+.ws-contact-information {
+  margin-top: 30px;
+}
+.ws-contact-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.ws-contact-details a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.ws-contact-details a:hover {
+  color: var(--ws-accent);
+}
+.ws-contact-details svg {
+  flex: 0 0 auto;
+  width: 18px;
+}
+.ws-contact-area {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--ws-line);
+}
+.ws-contact-area h2 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.ws-contact-area p {
+  margin-top: 9px;
+  font-size: 12px;
+  line-height: 1.85;
+  color: var(--ws-muted);
+}
+.ws-contact-reference {
+  margin-top: 24px;
+  font-size: 11px;
+}
+.ws-form-panel {
+  width: 100%;
+  max-width: 760px;
+  justify-self: end;
+}
+html .ws-page.ws-contact .contact-form {
+  background: transparent;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  color: var(--ws-ink);
+}
+.ws-page.ws-contact .form-section {
+  margin-bottom: 32px;
+  padding: 0;
+}
+.ws-page.ws-contact .form-section h2 {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 25px;
+  letter-spacing: -0.025em;
+}
+.ws-page.ws-contact .form-section + .form-section {
+  border-top: 1px solid var(--ws-line);
+  padding-top: 30px;
+}
+.ws-page.ws-contact .form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 20px;
+}
+.ws-page.ws-contact .form-grid label {
+  min-width: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--ws-ink);
+}
+.ws-page.ws-contact .form-grid label > span {
+  color: var(--ws-muted);
+  font-size: 10px;
+}
+html .ws-page.ws-contact .contact-form :is(input, select, textarea) {
+  min-width: 0;
+  width: 100%;
+  background: var(--ws-field);
+  color: var(--ws-ink);
+  border: 1px solid var(--ws-field-line);
+  border-radius: 0;
+  padding: 13px 14px;
+  min-height: 49px;
+  font-size: 14px;
+  font-weight: 400;
+  box-shadow: none;
+  caret-color: var(--ws-ink);
+}
+html .ws-page.ws-contact .contact-form :is(input, textarea)::placeholder {
+  color: var(--ws-muted);
+  opacity: 1;
+}
+html
+  .ws-page.ws-contact
+  .contact-form
+  :is(input, select, textarea):focus-visible {
+  border-color: var(--ws-accent);
+  outline-color: var(--ws-accent);
+}
+html .ws-page.ws-contact .contact-form input:-webkit-autofill {
+  -webkit-text-fill-color: var(--ws-ink);
+  box-shadow: 0 0 0 1000px var(--ws-field) inset;
+}
+.ws-page.ws-contact .contact-form textarea {
+  line-height: 1.8;
+  min-height: 155px;
+  resize: vertical;
+}
+.ws-page.ws-contact .contact-form select {
+  padding-right: 28px;
+}
+.ws-page.ws-contact .full-width {
+  grid-column: 1 / -1;
+}
+html .ws-page.ws-contact .upload-control {
+  background: transparent;
+  border: 1px dashed var(--ws-field-line);
+  padding: 18px;
+  margin-block: 23px;
+}
+html .ws-page.ws-contact .upload-label {
+  color: var(--ws-ink);
+  font-size: 12px;
+  font-weight: 400;
+}
+html .ws-page.ws-contact .upload-label small {
+  color: var(--ws-muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+html .ws-page.ws-contact .upload-control input {
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+}
+.ws-page.ws-contact .upload-control:focus-within {
+  outline-color: var(--ws-accent);
+}
+.ws-page.ws-contact .upload-label > svg {
+  color: var(--ws-accent);
+}
+.ws-page.ws-contact .form-submit p {
+  color: var(--ws-muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+.ws-page.ws-contact .form-submit .button {
+  background: #235acc;
+  color: #f9faf7;
+  border: 1px solid #235acc;
+  border-radius: 0;
+  font-size: 13px;
+  font-weight: 500;
+  min-height: 54px;
+  padding: 14px 20px;
+}
+.ws-page.ws-contact .form-submit .button:hover {
+  background: #1c49a7;
+  border-color: #1c49a7;
+}
+.ws-page.ws-contact .form-submit .button:disabled {
+  opacity: 0.75;
+}
+html .ws-page.ws-contact .form-error {
+  color: var(--ws-error);
+  background: transparent;
+  border-left-color: var(--ws-error);
+  font-size: 13px;
+  line-height: 1.8;
+}
+html .ws-page.ws-contact .form-success {
+  background: transparent;
+  color: var(--ws-ink);
+  padding: 28px 0;
+  border: 0;
+}
+.ws-page.ws-contact .form-success > svg {
+  color: var(--ws-accent);
+}
+.ws-page.ws-contact .form-success h2 {
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+.ws-page.ws-contact .form-success p {
+  color: var(--ws-muted);
+  font-size: 14px;
+  line-height: 1.85;
+}
+.ws-page.ws-contact .form-success .text-link {
+  color: var(--ws-ink);
+}
+.ws-legal {
+  width: min(100%, 780px);
+  margin-left: auto;
+  padding: clamp(30px, 4.5vw, 72px);
+}
+.ws-legal h1 {
+  margin-bottom: 28px;
+  font-size: clamp(38px, 4vw, 58px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+}
+.ws-legal h2 {
+  margin-top: 32px;
+  margin-bottom: 12px;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+}
+.ws-legal p {
+  color: var(--ws-muted);
+  font-size: 14px;
+  line-height: 1.95;
+}
+.ws-legal a {
+  color: var(--ws-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ws-legal a:hover {
+  color: var(--ws-accent);
+}
+@media (max-width: 1100px) {
+  .ws-contact > .world-page-content {
+    column-gap: 36px;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+  .ws-form-panel {
+    padding: 30px;
+  }
+  .ws-page.ws-contact .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .ws-chapter {
+    column-gap: 32px;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  }
+  .ws-chapter-right {
+    grid-template-columns: minmax(0, 0.5fr) minmax(0, 1.5fr);
+  }
+}
+@media (max-width: 767px) {
+  .ws-page {
+    padding-top: 98px;
+    padding-bottom: 40px;
+  }
+  .ws-chapter,
+  .ws-chapter-right {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+    gap: 44px;
+    scroll-margin-top: 90px;
+  }
+  .ws-chapter + .ws-chapter {
+    padding-top: 22vh;
+  }
+  .ws-chapter-right > .ws-paper {
+    grid-column: 1;
+  }
+  .ws-about-opening {
+    min-height: calc(100dvh - 125px);
+  }
+  .ws-paper,
+  .ws-ink-panel {
+    padding: 30px 26px;
+  }
+  .ws-about-opening .ws-opening {
+    padding-block: 36px;
+  }
+  .ws-opening h1 {
+    font-size: clamp(38px, 9.2vw, 54px);
+    max-width: 15ch;
+  }
+  .ws-page .ws-eyebrow {
+    margin-bottom: 19px;
+  }
+  .ws-opening > p:not(.ws-eyebrow) {
+    margin-top: 22px;
+    font-size: 14px;
+  }
+  .ws-about-opening .ws-link {
+    margin-top: 27px;
+  }
+  .ws-scene-link {
+    width: min(100%, 300px);
+    margin-top: 16px;
+    padding: 15px 20px;
+  }
+  .ws-contact > .world-page-content {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+  .ws-contact-intro {
+    position: static;
+    max-width: none;
+    width: 100%;
+  }
+  .ws-contact .ws-opening h1 {
+    max-width: 14ch;
+    font-size: clamp(38px, 9.5vw, 52px);
+  }
+  .ws-contact .ws-opening > p:not(.ws-eyebrow) {
+    max-width: 44ch;
+  }
+  .ws-contact-information {
+    margin-top: 22px;
+  }
+  .ws-contact-area {
+    margin-top: 16px;
+    padding-top: 19px;
+  }
+  .ws-contact-reference {
+    margin-top: 16px;
+  }
+  .ws-page.ws-contact .form-grid {
+    gap: 23px;
+  }
+  .ws-page.ws-contact .form-section h2 {
+    font-size: 22px;
+  }
+  html .ws-page.ws-contact .contact-form :is(input, select, textarea) {
+    padding: 13px 12px;
+    font-size: 16px;
+  }
+  .ws-legal h1 {
+    font-size: clamp(36px, 9.5vw, 50px);
+  }
+  .ws-legal p {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+}

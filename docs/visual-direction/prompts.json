@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-07",
+  "tool": "Built-in image_gen.imagegen",
+  "status": "Visual direction studies. Not implemented screens or evidence of a connected 3D scene.",
+  "images": [
+    {
+      "file": "assets/01-home.png",
+      "references": [
+        "public/images/brand/reliant-color-transparent.png",
+        "components/experience/brand-entrance.tsx screenshot",
+        "assets/02-residential.png",
+        "public/images/experience/commercial-cad.webp"
+      ]
+    },
+    {
+      "file": "assets/02-residential.png",
+      "references": [
+        "public/images/brand/reliant-color-transparent.png",
+        "public/images/experience/living-panorama.webp preview"
+      ]
+    },
+    {
+      "file": "assets/03-commercial.png",
+      "references": [
+        "assets/02-residential.png",
+        "public/images/experience/commercial-cad.webp",
+        "public/images/brand/reliant-color-transparent.png"
+      ]
+    }
+  ]
+}

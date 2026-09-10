@@ -1,0 +1,53 @@
+{
+  "createdAt": "2026-09-07",
+  "status": "Completed one-room motion study; full residential tour not yet implemented.",
+  "provider": "Higgsfield",
+  "model": "minimax_h3",
+  "jobId": "47d72353-1684-4a5e-b9ee-a616c97808c7",
+  "costCredits": 24,
+  "sourceUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3GVysAtWuF8X6eIEWNCucW1quOo/hf_20260907_202613_47d72353-1684-4a5e-b9ee-a616c97808c7.mp4",
+  "reference": {
+    "source": "/images/projects/upper-west-side-apartment/06.webp",
+    "mediaId": "73e69f7c-de8f-43d7-bf7f-aac23204b686",
+    "authorization": "Reused the previously uploaded, explicitly approved original project photograph. No new image upload."
+  },
+  "params": {
+    "model": "minimax_h3",
+    "duration": 12,
+    "resolution": "2K",
+    "aspect_ratio": "16:9",
+    "count": 1,
+    "medias": [
+      {
+        "role": "start_image",
+        "value": "73e69f7c-de8f-43d7-bf7f-aac23204b686"
+      }
+    ],
+    "prompt": "One uninterrupted twelve-second live-action architectural walkthrough shot, starting exactly from this real interior photograph. An experienced architectural cinematographer carries a stabilized full-frame camera at natural standing eye height, 24mm rectilinear lens. Slowly move forward and slightly to the right through the clear circulation space beside the living-room seating, with gentle physical parallax and a subtle leftward pan toward the cream sectional. Travel a believable short distance of about one meter, never pass through furniture. The navy upholstered swivel chairs, cream sofa, low round glass coffee table, pale textured rug, honey-toned hardwood floor, white walls, and oak media cabinet remain the exact same objects with stable geometry. The camera's movement gradually reveals the depth between furniture and the fine craftsmanship of the wood floor, trim and painted wall surfaces. Calm overcast daylight, realistic material imperfections, soft natural shadows, modest highlight roll-off and fine photographic texture. This should look like actual luxury real-estate footage filmed inside a real completed New York apartment, not an architectural visualization. Restrained, realistic forward walking movement; no dramatic orbit, no floating drone, no exaggerated wide-angle distortion. Preserve the existing room, furniture and decor throughout. No CGI sheen, no animation or 3D-render aesthetic, no morphing furniture or changing architecture, no people, no text, no graphics, no logo, no cuts or dissolves. Finish by gently settling the camera with a clear view of the seating area and hardwood-floor detail."
+  },
+  "delivery": {
+    "path": "/experience/residential-motion-sample.mp4",
+    "width": 2144,
+    "height": 1440,
+    "framesPerSecond": 24,
+    "durationSeconds": 12.25,
+    "encoding": "Original H.264 video stream copied without image recompression; audio removed; faststart MP4.",
+    "actualAspectRatio": "2144:1440; provider retained the source photograph's approximate 3:2 proportions despite the 16:9 request.",
+    "bytes": 7936204
+  },
+  "kind": "AI-generated camera movement from a real project photograph. Illustrative motion sample, not recorded project footage or a navigable 3D scan.",
+  "review": {
+    "method": "Six evenly spaced frames inspected for appearance and broad spatial consistency; browser playback checked separately.",
+    "findings": "Photographic material appearance retained. Slow forward/lateral camera movement in one living room. This sample does not establish room connections or support free walking.",
+    "browserPlayback": {
+      "url": "http://localhost:3000/experience/residential-motion-sample.mp4",
+      "httpStatus": 200,
+      "durationSeconds": 12.25,
+      "dimensions": [2144, 1440],
+      "playPause": "passed",
+      "seekSeconds": [0, 6, 11],
+      "mediaErrors": 0,
+      "browserErrors": 0
+    }
+  }
+}

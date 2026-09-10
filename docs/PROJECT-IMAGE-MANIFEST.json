@@ -1,0 +1,1375 @@
+{
+  "retrievedAt": "2026-09-07T03:05:55.065Z",
+  "source": "CompanyCam timelines supplied in the owner document; explicitly requested by the user",
+  "processing": {
+    "format": "webp",
+    "quality": 90,
+    "autoOrient": true,
+    "resize": false,
+    "metadataStripped": true
+  },
+  "totalFiles": 80,
+  "totalBytes": 33129990,
+  "files": [
+    {
+      "project": "chick-fil-a-kingston",
+      "file": "public/images/projects/chick-fil-a-kingston/01.webp",
+      "sourceType": "photo",
+      "sourceId": "44a62652-300d-447c-af1e-456d1df3ea78.jpg",
+      "sourceSha256": "981faf4bd19d53bc79234c41b0753d232ca817c37bb7ed599f938dc0a125ae8a",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 610852,
+      "sha256": "1bc287fac535edeaa603da987c556d9b159b37b78837a004f0360fc6b66f6177"
+    },
+    {
+      "project": "chick-fil-a-kingston",
+      "file": "public/images/projects/chick-fil-a-kingston/02.webp",
+      "sourceType": "photo",
+      "sourceId": "ad2b46f4-27db-4df8-9476-b213d17e493a.jpg",
+      "sourceSha256": "7dc088e60c633575e09f12defb874e0d05eeccf60994c6892f9a5b5ae3cea317",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 865870,
+      "sha256": "28a3a2c68d95e6e7fdcb0d52fa512e92c343c39bbcd9afdfed9a44c133347943"
+    },
+    {
+      "project": "chick-fil-a-kingston",
+      "file": "public/images/projects/chick-fil-a-kingston/03.webp",
+      "sourceType": "photo",
+      "sourceId": "b80b9b3d-0c76-4651-9883-b94f11f2c8ea.jpg",
+      "sourceSha256": "03c4d54693bc3a9e79ef54f4c75e9ae1cda2e126eb4ac8d1a6557442af582292",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 514766,
+      "sha256": "06673145349a3c6be76e94599ca7f60273c14aa62914fb2f65317e47a254a4b3"
+    },
+    {
+      "project": "chick-fil-a-kingston",
+      "file": "public/images/projects/chick-fil-a-kingston/04.webp",
+      "sourceType": "video-poster",
+      "sourceId": "1c245868-5404-48fc-9f3d-56d8bceac26a.jpg",
+      "sourceSha256": "7dd352c8f6171471db70cff03da26387091d199552b28592a0368e146df07adf",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 281,
+        "height": 500
+      },
+      "bytes": 246932,
+      "sha256": "fd8d4ddf3c11528b43e8a3ff7d89d8218f5b26106ea3adcf2f165aa278bf955e"
+    },
+    {
+      "project": "chick-fil-a-kingston",
+      "file": "public/images/projects/chick-fil-a-kingston/05.webp",
+      "sourceType": "video-poster",
+      "sourceId": "e260dcd3-fbb1-4d30-a374-c7b4cfb4c46b.jpg",
+      "sourceSha256": "70f2fe306448c7d3e1324e5a7e2002bf2673444b89699b4dd44fe99abdf40971",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 281,
+        "height": 500
+      },
+      "bytes": 259574,
+      "sha256": "7dfa49d8c7e5e51357a6e899cb5732a53da1096a18c6cc1f010c444c3471d6f0"
+    },
+    {
+      "project": "chick-fil-a-kingston",
+      "file": "public/images/projects/chick-fil-a-kingston/06.webp",
+      "sourceType": "photo",
+      "sourceId": "72549992-3c5b-4fbf-a576-7c1329324772.jpg",
+      "sourceSha256": "a4384dad1a91e9fdc0770569937841ecaf70d2ab86d835f25f175eab48fb4f57",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 495964,
+      "sha256": "a967f36de350f16f190b896555669c9fae58308075ad7742699b87f724911614"
+    },
+    {
+      "project": "chick-fil-a-kingston",
+      "file": "public/images/projects/chick-fil-a-kingston/07.webp",
+      "sourceType": "photo",
+      "sourceId": "b5622a8a-7612-4f14-9fc5-86774399e9ec.jpg",
+      "sourceSha256": "f52ece8bc62135564df645913617c9bc294b5d99564172d93bcfb2b61f3ab043",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 519476,
+      "sha256": "551e310dd1dec2e9014a6376fcc7de2857884b403afa5c81f2ca6f226018fafa"
+    },
+    {
+      "project": "chick-fil-a-kingston",
+      "file": "public/images/projects/chick-fil-a-kingston/08.webp",
+      "sourceType": "photo",
+      "sourceId": "f8249db9-73b1-48b5-b216-05a0d313dfa3.jpg",
+      "sourceSha256": "97e121d95485c6771aadee679fb896a0fbc27da2c822ed9c1423376d40626293",
+      "dimensions": {
+        "width": 1920,
+        "height": 1440
+      },
+      "documentReferenceDimensions": {
+        "width": 667,
+        "height": 500
+      },
+      "bytes": 226998,
+      "sha256": "0350a8f9ce76b4414ae15e6ae843829f718a1af03a19076ff53f5f6e924f4f38"
+    },
+    {
+      "project": "harbor-freight-bronx",
+      "file": "public/images/projects/harbor-freight-bronx/01.webp",
+      "sourceType": "photo",
+      "sourceId": "d0c25806-c44d-4977-997c-f958b96588f5.jpg",
+      "sourceSha256": "9562bb898ba51d7c6cabaf3c1971950cabeb593d20e4dc631325edcd0725892b",
+      "dimensions": {
+        "width": 1920,
+        "height": 1440
+      },
+      "documentReferenceDimensions": {
+        "width": 667,
+        "height": 500
+      },
+      "bytes": 447610,
+      "sha256": "7638d2ac7cd58f6f55049427d2d1d71473dc06942ad32e3710370942766ee0e9"
+    },
+    {
+      "project": "harbor-freight-bronx",
+      "file": "public/images/projects/harbor-freight-bronx/02.webp",
+      "sourceType": "photo",
+      "sourceId": "4d673cc3-0c58-44bc-8f8e-e8716281617c.jpg",
+      "sourceSha256": "dd7b9119705fbea349e172a5b84ec4879577133f002cc3eb5f4645ce3452215f",
+      "dimensions": {
+        "width": 1920,
+        "height": 1440
+      },
+      "documentReferenceDimensions": {
+        "width": 667,
+        "height": 500
+      },
+      "bytes": 424186,
+      "sha256": "de3971d86181c2f19b6a02ea347a34c6a6798d31f5c59526ac035a7e74462dd1"
+    },
+    {
+      "project": "harbor-freight-bronx",
+      "file": "public/images/projects/harbor-freight-bronx/03.webp",
+      "sourceType": "photo",
+      "sourceId": "266c10c1-0232-439f-aa8e-621e796615a0.jpg",
+      "sourceSha256": "fb1572a92c0f97556b055efa763cb5e10530782f21a37f0e6d15fe14a1a075cb",
+      "dimensions": {
+        "width": 1920,
+        "height": 1440
+      },
+      "documentReferenceDimensions": {
+        "width": 667,
+        "height": 500
+      },
+      "bytes": 274050,
+      "sha256": "abd735e45cb5fbf10c31f37f6ba68a490c4da0d1b5c734de4980effc83aaaf77"
+    },
+    {
+      "project": "harbor-freight-bronx",
+      "file": "public/images/projects/harbor-freight-bronx/04.webp",
+      "sourceType": "photo",
+      "sourceId": "3c61b333-6715-44b6-8687-24e4cd6958e1.jpg",
+      "sourceSha256": "91cdffae6dccadaba6fb01e6d4b14c6315063731f8aeb5c56b62e3e94d74bc9f",
+      "dimensions": {
+        "width": 1920,
+        "height": 1440
+      },
+      "documentReferenceDimensions": {
+        "width": 667,
+        "height": 500
+      },
+      "bytes": 401128,
+      "sha256": "f83e02b838b9b4b379acea03819e2f7abb79d069743c53cb1d2a84fa8cd620d5"
+    },
+    {
+      "project": "harbor-freight-bronx",
+      "file": "public/images/projects/harbor-freight-bronx/05.webp",
+      "sourceType": "photo",
+      "sourceId": "97dec0e1-bca2-4eaf-be62-9083ced3ef8d.jpg",
+      "sourceSha256": "4b0d73b7890936abbc22c1f1f460b70a2488ab6627cf12adc60af270e00707cf",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 381654,
+      "sha256": "1a3aff457d28652cca5d8a41dc9c81613f81bb2260a0ad291d1435e7960e6243"
+    },
+    {
+      "project": "harbor-freight-bronx",
+      "file": "public/images/projects/harbor-freight-bronx/06.webp",
+      "sourceType": "photo",
+      "sourceId": "207ed4cf-1ec9-4dc6-a098-d72c9974b4c6.jpg",
+      "sourceSha256": "f4cc8262bfa570781413ab0e2fb91583337862d6a9c6d4fa468137e1f1f7c8c4",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 328040,
+      "sha256": "6fb6564b6c95b2bf744d0d0a2cd264d27521b5ad487ad5ca540d5c908e7cca82"
+    },
+    {
+      "project": "harbor-freight-bronx",
+      "file": "public/images/projects/harbor-freight-bronx/07.webp",
+      "sourceType": "photo",
+      "sourceId": "7b2d776a-7059-4a26-a3eb-c354b0807bfc.jpg",
+      "sourceSha256": "73a1fcbc586cd6157f9148d0bb122356b16e6f076421d2cecc430b707afc4c44",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 213666,
+      "sha256": "8982a4a033fc0e2fa7eefebc3569c26b68bc55e3f445c0c49e660569f9162656"
+    },
+    {
+      "project": "harbor-freight-bronx",
+      "file": "public/images/projects/harbor-freight-bronx/08.webp",
+      "sourceType": "photo",
+      "sourceId": "29a8fa69-8761-4199-8f16-da594e74ce93.jpg",
+      "sourceSha256": "48d6fb5cf94000b8024f26662a750df8a4351e437ff6afa1325060dd843319d3",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 304844,
+      "sha256": "0d7db9604f7637bf15c877ecbed4f50aadc05aa7b3ca48baf03a67b6f9f5958a"
+    },
+    {
+      "project": "hicksville-basement",
+      "file": "public/images/projects/hicksville-basement/01.webp",
+      "sourceType": "photo",
+      "sourceId": "d9d43883-acd9-424f-9463-c0307aa5e325.jpg",
+      "sourceSha256": "6d7e66322d28b43abea2d5cf3426c6360a665ddda9d70ce17bedd1c9d35b7660",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 387420,
+      "sha256": "dca910c3b39686c05cce6ea033d8234cb99d2802c25f694eafc8d19e28a93071"
+    },
+    {
+      "project": "hicksville-basement",
+      "file": "public/images/projects/hicksville-basement/02.webp",
+      "sourceType": "photo",
+      "sourceId": "f2d4d160-47e5-4a0f-9356-9bff275ea546.jpg",
+      "sourceSha256": "80f218484218c07b1123dd58a2069b29d69b281d32e3211917d03cf77969b273",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 291416,
+      "sha256": "7d8651f7fe9290c3eaeaefaec314b1d1166e701098004c65e3738f33095f4aa1"
+    },
+    {
+      "project": "hicksville-basement",
+      "file": "public/images/projects/hicksville-basement/03.webp",
+      "sourceType": "photo",
+      "sourceId": "cc3bccf8-7f6d-4efc-8da4-845ffa53b5c5.jpg",
+      "sourceSha256": "bba5d85438fb5421e439a0ec41d5d149289b4119d332dc2575a021cd97f1d2d3",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 237592,
+      "sha256": "5f5a23dbb8956c3bad1dc32d31b4f6a129b5f417e6da2c4197f0dc8e7236bed7"
+    },
+    {
+      "project": "hicksville-basement",
+      "file": "public/images/projects/hicksville-basement/04.webp",
+      "sourceType": "photo",
+      "sourceId": "ec0b0880-d4c6-4197-a11e-be101b4ac2f4.jpg",
+      "sourceSha256": "c535a4a7a8f6c2a08a13380199075cd544367431371ba76b72cb3fa9e8107ace",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 174114,
+      "sha256": "d914690e3a4deee217d53d6d81d5501759f726b407178eabae6a78335f4c60ec"
+    },
+    {
+      "project": "hicksville-basement",
+      "file": "public/images/projects/hicksville-basement/05.webp",
+      "sourceType": "video-poster",
+      "sourceId": "e7e5e884-ab39-442f-99a7-02ebf1951368.jpg",
+      "sourceSha256": "610b0b102640a6d511847f75636bc95a6410521bf7cc5122f97b5fb0d301ef32",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 281,
+        "height": 500
+      },
+      "bytes": 166786,
+      "sha256": "6be3e2ecde40a4f5796d097ce7d1595b7f7a83a86145f270c9ed69947cb460f0"
+    },
+    {
+      "project": "hicksville-basement",
+      "file": "public/images/projects/hicksville-basement/06.webp",
+      "sourceType": "video-poster",
+      "sourceId": "150f73a0-84ac-442f-9947-1dc8338d4fcd.jpg",
+      "sourceSha256": "25858ccd077cda969897a4cbb45687c3a4e79e229cb79da061089061beafd2af",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 281,
+        "height": 500
+      },
+      "bytes": 144080,
+      "sha256": "5a9f1e1c44372abcff0594a71ec3dc9767ab12d2acd968a7e84d331b25f483ec"
+    },
+    {
+      "project": "hicksville-basement",
+      "file": "public/images/projects/hicksville-basement/07.webp",
+      "sourceType": "photo",
+      "sourceId": "d65ae2cc-7198-4b82-a44e-b0091ccd5010.jpg",
+      "sourceSha256": "e92a82ad93d2a1d5b919e4b6c73ae2d8958190a7f5d7cba56392f1df33f0d882",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 338066,
+      "sha256": "1a6bce7c6f33ac1d660afe5359edd7c345890d18bf51698498cf49fb59c1c6b8"
+    },
+    {
+      "project": "hicksville-basement",
+      "file": "public/images/projects/hicksville-basement/08.webp",
+      "sourceType": "photo",
+      "sourceId": "6163efd4-9b1b-4d0c-8016-408948f8a513.jpg",
+      "sourceSha256": "157a28691ed09253191d4a489632273b44463b10566b70632d1df741298ed0aa",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 299146,
+      "sha256": "47d63f5c0ae630facc7632d18508b1729942814e2373c5a6505c3ab297919075"
+    },
+    {
+      "project": "kings-park-exterior",
+      "file": "public/images/projects/kings-park-exterior/01.webp",
+      "sourceType": "photo",
+      "sourceId": "4551d41e-9fbe-4cde-a46f-ba42a05769ef.jpg",
+      "sourceSha256": "a87cf496c53374ec12d16e5839d56c7f4bb8c55cca3b530c150a65028cdb831c",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 902996,
+      "sha256": "cc8e314da3bfb32a34f154a9911ae1f6103ec3ef3c2734d9990f61fa36784a66"
+    },
+    {
+      "project": "kings-park-exterior",
+      "file": "public/images/projects/kings-park-exterior/02.webp",
+      "sourceType": "video-poster",
+      "sourceId": "02041710-3d6f-4d9b-b18b-da15b903a44f.jpg",
+      "sourceSha256": "0c2a65f11ee8391a2ba07e9e238c9d12fddd295f3352078ade707257c60ab2b7",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 281,
+        "height": 500
+      },
+      "bytes": 628124,
+      "sha256": "a720ea2fede16cfd0536591cf979d0a80f5430ef0ac2955fd951377a77e0744b"
+    },
+    {
+      "project": "kings-park-exterior",
+      "file": "public/images/projects/kings-park-exterior/03.webp",
+      "sourceType": "photo",
+      "sourceId": "ca094c30-b991-4fe7-b646-35cc4a3302dd.jpg",
+      "sourceSha256": "acd8df01f828631f48d32e1c94e013155e2ea593b99fee19f97d04c086ba9b80",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 528146,
+      "sha256": "1d978a9b6c52fc7fcf52b70a4af7235ba489b68c70075e6a82e5edb59345730e"
+    },
+    {
+      "project": "kings-park-exterior",
+      "file": "public/images/projects/kings-park-exterior/04.webp",
+      "sourceType": "video-poster",
+      "sourceId": "d08e6f57-c6cc-4c8f-b82a-50722c53bfb1.jpg",
+      "sourceSha256": "d8e0f239611fc692033df908568daedbb7c39532e4386d62dacc0b011253f0ee",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 281,
+        "height": 500
+      },
+      "bytes": 341208,
+      "sha256": "89a691233af57330dbb43a8e3cc66f6fb2b1f7fe386dd1bb48b3457f1e0bcace"
+    },
+    {
+      "project": "kings-park-exterior",
+      "file": "public/images/projects/kings-park-exterior/05.webp",
+      "sourceType": "photo",
+      "sourceId": "e0441ac1-65a2-4183-8427-4386fabe246a.jpg",
+      "sourceSha256": "c38c1008bfa971824b6d2d0fe1ed906b9fcf7981e3ee1af85edc8db6b661d3b7",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 650860,
+      "sha256": "c9bcdf4875831dccec17ad5d3a684b20962109c2f7c6616f08fd85ca4cfbf5b0"
+    },
+    {
+      "project": "kings-park-exterior",
+      "file": "public/images/projects/kings-park-exterior/06.webp",
+      "sourceType": "video-poster",
+      "sourceId": "20604273-cb41-411e-8a92-a7b0848d8d30.jpg",
+      "sourceSha256": "0c907b606fb0334f6535e6dd5341e8dee7182ab8dc38501b2fff91d3514c6c61",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 281,
+        "height": 500
+      },
+      "bytes": 334938,
+      "sha256": "8fcf47aeb6793d082b6e222ab247d2de77585378ec6a737f95ba033042fa84e4"
+    },
+    {
+      "project": "kings-park-exterior",
+      "file": "public/images/projects/kings-park-exterior/07.webp",
+      "sourceType": "photo",
+      "sourceId": "2eb2370d-9310-427b-975a-1231cfb3545e.jpg",
+      "sourceSha256": "873ea730e0f15dc6412b9ba4301e6f6b34c199f18ef57ef862061726a8f7fe1b",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 495722,
+      "sha256": "00d631d5ea9bef231fbc3251cef931b70d63b8aa7f895c2bb72c5760e324800f"
+    },
+    {
+      "project": "kings-park-exterior",
+      "file": "public/images/projects/kings-park-exterior/08.webp",
+      "sourceType": "photo",
+      "sourceId": "415f143e-96c5-4fe0-8975-e2b667d156ae.jpg",
+      "sourceSha256": "503dfdeea8e929d75fdc233b8ecd8e6027f0c0e9ed22e74848a7a58106db9973",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 376,
+        "height": 501
+      },
+      "bytes": 578186,
+      "sha256": "c57e1a1a6625313bf4a9b65087f0973ae84563f30d18eb0c0803b46839f668d3"
+    },
+    {
+      "project": "lidl-harlem",
+      "file": "public/images/projects/lidl-harlem/01.webp",
+      "sourceType": "photo",
+      "sourceId": "d949b76b-1d36-4cd6-a824-02fd35a65d2f.jpg",
+      "sourceSha256": "00ca157faf7b0de14452e844ce38ec56674a679aeed85442fedb5d2ed7ac66ea",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 345632,
+      "sha256": "f17662d85774e30791e600f01b3475b0659cf7729e1d16bafb47bb8a7b44982c"
+    },
+    {
+      "project": "lidl-harlem",
+      "file": "public/images/projects/lidl-harlem/02.webp",
+      "sourceType": "photo",
+      "sourceId": "d3bffd48-7ffd-4e71-a01c-a4310d5c1701.jpg",
+      "sourceSha256": "28e5a3425974816fe7b27aa78739d0cb79ff75e534a4a444f3a6e685181abde0",
+      "dimensions": {
+        "width": 1920,
+        "height": 1440
+      },
+      "documentReferenceDimensions": {
+        "width": 667,
+        "height": 500
+      },
+      "bytes": 270760,
+      "sha256": "fcd3dc06677e781741858904138db6567f3d5594c361ce489d8767c91c7cb52e"
+    },
+    {
+      "project": "lidl-harlem",
+      "file": "public/images/projects/lidl-harlem/03.webp",
+      "sourceType": "photo",
+      "sourceId": "801ea803-c0e4-4f60-80b2-b6dc35a2984b.jpg",
+      "sourceSha256": "fb1afd8d0f398c11c88e5247ed26204f75c5ee924b8c90059fafa8e62f6fb913",
+      "dimensions": {
+        "width": 1920,
+        "height": 1440
+      },
+      "documentReferenceDimensions": {
+        "width": 667,
+        "height": 500
+      },
+      "bytes": 396472,
+      "sha256": "12bec91d14533e35604e6db73342a7e3684d5f38b9d1dc0b1aff612b1c160f56"
+    },
+    {
+      "project": "lidl-harlem",
+      "file": "public/images/projects/lidl-harlem/04.webp",
+      "sourceType": "photo",
+      "sourceId": "5e7f651e-a4c6-40d2-a05e-8b4734a93be7.jpg",
+      "sourceSha256": "ce325a4343554fb44bb393fa0beb38a29b8ede8577eff9c06a1938c6ab83b40d",
+      "dimensions": {
+        "width": 1920,
+        "height": 1440
+      },
+      "documentReferenceDimensions": {
+        "width": 667,
+        "height": 500
+      },
+      "bytes": 443706,
+      "sha256": "000fbb6cbb7ad658d519a76ab6ebcf624d1fbf27945e16e06cc34950320deaed"
+    },
+    {
+      "project": "lidl-harlem",
+      "file": "public/images/projects/lidl-harlem/05.webp",
+      "sourceType": "photo",
+      "sourceId": "fa8b160a-d177-469d-a042-a919243ac83d.jpg",
+      "sourceSha256": "6176dae9ef8de9111ec80d7db55f64fba295dcb24bfb86f6c69499ae35d07d61",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 267244,
+      "sha256": "bb0d12c5a5ca20988fae2d9bb99573540f1b379ed4ea759482b97031b1678662"
+    },
+    {
+      "project": "lidl-harlem",
+      "file": "public/images/projects/lidl-harlem/06.webp",
+      "sourceType": "photo",
+      "sourceId": "5d54e469-81a9-4261-9569-f273dbf722c6.jpg",
+      "sourceSha256": "e1c3d8fe7a7b19997b1b89543f2e7b071cfa99d3fd155fac50a37835bcc57bd1",
+      "dimensions": {
+        "width": 1920,
+        "height": 1440
+      },
+      "documentReferenceDimensions": {
+        "width": 667,
+        "height": 500
+      },
+      "bytes": 307018,
+      "sha256": "459c35c5ebe250dab4a88dc232e29d34c633012036d7609657c29a85b03471f6"
+    },
+    {
+      "project": "lidl-harlem",
+      "file": "public/images/projects/lidl-harlem/07.webp",
+      "sourceType": "photo",
+      "sourceId": "63e7d82c-db07-4707-9313-1cb847c53896.jpg",
+      "sourceSha256": "2597b06cbc785b2682e10644e3b967af6c4f435127e9e88c6bb8ba5fbe90f572",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 517692,
+      "sha256": "9c9f99fa10bb389dab5e6b1944830106e93498bf1ef9c2f4d98afe0dcb8aae1d"
+    },
+    {
+      "project": "lidl-harlem",
+      "file": "public/images/projects/lidl-harlem/08.webp",
+      "sourceType": "photo",
+      "sourceId": "7fe06910-8ca5-42ef-a403-1f3253d32dee.jpg",
+      "sourceSha256": "2db72c2697e9384acb4c11334a382c77fec30ee3e5f5520941a2d68a7a31ae51",
+      "dimensions": {
+        "width": 1920,
+        "height": 1440
+      },
+      "documentReferenceDimensions": {
+        "width": 667,
+        "height": 500
+      },
+      "bytes": 272846,
+      "sha256": "62ec9b884d55198e52872b73a69352398eec4e985a2a3b4c5b19f5443178e9be"
+    },
+    {
+      "project": "lidl-staten-island",
+      "file": "public/images/projects/lidl-staten-island/01.webp",
+      "sourceType": "photo",
+      "sourceId": "4801cd2a-65b4-4dd0-9e5a-3679c1cf22d0.jpg",
+      "sourceSha256": "60a19d6bf2e534f04813233aed9b329162009fc1e4d00d3a1e6086d6c673879e",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 376,
+        "height": 500
+      },
+      "bytes": 355896,
+      "sha256": "683e8acbc1ebda3e4eaf47c95b5d7d01fc2d0be1eae58be3a8303c806242b9bc"
+    },
+    {
+      "project": "lidl-staten-island",
+      "file": "public/images/projects/lidl-staten-island/02.webp",
+      "sourceType": "photo",
+      "sourceId": "1bf81fef-be52-4560-8073-997316ca9511.jpg",
+      "sourceSha256": "c216c6cc0ab62042bf71221465ab540c987f14cee1956017781146c745f38484",
+      "dimensions": {
+        "width": 2880,
+        "height": 2160
+      },
+      "documentReferenceDimensions": {
+        "width": 667,
+        "height": 500
+      },
+      "bytes": 1372156,
+      "sha256": "46ef026759af37b3c166d18785aa65a1de556e08c06cc477418700d1b9134f61"
+    },
+    {
+      "project": "lidl-staten-island",
+      "file": "public/images/projects/lidl-staten-island/03.webp",
+      "sourceType": "photo",
+      "sourceId": "bd2fa79e-1132-4103-a131-faac159a6705.jpg",
+      "sourceSha256": "819bbf0769f7293c560aa2faed72e0788790fd4dc8ea377e2bf4e12d0796ef0e",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 394344,
+      "sha256": "b176aad957e5a091b9e70227107162a82be5d67ecc62758f49bb17ce5d2d7d2c"
+    },
+    {
+      "project": "lidl-staten-island",
+      "file": "public/images/projects/lidl-staten-island/04.webp",
+      "sourceType": "photo",
+      "sourceId": "fc0439df-7bfa-4571-8323-8ce46d997c37.jpg",
+      "sourceSha256": "83a1a7b3f4642635b29428b9e60026c7efc9011fbcc211bff4e2eaeb967c9f5c",
+      "dimensions": {
+        "width": 1200,
+        "height": 1600
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 282420,
+      "sha256": "9fa5e55e5f232ece6b7f251112ce508f99ac60370fbd7ee8fea0a64190492f3f"
+    },
+    {
+      "project": "lidl-staten-island",
+      "file": "public/images/projects/lidl-staten-island/05.webp",
+      "sourceType": "photo",
+      "sourceId": "95cde93d-ee5c-45de-aca1-6bbb262e318d.jpg",
+      "sourceSha256": "aa1d4645c9701ccf4a6bab962db699e783547218016da0b9ba1b629f4ad8aa62",
+      "dimensions": {
+        "width": 2160,
+        "height": 2880
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 1089618,
+      "sha256": "a7bb6fa4e00cc1c9c5298273d31166abf690ec543e414a8a5f2953379373392b"
+    },
+    {
+      "project": "lidl-staten-island",
+      "file": "public/images/projects/lidl-staten-island/06.webp",
+      "sourceType": "photo",
+      "sourceId": "6d2fc83f-d063-49e0-84bc-0ef1de863049.jpg",
+      "sourceSha256": "50299a852aa40abd4ba131bf9efdf8778916f0f8d658c4b12f36cf420d8d8290",
+      "dimensions": {
+        "width": 1200,
+        "height": 1600
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 211572,
+      "sha256": "a0c6d31e11a49f371e2d3c08f1d93cef6064192d562d727179c60eef46045f4f"
+    },
+    {
+      "project": "lidl-staten-island",
+      "file": "public/images/projects/lidl-staten-island/07.webp",
+      "sourceType": "photo",
+      "sourceId": "c7034bd0-5379-433d-b91b-2fe75a19503a.jpg",
+      "sourceSha256": "88f031d06b9fa00bded91168bfd9cc7eb01bb3d0411bdfe98d6fcd106ca7b78d",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 335090,
+      "sha256": "a219fcf1fc4990c0b4d7e11bae757b1317226f439c922b364c9ac9f752c7a259"
+    },
+    {
+      "project": "lidl-staten-island",
+      "file": "public/images/projects/lidl-staten-island/08.webp",
+      "sourceType": "photo",
+      "sourceId": "35579a24-781b-4537-ad1e-8607789ce498.jpg",
+      "sourceSha256": "49e78eabd8e2671a540bb064fab3b2737b3fbb4f91437ac1672ac3408d42146e",
+      "dimensions": {
+        "width": 2880,
+        "height": 2160
+      },
+      "documentReferenceDimensions": {
+        "width": 667,
+        "height": 500
+      },
+      "bytes": 1425916,
+      "sha256": "1f8239a5a148113d63deb22002b008fc8bd12802bdd84f83b3a390e6e15989e9"
+    },
+    {
+      "project": "plainview-kitchen",
+      "file": "public/images/projects/plainview-kitchen/01.webp",
+      "sourceType": "video-poster",
+      "sourceId": "f9b7b442-8f63-4a85-ae6f-d9214849f038.jpg",
+      "sourceSha256": "f47913e04a6521dbc98006ce0aa85f637c40be59181b06ae43f829acabf555d5",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 281,
+        "height": 500
+      },
+      "bytes": 106560,
+      "sha256": "7d52cfa312c264e566a915a69e865295be955773ba7222749ddab0619c5f3cf6"
+    },
+    {
+      "project": "plainview-kitchen",
+      "file": "public/images/projects/plainview-kitchen/02.webp",
+      "sourceType": "video-poster",
+      "sourceId": "369f6147-16a0-47a8-9d6e-20b71bfe08ed.jpg",
+      "sourceSha256": "693de496aa1203bd55ef942f0cae5d13b8f8c9b67c832b5d73e59845e39cca6a",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 281,
+        "height": 500
+      },
+      "bytes": 72230,
+      "sha256": "9ff9cc46d17b0e1f0fcc31984e290805de6f8eeb19988ef4288b1b216c1ede4c"
+    },
+    {
+      "project": "plainview-kitchen",
+      "file": "public/images/projects/plainview-kitchen/03.webp",
+      "sourceType": "video-poster",
+      "sourceId": "78ed3db2-c68b-49c9-bd2f-34ca3cec0fcd.jpg",
+      "sourceSha256": "adce2d851359eb123cb256acdb32c0b5b4c0be5a7736a1c9dcd37412b532506d",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 281,
+        "height": 500
+      },
+      "bytes": 75334,
+      "sha256": "e7fc21c302cf808c28c872436d2c4fc727f61cf9a0eebaf562f1685cb87e126d"
+    },
+    {
+      "project": "plainview-kitchen",
+      "file": "public/images/projects/plainview-kitchen/04.webp",
+      "sourceType": "video-poster",
+      "sourceId": "221e34cb-f33d-4d14-a555-57d9c90ef408.jpg",
+      "sourceSha256": "6ab87bd66cce4100a323820e5758aa0f932c9c02e0f577750db340b8fd7aa1d8",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 281,
+        "height": 501
+      },
+      "bytes": 137544,
+      "sha256": "58a466443faf4bd19eac2696f00c131262f779fd7c7ba2801fdbd6803415f380"
+    },
+    {
+      "project": "plainview-kitchen",
+      "file": "public/images/projects/plainview-kitchen/05.webp",
+      "sourceType": "video-poster",
+      "sourceId": "680b7a0e-ec16-44b7-acda-5604bff2e5f7.jpg",
+      "sourceSha256": "2f52cf5beac519768ed33328758660fdc9a9c8d4698506ccfaecce6302edf83b",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 281,
+        "height": 500
+      },
+      "bytes": 125190,
+      "sha256": "8defcc9a9a7c4052605abb48d2f2508a5c9df7745521de60049971ddb399f23a"
+    },
+    {
+      "project": "plainview-kitchen",
+      "file": "public/images/projects/plainview-kitchen/06.webp",
+      "sourceType": "video-poster",
+      "sourceId": "95cd45c1-663c-4ca8-a130-37feef29d1d6.jpg",
+      "sourceSha256": "077cf02cf904e1d6b04a930a061f90e22290856be55d0e5d14895c8228ddadab",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 281,
+        "height": 500
+      },
+      "bytes": 111934,
+      "sha256": "7d9e5668168c60badc1f56ba8f42dd866ca3035af4624ef3bba5e6367d126c21"
+    },
+    {
+      "project": "plainview-kitchen",
+      "file": "public/images/projects/plainview-kitchen/07.webp",
+      "sourceType": "video-poster",
+      "sourceId": "ebf5779b-62b3-428d-bf93-f1e143850070.jpg",
+      "sourceSha256": "dd6eb56b79d8fdf9ed040084a30a780555f655927024859818b9eb269dfc4894",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 281,
+        "height": 500
+      },
+      "bytes": 164680,
+      "sha256": "1411f8e910397ce84c87bd974e4eecdbcf8928c1962683b434e90d46b5faf3c8"
+    },
+    {
+      "project": "plainview-kitchen",
+      "file": "public/images/projects/plainview-kitchen/08.webp",
+      "sourceType": "photo",
+      "sourceId": "537466c3-e5ff-4668-9dce-32565cd4fee6.jpg",
+      "sourceSha256": "bd6bb0dce0618bdb7d12996911858538573dbac5ed31567eb0f94e500aea4493",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 234640,
+      "sha256": "d518e8914c13d21ca9b345898b8619e880aff3179bb2be8f97a5652307fb5083"
+    },
+    {
+      "project": "raising-canes-forest-hills",
+      "file": "public/images/projects/raising-canes-forest-hills/01.webp",
+      "sourceType": "photo",
+      "sourceId": "05a6db3f-3822-4de2-8bf2-c49144dc8a7b.jpg",
+      "sourceSha256": "37d3842701860a740f41b1c0e242301cd15d1dc3e8353f0590ac05b5d23c9ca3",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 524884,
+      "sha256": "f8825b51b764f2cdedcad35ab0a2e5e75827aeae1bdf7b54c205da56d9bb6e01"
+    },
+    {
+      "project": "raising-canes-forest-hills",
+      "file": "public/images/projects/raising-canes-forest-hills/02.webp",
+      "sourceType": "video-poster",
+      "sourceId": "dd37887f-72d2-487f-b5db-e84eed64896d.jpg",
+      "sourceSha256": "f44183839481179c0a88f1f2656fe05c6d4d8aafaf4c8c39cd468fb53555f30b",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 281,
+        "height": 500
+      },
+      "bytes": 352870,
+      "sha256": "7fd9aca7e36ddb518d0123570c56a2e9abbc376d4fe90b5d87027c2a89b1a835"
+    },
+    {
+      "project": "raising-canes-forest-hills",
+      "file": "public/images/projects/raising-canes-forest-hills/03.webp",
+      "sourceType": "photo",
+      "sourceId": "700414df-c55b-4fe5-9a7a-f8432831b5b3.jpg",
+      "sourceSha256": "66ad3ce4f64d5268f046d9dd51d51c738db31a018dedaba25e82ede80ea0c24c",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 354366,
+      "sha256": "be87e78380d462bbd10d933744b538c1a5d57c3a79271cd4c1c89a6c89a6ccb7"
+    },
+    {
+      "project": "raising-canes-forest-hills",
+      "file": "public/images/projects/raising-canes-forest-hills/04.webp",
+      "sourceType": "photo",
+      "sourceId": "f900f5d7-9ef5-4b84-9b9d-101594a02583.jpg",
+      "sourceSha256": "9b1c00e9a506e842d8258893f3a86601a076c4ef31cdd6af0f4301c3e7a7b360",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 337974,
+      "sha256": "823000713e506ec1b885580ea0763c91b4125befaf334eccf38198e8f685b2ad"
+    },
+    {
+      "project": "raising-canes-forest-hills",
+      "file": "public/images/projects/raising-canes-forest-hills/05.webp",
+      "sourceType": "photo",
+      "sourceId": "91c89bfc-9c6a-4cdf-9790-ecbda161d140.jpg",
+      "sourceSha256": "797c6bc3536cdb24264415d82d5672b786229fd5394576ef7bb0d3c9b9a28e10",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 376,
+        "height": 500
+      },
+      "bytes": 465944,
+      "sha256": "c55bd2d21f0b6ce83677c53f88a9ab051ff7d40a8d462870ca1720fa49e7c16f"
+    },
+    {
+      "project": "raising-canes-forest-hills",
+      "file": "public/images/projects/raising-canes-forest-hills/06.webp",
+      "sourceType": "photo",
+      "sourceId": "404c7079-0719-4734-9521-7a7b3e62406b.jpg",
+      "sourceSha256": "64ac509dd6d01a0be57694067599e9e13dea7000af6c430d1d5b217046e93091",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 200686,
+      "sha256": "6bcfccdfeec0e4259214e7b7e0bc09ec12f91f3c02fcefc31bf40b0b12345828"
+    },
+    {
+      "project": "raising-canes-forest-hills",
+      "file": "public/images/projects/raising-canes-forest-hills/07.webp",
+      "sourceType": "photo",
+      "sourceId": "0071a91d-2007-44e4-a9f8-4d2cb0338607.jpg",
+      "sourceSha256": "74acdd57736c03b7bc97cfd2870e4d289ce3f8edae88ad325609be571be87f0e",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 498416,
+      "sha256": "05ebcd9fb881fa279bdea247b5f9a75b87672479ecf8503083c937ac8c0cff56"
+    },
+    {
+      "project": "raising-canes-forest-hills",
+      "file": "public/images/projects/raising-canes-forest-hills/08.webp",
+      "sourceType": "photo",
+      "sourceId": "6b09bcf6-f499-4b05-9493-69f4ef77b3a0.jpg",
+      "sourceSha256": "3453f6ad8fb931502877c1b893dc3c7f6288fb622df016f15a11f4dc9b4aeb8b",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 379224,
+      "sha256": "23ea4f1b89f1f052845e2ebc7a59ed7d9424b191ca9fe47a4d13b3c2057ab2d3"
+    },
+    {
+      "project": "tribeca-apartment",
+      "file": "public/images/projects/tribeca-apartment/01.webp",
+      "sourceType": "photo",
+      "sourceId": "3c47632f-f4ae-4004-94c6-8d8efe0472f3.jpg",
+      "sourceSha256": "2a55d10674d0f1f8fd400430b971ddf4f4e834a45ce6c3ed8b558bcc1f8f5166",
+      "dimensions": {
+        "width": 2304,
+        "height": 2880
+      },
+      "documentReferenceDimensions": {
+        "width": 400,
+        "height": 500
+      },
+      "bytes": 951214,
+      "sha256": "f29a72e1925fa33d868746787c9abe614fec4a9432739d34ab437198d834da19"
+    },
+    {
+      "project": "tribeca-apartment",
+      "file": "public/images/projects/tribeca-apartment/02.webp",
+      "sourceType": "photo",
+      "sourceId": "95760573-d1dd-4a13-ada9-4d8a39bd8471.jpg",
+      "sourceSha256": "9ceb882f2131b77ee32f3ce70e72e78b381289b386fae77d8fdb934f70b059a9",
+      "dimensions": {
+        "width": 1920,
+        "height": 2880
+      },
+      "documentReferenceDimensions": {
+        "width": 334,
+        "height": 500
+      },
+      "bytes": 312572,
+      "sha256": "d43c253fef172eb16fd7a8870959c9f1a473754b20ab7cdaa22104263edc4229"
+    },
+    {
+      "project": "tribeca-apartment",
+      "file": "public/images/projects/tribeca-apartment/03.webp",
+      "sourceType": "photo",
+      "sourceId": "3b02baba-22d0-4fd0-8f97-beab79a9cf10.jpg",
+      "sourceSha256": "1afb5632c60bf2767dff365d3fe31de9dfb96d741c852477386bc90fc081f038",
+      "dimensions": {
+        "width": 1920,
+        "height": 2880
+      },
+      "documentReferenceDimensions": {
+        "width": 335,
+        "height": 500
+      },
+      "bytes": 822860,
+      "sha256": "26a98d86b2db3521e9332ba5a8d54ee2c69280a072862cf55deaa806f337e0ce"
+    },
+    {
+      "project": "tribeca-apartment",
+      "file": "public/images/projects/tribeca-apartment/04.webp",
+      "sourceType": "photo",
+      "sourceId": "c0308982-7978-4677-b321-4e02b9c4263f.jpg",
+      "sourceSha256": "39a8a8c9ceb8e62cf9de53a93cac28c597ad4021b84f5e2fa1882f9e9dfe1d70",
+      "dimensions": {
+        "width": 2058,
+        "height": 2880
+      },
+      "documentReferenceDimensions": {
+        "width": 358,
+        "height": 500
+      },
+      "bytes": 612310,
+      "sha256": "afd98409bb66356547edb2b0ee02a6ac244f8daa5f1366b81b5f0aa9f2559d59"
+    },
+    {
+      "project": "tribeca-apartment",
+      "file": "public/images/projects/tribeca-apartment/05.webp",
+      "sourceType": "photo",
+      "sourceId": "b8a8c857-4d95-4cd4-b893-3b8ce356156a.jpg",
+      "sourceSha256": "389eab48e8affa2a21711b1a6a58151edd09483937ed5ea7aa413e2a99034d95",
+      "dimensions": {
+        "width": 1920,
+        "height": 2880
+      },
+      "documentReferenceDimensions": {
+        "width": 334,
+        "height": 500
+      },
+      "bytes": 914910,
+      "sha256": "67f7d8d54292d42b2c91cc48dde1bf91f52a141f2a313d4a2fd1516ee3b944db"
+    },
+    {
+      "project": "tribeca-apartment",
+      "file": "public/images/projects/tribeca-apartment/06.webp",
+      "sourceType": "photo",
+      "sourceId": "93430eaf-f404-43f6-a814-fea4e33dcf58.jpg",
+      "sourceSha256": "2cbbc78f30339e4c26f3faef37451c0f128acda1f5a9fa4a357c9e5874b0ccb9",
+      "dimensions": {
+        "width": 2468,
+        "height": 3085
+      },
+      "documentReferenceDimensions": {
+        "width": 401,
+        "height": 500
+      },
+      "bytes": 146194,
+      "sha256": "dbce1e65eaac612ac8d21e587a347756ac6df7681ffb72629e78397fb6afc67b"
+    },
+    {
+      "project": "tribeca-apartment",
+      "file": "public/images/projects/tribeca-apartment/07.webp",
+      "sourceType": "video-poster",
+      "sourceId": "fedcdc83-8181-47c8-9186-3946721f67d1.jpg",
+      "sourceSha256": "cbe8842405cac68af6994252451a47e2fc8882d0afdcec5ff4c5cc886db3c007",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 281,
+        "height": 500
+      },
+      "bytes": 101104,
+      "sha256": "7b311329f1f033064316014c5cf60084801bad83706f0d48d22f449ae3cc3f42"
+    },
+    {
+      "project": "tribeca-apartment",
+      "file": "public/images/projects/tribeca-apartment/08.webp",
+      "sourceType": "photo",
+      "sourceId": "3864d0a9-5c16-4ebc-a93e-13f79ba7b243.jpg",
+      "sourceSha256": "bf7a01a34fe82e3e220e4002c94f2efc1232e4722c2f609652dbffc0418bef86",
+      "dimensions": {
+        "width": 1440,
+        "height": 1920
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 500
+      },
+      "bytes": 156714,
+      "sha256": "800f036bb87b48f476991bad1c3c491b13003093526ec4368bdcc1e9aeddc9af"
+    },
+    {
+      "project": "upper-west-side-apartment",
+      "file": "public/images/projects/upper-west-side-apartment/01.webp",
+      "sourceType": "photo",
+      "sourceId": "7d2c1eee-951e-49b1-b60f-14f1b7d7f42e.jpg",
+      "sourceSha256": "417714bccf0e77263f4edad0953ab69b844a6264de5fc2405e4ffe419598ebd0",
+      "dimensions": {
+        "width": 1024,
+        "height": 1536
+      },
+      "documentReferenceDimensions": {
+        "width": 334,
+        "height": 500
+      },
+      "bytes": 197778,
+      "sha256": "61a383f3d9dc2399dc05cd043b731dd37bd35bc57252c9d30f9b389138c4db34"
+    },
+    {
+      "project": "upper-west-side-apartment",
+      "file": "public/images/projects/upper-west-side-apartment/02.webp",
+      "sourceType": "photo",
+      "sourceId": "fe738f89-1d7c-49cc-8244-418d6359ad7b.jpg",
+      "sourceSha256": "e3185232b17238648a32308f27357c6529b45f13547946063ed349ec04edd0a5",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "documentReferenceDimensions": {
+        "width": 700,
+        "height": 467
+      },
+      "bytes": 146228,
+      "sha256": "e7fb0ae7c08d3abb952c4d6b4d5af067db3afd62664422e52a48ca6b6fb2fc00"
+    },
+    {
+      "project": "upper-west-side-apartment",
+      "file": "public/images/projects/upper-west-side-apartment/03.webp",
+      "sourceType": "photo",
+      "sourceId": "f5da2f00-cfcc-46df-ac9b-1d1df90b607a.jpg",
+      "sourceSha256": "75b51da3b5b27e1cc49efb4074b0af5e92be2aff77009ae6aaba4aade4cd81ff",
+      "dimensions": {
+        "width": 1024,
+        "height": 1536
+      },
+      "documentReferenceDimensions": {
+        "width": 334,
+        "height": 500
+      },
+      "bytes": 115022,
+      "sha256": "f17f163a0746229bdd36d62fd49b3d647d033353d70fde2b5a269f3f2ed13430"
+    },
+    {
+      "project": "upper-west-side-apartment",
+      "file": "public/images/projects/upper-west-side-apartment/04.webp",
+      "sourceType": "photo",
+      "sourceId": "8842e8d3-a838-49a9-91c2-fe6c03e3e27f.jpg",
+      "sourceSha256": "9b56a4e7ab98495949327d9a18dc9d1822ae0e2112265a93931e7d513f715ee4",
+      "dimensions": {
+        "width": 1024,
+        "height": 1536
+      },
+      "documentReferenceDimensions": {
+        "width": 334,
+        "height": 500
+      },
+      "bytes": 282340,
+      "sha256": "b7d4b717c49dd3582063b7bb355913ddeb0a77390c59065fdd1fefb201a3ae35"
+    },
+    {
+      "project": "upper-west-side-apartment",
+      "file": "public/images/projects/upper-west-side-apartment/05.webp",
+      "sourceType": "photo",
+      "sourceId": "499c7906-a126-49b0-8d18-999f3839703f.jpg",
+      "sourceSha256": "81a7916916c0d43f148dac4df0d4789810bcf3a91cde5aff97e304cc83c900c8",
+      "dimensions": {
+        "width": 2880,
+        "height": 1924
+      },
+      "documentReferenceDimensions": {
+        "width": 700,
+        "height": 467
+      },
+      "bytes": 530668,
+      "sha256": "cbd8a65cce9b248291b4f870b327d1b9013682a35fef129a6e77aa5528db83a3"
+    },
+    {
+      "project": "upper-west-side-apartment",
+      "file": "public/images/projects/upper-west-side-apartment/06.webp",
+      "sourceType": "photo",
+      "sourceId": "0a8216a0-0b75-4308-8f78-eb7d56308ab0.jpg",
+      "sourceSha256": "5fe917e19bc451af772e2875b0f59d5aa8f54d7f40cf311b55cfba957542851b",
+      "dimensions": {
+        "width": 2880,
+        "height": 1924
+      },
+      "documentReferenceDimensions": {
+        "width": 700,
+        "height": 467
+      },
+      "bytes": 565170,
+      "sha256": "c708a7430c07ef0243d152cbd8ce0fb6f466ef001de021cf101feaa528ead27c"
+    },
+    {
+      "project": "upper-west-side-apartment",
+      "file": "public/images/projects/upper-west-side-apartment/07.webp",
+      "sourceType": "photo",
+      "sourceId": "705244c9-9759-48c9-99f6-d9a99bb83acc.jpg",
+      "sourceSha256": "4cea3b0d9491736babbefd8a58f36daf2a3e252a6c4825ffd2edca1b77c5e4eb",
+      "dimensions": {
+        "width": 2880,
+        "height": 1924
+      },
+      "documentReferenceDimensions": {
+        "width": 700,
+        "height": 467
+      },
+      "bytes": 473148,
+      "sha256": "00e7bba82952124f28f844012e02a642fade1b36db9657c403d018a923bd8299"
+    },
+    {
+      "project": "upper-west-side-apartment",
+      "file": "public/images/projects/upper-west-side-apartment/08.webp",
+      "sourceType": "photo",
+      "sourceId": "f52d04a4-f495-435c-bf62-ec261e72091d.jpg",
+      "sourceSha256": "f90a66da312fdd007801fa9348bd267f0dec0eddf6990018e39f5c054aa233eb",
+      "dimensions": {
+        "width": 2160,
+        "height": 2880
+      },
+      "documentReferenceDimensions": {
+        "width": 375,
+        "height": 501
+      },
+      "bytes": 1356490,
+      "sha256": "99cd537410f7b45e6b3227c2fb43c4014388b60c1cf7fdb65b354ada8ea7bb27"
+    }
+  ]
+}

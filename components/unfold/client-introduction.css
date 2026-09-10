@@ -1,0 +1,43 @@
+.uf-client-introduction {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 8%;
+  padding-block: 80px 90px;
+  border-top: 1px solid var(--rf-line);
+}
+.rf-site .uf-client-introduction > :is(h1, h2) {
+  font-size: clamp(30px, 3.1vw, 46px);
+  line-height: 1.18;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+.uf-client-introduction > div > p {
+  color: var(--rf-muted);
+  font-size: 15px;
+  line-height: 1.9;
+  max-width: 640px;
+}
+.uf-client-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 35px;
+}
+.uf-client-actions .rf-button {
+  gap: 22px;
+}
+@media (max-width: 1000px) {
+  .uf-client-introduction {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding-block: 55px 65px;
+  }
+  .rf-site .uf-client-introduction > :is(h1, h2) {
+    max-width: 600px;
+    font-size: clamp(31px, 5vw, 44px);
+  }
+  .uf-client-introduction > div > p {
+    font-size: 14px;
+  }
+}

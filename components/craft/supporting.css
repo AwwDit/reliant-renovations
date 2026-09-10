@@ -1,0 +1,553 @@
+.rf-about {
+  padding-top: 50px;
+  padding-bottom: 80px;
+}
+.rf-about-heading {
+  max-width: 850px;
+}
+.rf-about-heading > p:first-child {
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+.rf-about-heading h1 {
+  font-size: clamp(48px, 5.5vw, 82px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  font-weight: 700;
+}
+.rf-about-heading > p:last-child {
+  max-width: 420px;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-top: 30px;
+  color: var(--rf-muted);
+}
+.rf-about-spread {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 26px;
+  margin-top: 50px;
+}
+.rf-about-main-photo {
+  position: relative;
+  height: 550px;
+  overflow: hidden;
+}
+.rf-about-main-photo img {
+  object-fit: cover;
+}
+.rf-about-spread > figure {
+  position: relative;
+  height: 420px;
+  margin: 70px 0 0;
+  background: var(--rf-surface);
+}
+.rf-about-spread > figure img {
+  object-fit: cover;
+}
+.rf-about-spread figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 16px;
+  background: rgb(var(--rf-photo-tint) / 0.95);
+  color: var(--rf-photo-ink);
+  font-size: 10px;
+}
+.rf-about-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10%;
+  padding-block: 100px 110px;
+}
+.rf-about-story h2 {
+  font-size: clamp(39px, 4vw, 58px);
+  line-height: 1.14;
+}
+.rf-about-story p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--rf-muted);
+  margin-bottom: 22px;
+}
+.rf-about-story .rf-about-lead {
+  font-size: 23px;
+  line-height: 1.5;
+  color: var(--rf-ink);
+  margin-bottom: 29px;
+  letter-spacing: -0.03em;
+}
+.rf-about-principles h2 {
+  font-size: clamp(35px, 4.2vw, 62px);
+  max-width: 700px;
+  margin-bottom: 50px;
+}
+.rf-about-principles > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 35px 65px;
+}
+.rf-about-principles article {
+  padding: 28px 0;
+  border-top: 1px solid var(--rf-line);
+}
+.rf-about-principles article > span {
+  font-size: 12px;
+  color: var(--rf-muted);
+}
+.rf-about-principles h3 {
+  font-size: 27px;
+  margin: 20px 0 15px;
+}
+.rf-about-principles article p {
+  max-width: 450px;
+  font-size: 14px;
+  color: var(--rf-muted);
+  line-height: 1.9;
+}
+.rf-about-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10%;
+  padding-top: 110px;
+  padding-bottom: 30px;
+}
+.rf-about-area h2 {
+  font-size: clamp(39px, 4vw, 58px);
+  line-height: 1.14;
+}
+.rf-about-area p {
+  max-width: 450px;
+  color: var(--rf-muted);
+  font-size: 14px;
+  line-height: 1.9;
+  margin-bottom: 28px;
+}
+.rf-contact {
+  --rf-field-line: color-mix(in srgb, var(--rf-muted) 70%, var(--rf-line));
+  padding-top: 50px;
+  padding-bottom: 110px;
+}
+.rf-contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 6%;
+  align-items: start;
+}
+.rf-contact-intro {
+  position: sticky;
+  top: 45px;
+}
+.rf-contact-kicker {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+.rf-contact h1 {
+  font-size: clamp(38px, 4.2vw, 65px);
+  line-height: 1.07;
+  letter-spacing: -0.06em;
+}
+.rf-contact-intro header > p:last-child {
+  max-width: 350px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--rf-muted);
+  margin-top: 25px;
+}
+.rf-contact-image {
+  display: block;
+  position: relative;
+  height: 320px;
+  margin-top: 43px;
+  overflow: hidden;
+}
+.rf-contact-image img {
+  object-fit: cover;
+}
+.rf-contact-image > span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 16px;
+  background: rgb(var(--rf-photo-tint) / 0.95);
+  color: var(--rf-photo-ink);
+  font-size: 12px;
+}
+.rf-contact-information {
+  margin-top: 35px;
+}
+.rf-contact-details {
+  display: grid;
+  gap: 12px;
+  font-size: 13px;
+}
+.rf-contact-details a {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  min-height: 30px;
+}
+.rf-contact-area {
+  margin-top: 28px;
+}
+.rf-contact-area h2 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.rf-contact-area p {
+  color: var(--rf-muted);
+  font-size: 12px;
+  max-width: 310px;
+  line-height: 1.8;
+  margin-top: 8px;
+}
+.rf-contact-form-panel {
+  position: relative;
+  padding: 26px 0 0;
+  border-top: 3px solid var(--rf-accent);
+}
+.rf-contact-form-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--rf-line);
+  margin-bottom: 30px;
+}
+.rf-contact-form-label {
+  font-size: 18px;
+  font-weight: 600;
+}
+.rf-site .rf-contact .contact-form {
+  padding: 0;
+}
+.rf-site .rf-contact .form-section {
+  margin-bottom: 30px;
+}
+.rf-site .rf-contact .form-section h2 {
+  font-size: 19px;
+  letter-spacing: -0.03em;
+  margin-bottom: 23px;
+}
+.rf-site .rf-contact .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 18px;
+}
+.rf-site .rf-contact .form-grid .full {
+  grid-column: 1/-1;
+}
+.rf-site .rf-contact .contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  color: var(--rf-ink);
+  font-size: 12px;
+  font-weight: 500;
+}
+.rf-site .rf-contact .contact-form label > span {
+  color: var(--rf-muted);
+  font-size: 10px;
+  font-weight: 400;
+}
+.rf-site
+  .rf-contact
+  .contact-form
+  :is(input:not([type="file"]), select, textarea) {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--rf-field-line);
+  border-radius: 0;
+  background: var(--rf-surface);
+  color: var(--rf-ink);
+  padding: 12px 13px;
+  font-size: 13px;
+  box-shadow: none;
+}
+.rf-site .rf-contact .contact-form textarea {
+  min-height: 135px;
+  resize: vertical;
+}
+.rf-site .rf-contact .contact-form :is(input, textarea)::placeholder {
+  color: var(--rf-muted);
+  opacity: 1;
+}
+.rf-site .rf-contact .contact-form :is(input, textarea, select):focus-visible {
+  outline: 2px solid var(--rf-accent);
+  outline-offset: 2px;
+}
+.rf-site .rf-contact .upload-zone {
+  border-radius: 0;
+  border: 1px dashed var(--rf-field-line);
+  background: var(--rf-bg);
+  padding: 25px;
+}
+.rf-site .rf-contact .upload-zone p,
+.rf-site .rf-contact .form-note {
+  color: var(--rf-muted);
+  font-size: 11px;
+}
+.rf-site .rf-contact .form-submit {
+  margin-top: 25px;
+  border-top: 1px solid var(--rf-line);
+  padding-top: 23px;
+}
+.rf-site .rf-contact .form-submit > p {
+  font-size: 11px;
+  color: var(--rf-muted);
+  margin-bottom: 20px;
+}
+.rf-site .rf-contact .form-submit .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  min-height: 52px;
+  padding: 0 0 0 20px;
+  width: auto;
+  border: 1px solid var(--rf-line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--rf-ink);
+  font-size: 12px;
+}
+.rf-site .rf-contact .form-submit .button svg {
+  background: transparent;
+  color: var(--rf-ink);
+  width: 52px;
+  height: 50px;
+  padding: 15px;
+  border-left: 1px solid var(--rf-line);
+  border-radius: 0;
+}
+.rf-site .rf-contact .form-submit .button:hover {
+  background: var(--rf-accent);
+  border-color: var(--rf-accent);
+  color: #fff;
+  transform: none;
+  box-shadow: none;
+}
+.rf-site .rf-contact .form-submit .button:hover svg {
+  color: #fff;
+  transform: none;
+  border-left-color: #ffffff40;
+}
+.rf-site .rf-contact .form-error {
+  color: var(--rf-error);
+  background: var(--rf-error-bg);
+  border-radius: 0;
+  padding: 13px;
+  font-size: 13px;
+}
+.rf-site .rf-contact .form-success {
+  padding: 50px 5px;
+  background: transparent;
+  color: var(--rf-ink);
+}
+.rf-site .rf-contact .form-success h2 {
+  font-size: 34px;
+  margin-top: 25px;
+}
+.rf-site .rf-contact .form-success p {
+  color: var(--rf-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.rf-site .rf-contact .form-success .text-link {
+  color: var(--rf-ink);
+}
+.rf-privacy {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 10%;
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+.rf-legal-kicker {
+  font-size: 12px;
+  margin-bottom: 25px;
+  color: var(--rf-muted);
+}
+.rf-privacy-label {
+  font-size: 32px;
+  line-height: 1.3;
+  letter-spacing: -0.04em;
+}
+.rf-legal {
+  max-width: 750px;
+}
+.rf-legal h1 {
+  font-size: clamp(38px, 4.6vw, 68px);
+  margin-bottom: 35px;
+}
+.rf-legal h2 {
+  font-size: 23px;
+  margin: 34px 0 14px;
+}
+.rf-legal p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--rf-muted);
+}
+.rf-legal a {
+  color: var(--rf-ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@media (max-width: 1000px) {
+  .rf-about,
+  .rf-contact,
+  .rf-privacy {
+    padding-top: 130px;
+  }
+  .rf-contact-intro {
+    top: 110px;
+  }
+  .rf-contact-layout {
+    gap: 5%;
+  }
+  .rf-contact-form-panel {
+    padding: 25px 0 0;
+  }
+  .rf-site .rf-contact .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 767px) {
+  .rf-about {
+    padding-top: 130px;
+  }
+  .rf-about-heading h1 {
+    font-size: clamp(44px, 10vw, 64px);
+  }
+  .rf-about-heading > p:last-child {
+    font-size: 14px;
+  }
+  .rf-about-spread {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 15px;
+    margin-top: 45px;
+  }
+  .rf-about-main-photo {
+    height: 340px;
+  }
+  .rf-about-spread > figure {
+    height: 260px;
+    margin-top: 45px;
+  }
+  .rf-about-spread figcaption {
+    font-size: 8px;
+    padding: 10px;
+  }
+  .rf-about-story {
+    grid-template-columns: 1fr;
+    gap: 27px;
+    padding-block: 65px 45px;
+  }
+  .rf-about-story h2 {
+    font-size: 39px;
+  }
+  .rf-about-story .rf-about-lead {
+    font-size: 21px;
+  }
+  .rf-about-principles > div {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .rf-about-principles h2 {
+    font-size: 36px;
+    margin-bottom: 25px;
+  }
+  .rf-about-principles h3 {
+    font-size: 25px;
+    margin-top: 15px;
+  }
+  .rf-about-area {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding-top: 55px;
+  }
+  .rf-about-area h2 {
+    font-size: 39px;
+  }
+  .rf-contact {
+    padding-top: 130px;
+    padding-bottom: 65px;
+  }
+  .rf-contact-layout {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+  .rf-contact-intro {
+    position: relative;
+    top: 0;
+  }
+  .rf-contact h1 {
+    font-size: clamp(40px, 10vw, 58px);
+  }
+  .rf-contact-image {
+    height: 280px;
+    margin-top: 30px;
+  }
+  .rf-contact-form-panel {
+    padding: 24px 0 0;
+  }
+  .rf-site .rf-contact .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .rf-site .rf-contact .form-submit .button {
+    width: auto;
+  }
+  .rf-privacy {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding-top: 130px;
+    padding-bottom: 70px;
+  }
+  .rf-privacy-label {
+    font-size: 27px;
+  }
+  .rf-legal h1 {
+    font-size: 40px;
+  }
+}
+.rf-site .rf-contact .contact-form {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.rf-site .rf-contact .contact-form .full-width {
+  grid-column: 1/-1;
+}
+.rf-site .rf-contact .upload-control {
+  padding: 21px;
+  border: 1px dashed var(--rf-field-line);
+  border-radius: 0;
+  background: var(--rf-bg);
+}
+.rf-site .rf-contact .contact-form .upload-label {
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+.rf-site .rf-contact .contact-form .upload-label > svg {
+  flex-shrink: 0;
+  color: var(--rf-ink);
+}
+.rf-site .rf-contact .contact-form .upload-label > span {
+  color: var(--rf-ink);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.rf-site .rf-contact .contact-form .upload-label small {
+  color: var(--rf-muted);
+  font-size: 10px;
+}

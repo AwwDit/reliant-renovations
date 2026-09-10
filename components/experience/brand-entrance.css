@@ -1,0 +1,220 @@
+.be-mark-wrap {
+  --be-paper: #f3f4f0;
+  --be-ink: #26353e;
+  --be-blue: #28566e;
+  --be-guide: #728c99;
+  position: relative;
+  width: min(100%, 340px);
+  min-width: 0;
+  margin: 0;
+  padding: 23px 21px 0;
+  color: var(--be-ink);
+  background: var(--be-paper);
+  border: 1px solid #d4dbd9;
+}
+html[data-theme="dark"] .be-mark-wrap {
+  --be-paper: #1a2227;
+  --be-ink: #eef2f0;
+  --be-blue: #c1d9e5;
+  --be-guide: #89a5b4;
+  border-color: #52626b;
+}
+.be-mark {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 474 / 335;
+}
+.be-final,
+.be-drawing {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.be-drawing {
+  display: none;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.be-datums,
+.be-arcs,
+.be-witnesses {
+  stroke: var(--be-guide);
+  stroke-width: 0.8;
+}
+.be-arcs {
+  stroke-width: 0.9;
+}
+.be-witnesses {
+  stroke-width: 0.7;
+}
+.be-projection {
+  stroke: var(--be-guide);
+  stroke-width: 1.05;
+  opacity: 0.65;
+}
+.be-profiles {
+  fill: var(--be-paper);
+  stroke: var(--be-blue);
+  stroke-width: 2.05;
+}
+.be-white {
+  display: none;
+}
+.be-color {
+  display: block;
+}
+html[data-theme="dark"] .be-white {
+  display: block;
+}
+html[data-theme="dark"] .be-color {
+  display: none;
+}
+.be-mark[data-reveal="playing"] .be-drawing {
+  display: block;
+  animation: be-dissolve 0.3s ease 1.8s both;
+}
+.be-mark[data-reveal="playing"] .be-study {
+  animation: be-register 0.45s cubic-bezier(0.2, 0.6, 0.3, 1) 1.4s both;
+}
+.be-mark[data-reveal="playing"] .be-final {
+  animation: be-resolve 0.5s ease 1.6s both;
+}
+.be-mark[data-reveal="playing"] .be-drawing path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: be-trace 0.55s ease-out forwards;
+}
+.be-mark[data-reveal="playing"] .be-datums path[data-order="1"] {
+  animation-delay: 0.09s;
+}
+.be-mark[data-reveal="playing"] .be-datums path[data-order="2"] {
+  animation-delay: 0.15s;
+}
+.be-mark[data-reveal="playing"] .be-arcs path {
+  animation-delay: 0.16s;
+  animation-duration: 0.7s;
+}
+.be-mark[data-reveal="playing"] .be-witnesses path {
+  animation-delay: 0.28s;
+}
+.be-mark[data-reveal="playing"] .be-projection path {
+  animation-delay: 0.37s;
+  animation-duration: 0.8s;
+}
+.be-mark[data-reveal="playing"] .be-profiles path {
+  animation-delay: 0.34s;
+  animation-duration: 0.85s;
+}
+.be-mark[data-reveal="playing"] .be-profiles [data-part="right"] {
+  animation-delay: 0.53s;
+}
+.be-mark[data-reveal="playing"] .be-datums,
+.be-mark[data-reveal="playing"] .be-arcs,
+.be-mark[data-reveal="playing"] .be-witnesses {
+  animation: be-guides 1.8s ease both;
+}
+.be-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 45px;
+  margin-top: 15px;
+  border-top: 1px solid color-mix(in srgb, var(--be-guide) 30%, transparent);
+  font-size: 10px;
+  line-height: 1.5;
+}
+.be-replay {
+  display: inline-flex;
+  flex-shrink: 0;
+  visibility: hidden;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  margin-right: -12px;
+  padding: 10px;
+  border: 0;
+  background: transparent;
+  color: var(--be-ink);
+  cursor: pointer;
+}
+.be-replay:hover {
+  color: var(--be-blue);
+  background: color-mix(in srgb, var(--be-guide) 12%, transparent);
+}
+.be-replay:focus-visible {
+  outline: 2px solid var(--be-blue);
+  outline-offset: -4px;
+}
+.be-mark-wrap:has([data-enhanced="true"]) .be-replay {
+  visibility: visible;
+}
+@keyframes be-trace {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes be-register {
+  from {
+    transform: translateY(57px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes be-resolve {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes be-dissolve {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes be-guides {
+  0% {
+    opacity: 0;
+  }
+  20%,
+  72% {
+    opacity: 0.65;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@media (max-width: 600px) {
+  .be-mark-wrap {
+    padding: 14px 12px 0;
+  }
+  .be-caption {
+    gap: 4px;
+    margin-top: 10px;
+    font-size: 9px;
+  }
+  .be-caption > span {
+    min-width: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .be-mark[data-reveal="playing"] .be-drawing {
+    display: none;
+  }
+  .be-mark[data-reveal="playing"] .be-final {
+    animation: none;
+  }
+  .be-mark-wrap .be-replay {
+    visibility: hidden;
+  }
+}

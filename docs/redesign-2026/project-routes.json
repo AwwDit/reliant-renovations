@@ -1,0 +1,52 @@
+[
+  {
+    "slug": "chick-fil-a-kingston",
+    "status": 200,
+    "galleryPhotos": 8
+  },
+  {
+    "slug": "lidl-staten-island",
+    "status": 200,
+    "galleryPhotos": 8
+  },
+  {
+    "slug": "raising-canes-forest-hills",
+    "status": 200,
+    "galleryPhotos": 8
+  },
+  {
+    "slug": "harbor-freight-bronx",
+    "status": 200,
+    "galleryPhotos": 8
+  },
+  {
+    "slug": "lidl-harlem",
+    "status": 200,
+    "galleryPhotos": 8
+  },
+  {
+    "slug": "upper-west-side-apartment",
+    "status": 200,
+    "galleryPhotos": 8
+  },
+  {
+    "slug": "plainview-kitchen",
+    "status": 200,
+    "galleryPhotos": 8
+  },
+  {
+    "slug": "tribeca-apartment",
+    "status": 200,
+    "galleryPhotos": 8
+  },
+  {
+    "slug": "hicksville-basement",
+    "status": 200,
+    "galleryPhotos": 8
+  },
+  {
+    "slug": "kings-park-exterior",
+    "status": 200,
+    "galleryPhotos": 8
+  }
+]

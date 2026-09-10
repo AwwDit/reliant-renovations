@@ -1,0 +1,223 @@
+/* Layout uses the sitewide palette from app/theme.css, including portalled UI. */
+:root {
+  --rf-gutter: clamp(22px, 4.45vw, 72px);
+}
+.rf-site {
+  background: var(--rf-bg);
+  color: var(--rf-ink);
+  min-height: 100svh;
+  overflow: clip;
+  --background: var(--rf-bg);
+  --surface: var(--rf-surface);
+  --surface-raised: var(--rf-surface);
+  --text: var(--rf-ink);
+  --muted: var(--rf-muted);
+  --line: var(--rf-line);
+  --accent: var(--rf-accent);
+}
+.rf-main {
+  outline: none;
+  min-width: 0;
+}
+/* This layout has a side navigation on desktop and an 84px bar on mobile. */
+html:has(.rf-site) {
+  scroll-padding-top: 0;
+}
+.rf-site :is(#projects, #photographs, #project-details, #company-introduction) {
+  scroll-margin-top: 0;
+}
+@media (max-width: 1000px) {
+  html:has(.rf-site) {
+    scroll-padding-top: 84px;
+  }
+}
+.rf-container {
+  width: 100%;
+  max-width: 1540px;
+  margin-inline: auto;
+  padding-inline: var(--rf-gutter);
+}
+.rf-site :is(h1, h2, h3) {
+  font-weight: 600;
+  letter-spacing: -0.045em;
+}
+.rf-site h1 {
+  text-wrap: balance;
+}
+.rf-site p {
+  text-wrap: pretty;
+}
+.rf-site a {
+  text-decoration: none;
+}
+.rf-site .skip-link {
+  color: #fff;
+  background: #1757d4;
+  border-radius: 0;
+  z-index: 100;
+}
+.rf-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  min-height: 54px;
+  padding: 0 0 0 20px;
+  border: 1px solid var(--rf-line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--rf-ink);
+  box-shadow: none;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition:
+    border-color 0.25s,
+    background 0.25s;
+}
+.rf-button > span {
+  width: 52px;
+  align-self: stretch;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-left: 1px solid var(--rf-line);
+  background: transparent;
+  color: inherit;
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+.rf-button > span svg {
+  transition: transform 0.25s;
+}
+.rf-button:hover {
+  border-color: var(--rf-accent);
+}
+.rf-button:hover > span {
+  background: var(--rf-accent);
+  color: #fff;
+  border-color: var(--rf-accent);
+}
+.rf-button:hover > span svg {
+  transform: translate(3px, -3px);
+}
+.rf-button:active {
+  transform: translateY(1px);
+}
+.rf-text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  min-height: 44px;
+  border-bottom: 1px solid var(--rf-line);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--rf-ink);
+}
+.rf-text-link svg {
+  transition: transform 0.25s;
+}
+.rf-text-link:hover svg {
+  transform: translate(4px, -3px);
+}
+.rf-text-link:hover {
+  border-color: var(--rf-accent);
+}
+.rf-site :is(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--rf-focus);
+  outline-offset: 5px;
+}
+[data-rf-pending="true"] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+[data-rf-pending="true"][data-rf-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+.rf-not-found {
+  min-height: 100svh;
+  padding-block: 45px 100px;
+}
+.rf-not-found-logo {
+  display: grid;
+  place-items: center;
+  width: 130px;
+  height: 95px;
+  margin-bottom: 100px;
+}
+.rf-not-found main > p:first-of-type {
+  color: var(--rf-muted);
+  font-size: 13px;
+  margin-bottom: 23px;
+}
+.rf-not-found h1 {
+  font-size: clamp(56px, 8vw, 110px);
+  line-height: 1.05;
+}
+.rf-not-found main > p:last-of-type {
+  color: var(--rf-muted);
+  font-size: 15px;
+  max-width: 420px;
+  margin-block: 30px;
+}
+.rf-not-found main > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 25px;
+}
+.rf-site .consent-banner {
+  background: var(--rf-surface);
+  border: 1px solid var(--rf-line);
+  border-top: 2px solid var(--rf-accent);
+  border-radius: 0;
+  color: var(--rf-ink);
+  box-shadow: 0 15px 50px var(--rf-shadow);
+}
+.rf-site .consent-banner .button {
+  background: var(--rf-ink);
+  color: var(--rf-bg);
+  border: 1px solid var(--rf-line);
+  border-radius: 0;
+}
+.rf-site .consent-banner .button-ghost {
+  background: transparent;
+  color: var(--rf-ink);
+}
+@media (prefers-reduced-motion: reduce) {
+  .rf-site *,
+  .rf-site *::before,
+  .rf-site *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  [data-rf-pending="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* Fixed project-navigation spine; the photographic collection fills its own viewport. */
+@media (min-width: 1001px) {
+  .rf-main,
+  .rf-footer {
+    margin-left: 240px;
+  }
+  .rf-site {
+    --rf-gutter: clamp(30px, 3.8vw, 60px);
+  }
+  .rf-about,
+  .rf-contact,
+  .rf-privacy {
+    padding-top: 54px;
+  }
+}
+.rf-site:has(.unfold-portfolio):not(:has(.uf-brand-hero)) > .rf-footer {
+  display: none;
+}

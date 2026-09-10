@@ -1,0 +1,396 @@
+/* About uses the site's existing type, color and square-edged controls.
+   A single opening photograph introduces the residential work; the finished
+   commercial project belongs with the company approach further down the page. */
+.uf-about {
+  padding-top: 48px;
+  padding-bottom: 85px;
+}
+
+.uf-about-opening {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr);
+  gap: clamp(30px, 4vw, 68px);
+  align-items: stretch;
+}
+
+.uf-about-heading {
+  align-self: center;
+  padding-block: 28px 36px;
+}
+
+.uf-about-heading::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin-bottom: 28px;
+  background: var(--rf-accent);
+}
+
+.rf-site .uf-about-heading h1 {
+  font-size: clamp(70px, 7.2vw, 112px);
+  line-height: 0.99;
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  text-wrap: initial;
+}
+
+.uf-about-heading h1 span {
+  display: block;
+  color: var(--rf-accent-text);
+}
+
+.uf-about-heading > p {
+  max-width: 390px;
+  margin-top: 32px;
+  color: var(--rf-soft);
+  font-size: clamp(16px, 1.45vw, 20px);
+  line-height: 1.75;
+}
+
+.uf-about-heading .rf-button {
+  margin-top: 32px;
+}
+
+.uf-about-hero-project,
+.uf-about-work-project {
+  margin: 0;
+  min-width: 0;
+}
+
+.uf-about-hero-project {
+  display: flex;
+  flex-direction: column;
+}
+
+.uf-about-hero-photo,
+.uf-about-work-photo {
+  position: relative;
+  overflow: hidden;
+  background: var(--rf-photo-frame);
+}
+
+.uf-about-hero-photo {
+  flex: 1;
+  min-height: 510px;
+}
+
+.uf-about-hero-photo img,
+.uf-about-work-photo img {
+  object-fit: cover;
+}
+
+.uf-about figcaption a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  min-height: 60px;
+  padding-block: 15px;
+  border-bottom: 1px solid var(--rf-line);
+  color: var(--rf-soft);
+  font-size: 12px;
+  line-height: 1.6;
+  transition: color 180ms ease;
+}
+
+.uf-about figcaption svg {
+  flex-shrink: 0;
+  color: var(--rf-accent-text);
+  transition: transform 180ms ease;
+}
+
+.uf-about figcaption a:hover {
+  color: var(--rf-ink);
+}
+
+.uf-about figcaption a:hover svg {
+  transform: translate(3px, -3px);
+}
+
+.uf-about-story {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+  padding-block: clamp(65px, 7vw, 108px);
+}
+
+.uf-about-story > p {
+  color: var(--rf-muted);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.uf-about-story > .uf-about-experience {
+  color: var(--rf-ink);
+  font-size: clamp(22px, 2.2vw, 31px);
+  line-height: 1.55;
+  letter-spacing: -0.025em;
+}
+
+.uf-about-principles {
+  padding: clamp(28px, 3.5vw, 52px);
+  background: var(--rf-surface);
+  border-top: 2px solid var(--rf-accent);
+}
+
+.uf-about-principles-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.3fr);
+  gap: clamp(32px, 4vw, 64px);
+  align-items: start;
+}
+
+.uf-about-principles-intro {
+  position: sticky;
+  top: 36px;
+}
+
+.uf-about-principles h2 {
+  font-size: clamp(34px, 3.5vw, 51px);
+  line-height: 1.08;
+  margin-bottom: 35px;
+}
+
+.uf-about-work-photo {
+  aspect-ratio: 4 / 3;
+}
+
+.uf-about-principles-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.uf-about-principles-list > li {
+  padding-block: 21px 29px;
+  border-top: 1px solid var(--rf-line);
+}
+
+.uf-about-principles-list > li:nth-child(-n + 2) {
+  border-top: 0;
+  padding-top: 2px;
+}
+
+.uf-about-principles-list > li > span {
+  display: block;
+  margin-bottom: 21px;
+  font-size: 12px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--rf-accent-text);
+}
+
+.uf-about-principles-list p {
+  font-size: clamp(17px, 1.55vw, 22px);
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+  color: var(--rf-ink);
+}
+
+.uf-about-area {
+  display: grid;
+  grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.6fr);
+  gap: 45px;
+  align-items: baseline;
+  padding-top: clamp(64px, 7vw, 105px);
+}
+
+.uf-about-area h2 {
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+
+.uf-about-area > p {
+  max-width: 780px;
+  font-size: clamp(32px, 3.7vw, 54px);
+  line-height: 1.22;
+  letter-spacing: -0.045em;
+}
+
+.uf-about-area > p > span {
+  display: block;
+  margin-top: 18px;
+  color: var(--rf-muted);
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: 0;
+}
+
+.uf-about-opening[data-has-photo="false"] {
+  grid-template-columns: 1fr;
+}
+
+.uf-about-opening[data-has-photo="false"] .uf-about-heading {
+  max-width: 850px;
+}
+
+.uf-about-opening[data-has-photo="false"] .uf-about-heading > p {
+  max-width: 630px;
+}
+
+@media (min-width: 1700px) {
+  .uf-about-hero-photo {
+    min-height: 570px;
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 701px) {
+  .uf-about-principles-layout {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr);
+    gap: 30px;
+  }
+  .uf-about-principles-list {
+    column-gap: 22px;
+  }
+  .uf-about-principles h2 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .uf-about {
+    padding-top: 125px;
+  }
+  .uf-about-opening {
+    gap: 28px;
+  }
+  .rf-site .uf-about-heading h1 {
+    font-size: clamp(60px, 8.4vw, 84px);
+  }
+  .uf-about-heading > p {
+    font-size: 16px;
+  }
+  .uf-about-hero-photo {
+    min-height: 480px;
+  }
+  .uf-about-story {
+    gap: 40px;
+  }
+  .uf-about-principles-intro {
+    top: 110px;
+  }
+  .uf-about-principles {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .uf-about {
+    padding-top: 113px;
+    padding-bottom: 58px;
+  }
+  .uf-about-opening {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .uf-about-heading {
+    padding: 0;
+  }
+  .uf-about-heading::before {
+    width: 34px;
+    margin-bottom: 22px;
+  }
+  .rf-site .uf-about-heading h1 {
+    font-size: clamp(57px, 13vw, 78px);
+    line-height: 1.05;
+  }
+  .uf-about-heading h1 span {
+    display: inline;
+  }
+  .uf-about-heading > p {
+    max-width: 540px;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-top: 22px;
+  }
+  .uf-about-heading .rf-button {
+    margin-top: 24px;
+  }
+  .uf-about-hero-photo {
+    flex: none;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+  .uf-about figcaption a {
+    min-height: 56px;
+    font-size: 11px;
+    gap: 15px;
+  }
+  .uf-about-story {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-block: 46px 52px;
+  }
+  .uf-about-story > .uf-about-experience {
+    font-size: 23px;
+    line-height: 1.6;
+  }
+  .uf-about-story > p {
+    font-size: 15px;
+    line-height: 1.85;
+  }
+  .uf-about-principles {
+    padding: 27px 22px 10px;
+  }
+  .uf-about-principles-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .uf-about-principles-intro {
+    position: static;
+  }
+  .uf-about-principles h2 {
+    font-size: 36px;
+    margin-bottom: 25px;
+  }
+  .uf-about-work-photo {
+    aspect-ratio: 4 / 3;
+  }
+  .uf-about-principles-list {
+    column-gap: 22px;
+  }
+  .uf-about-principles-list > li {
+    padding-block: 19px 23px;
+  }
+  .uf-about-principles-list > li > span {
+    margin-bottom: 14px;
+    font-size: 11px;
+  }
+  .uf-about-principles-list p {
+    font-size: 16px;
+    line-height: 1.55;
+    letter-spacing: -0.02em;
+  }
+  .uf-about-area {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding-top: 53px;
+  }
+  .uf-about-area h2 {
+    font-size: 18px;
+  }
+  .uf-about-area > p {
+    font-size: clamp(33px, 8vw, 46px);
+    line-height: 1.3;
+  }
+  .uf-about-area > p > span {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 370px) {
+  .uf-about-principles-list {
+    grid-template-columns: 1fr;
+  }
+  .uf-about-principles-list > li:nth-child(2) {
+    border-top: 1px solid var(--rf-line);
+    padding-top: 19px;
+  }
+}

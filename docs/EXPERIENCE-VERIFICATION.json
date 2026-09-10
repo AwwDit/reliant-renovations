@@ -1,0 +1,492 @@
+{
+  "verifiedAt": "2026-09-07",
+  "route": "/experience",
+  "status": "Verified local design prototype; final owner visual acceptance pending",
+  "scope": "New isolated experience route and components. Existing homepage, actual project portfolio and admin remain present.",
+  "checks": {
+    "lint": "pass",
+    "typecheck": "pass",
+    "productionBuild": "pass",
+    "unitTests": {
+      "passed": 5,
+      "failed": 0
+    },
+    "integration": {
+      "assertions": 54,
+      "passed": true,
+      "coverage": "Public routes, auth, project CRUD, ordering, image uploads, inquiries and private attachments"
+    }
+  },
+  "entrance": {
+    "completedDrawingSeconds": 2.3,
+    "usesApprovedLogoAssets": true,
+    "whiteIncRegularPreserved": true,
+    "choicesNeverGatedByAnimation": true,
+    "visibleChoicesAtTestedSizes": [
+      {
+        "width": 1440,
+        "overflow": false,
+        "bothChoicesVisible": true
+      },
+      {
+        "width": 390,
+        "overflow": false,
+        "bothChoicesVisible": true
+      },
+      {
+        "width": 320,
+        "overflow": false,
+        "bothChoicesVisible": true
+      }
+    ],
+    "reducedMotion": "Static logo, no replay animation",
+    "noJavaScript": "Static logo and ordinary anchor navigation",
+    "layoutShiftFix": "Replay space reserved before hydration",
+    "accessibleName": "Visible and accessible text both Replay logo drawing"
+  },
+  "residential": {
+    "offscreenDraws": 0,
+    "returnedDraws": 1,
+    "hotspot": "Flooring that connects the space",
+    "fastSwitch": {
+      "room": "Bathroom",
+      "canvas": 1,
+      "poster": "Imagined bathroom with fluted oak vanity, brass fittings and a tiled shower"
+    },
+    "controls": [
+      {
+        "name": "Exit room",
+        "w": 44,
+        "h": 44
+      },
+      {
+        "name": "Look left",
+        "w": 44,
+        "h": 44
+      },
+      {
+        "name": "Look up",
+        "w": 44,
+        "h": 44
+      },
+      {
+        "name": "Reset room view",
+        "w": 44,
+        "h": 44
+      },
+      {
+        "name": "Look down",
+        "w": 44,
+        "h": 44
+      },
+      {
+        "name": "Look right",
+        "w": 44,
+        "h": 44
+      }
+    ],
+    "initial": {
+      "canvas": 0,
+      "contexts": 0,
+      "overflow": false
+    },
+    "idleDraws": 0,
+    "allThreeRoomsInspected": true,
+    "allNineFeatureTargetsTested": true,
+    "coverage": "Partial 180°/100° look-around with edge clamps; not a continuous walkable floor plan or seamless full panorama",
+    "fallbacks": [
+      "No JavaScript",
+      "WebGL unavailable",
+      "Texture blocked",
+      "WebGL context lost",
+      "Reduced motion"
+    ],
+    "scopedAxe": [
+      {
+        "width": 1440,
+        "theme": "light",
+        "violations": [],
+        "passes": 16
+      },
+      {
+        "width": 1440,
+        "theme": "dark",
+        "violations": [],
+        "passes": 16
+      },
+      {
+        "width": 390,
+        "theme": "light",
+        "violations": [],
+        "passes": 16
+      },
+      {
+        "width": 390,
+        "theme": "dark",
+        "violations": [],
+        "passes": 16
+      },
+      {
+        "width": 320,
+        "theme": "light",
+        "violations": [],
+        "passes": 16
+      },
+      {
+        "width": 320,
+        "theme": "dark",
+        "violations": [],
+        "passes": 16
+      }
+    ],
+    "noJsAllRoomServices": [
+      {
+        "width": 1440,
+        "roomTitles": ["Living room", "Kitchen", "Bathroom"],
+        "featureTitles": [
+          "Built-ins & finish carpentry",
+          "Flooring that connects the space",
+          "Walls, ceilings & lighting",
+          "Kitchens & cabinetry",
+          "Countertops & backsplash",
+          "Coordinated finishing details",
+          "Bathroom renovations",
+          "Tile & surface finishes",
+          "Lighting & final details"
+        ],
+        "descriptions": 9,
+        "links": [
+          "/projects/upper-west-side-apartment",
+          "/projects/upper-west-side-apartment",
+          "/residential",
+          "/projects/plainview-kitchen",
+          "/projects/upper-west-side-apartment",
+          "/projects/plainview-kitchen",
+          "/projects/tribeca-apartment",
+          "/projects/tribeca-apartment",
+          "/projects/tribeca-apartment"
+        ],
+        "visible": true,
+        "overflow": false
+      },
+      {
+        "width": 320,
+        "roomTitles": ["Living room", "Kitchen", "Bathroom"],
+        "featureTitles": [
+          "Built-ins & finish carpentry",
+          "Flooring that connects the space",
+          "Walls, ceilings & lighting",
+          "Kitchens & cabinetry",
+          "Countertops & backsplash",
+          "Coordinated finishing details",
+          "Bathroom renovations",
+          "Tile & surface finishes",
+          "Lighting & final details"
+        ],
+        "descriptions": 9,
+        "links": [
+          "/projects/upper-west-side-apartment",
+          "/projects/upper-west-side-apartment",
+          "/residential",
+          "/projects/plainview-kitchen",
+          "/projects/upper-west-side-apartment",
+          "/projects/plainview-kitchen",
+          "/projects/tribeca-apartment",
+          "/projects/tribeca-apartment",
+          "/projects/tribeca-apartment"
+        ],
+        "visible": true,
+        "overflow": false
+      },
+      {
+        "jsEnabled": true,
+        "fallbackElements": 0,
+        "entryButton": true,
+        "overflow": false
+      },
+      {
+        "errors": []
+      }
+    ]
+  },
+  "commercial": {
+    "finalAsset": {
+      "width": 1080,
+      "height": 1440,
+      "duration": 6.583333,
+      "bytes": 5293034,
+      "frameRate": 24,
+      "keyframeInterval": 6,
+      "audio": false
+    },
+    "desktop": "Complete portrait frame with adjacent stage narrative and vertical buttons",
+    "mobile": "Compact stage controls below media",
+    "nativeMediaVerified": true,
+    "pausedThroughout": true,
+    "idleSeeks": 0,
+    "layouts": [
+      {
+        "width": 1440,
+        "height": 1000,
+        "theme": "light",
+        "overflow": false,
+        "labelClearsHeader": true,
+        "controlsFit": true,
+        "errors": []
+      },
+      {
+        "width": 1440,
+        "height": 1000,
+        "theme": "dark",
+        "overflow": false,
+        "labelClearsHeader": true,
+        "controlsFit": true,
+        "errors": []
+      },
+      {
+        "width": 1024,
+        "height": 768,
+        "theme": "light",
+        "overflow": false,
+        "labelClearsHeader": true,
+        "controlsFit": true,
+        "errors": []
+      },
+      {
+        "width": 1024,
+        "height": 768,
+        "theme": "dark",
+        "overflow": false,
+        "labelClearsHeader": true,
+        "controlsFit": true,
+        "errors": []
+      },
+      {
+        "width": 1024,
+        "height": 576,
+        "theme": "light",
+        "overflow": false,
+        "labelClearsHeader": true,
+        "controlsFit": true,
+        "errors": []
+      },
+      {
+        "width": 1024,
+        "height": 576,
+        "theme": "dark",
+        "overflow": false,
+        "labelClearsHeader": true,
+        "controlsFit": true,
+        "errors": []
+      },
+      {
+        "width": 568,
+        "height": 320,
+        "theme": "light",
+        "overflow": false,
+        "labelClearsHeader": true,
+        "controlsFit": true,
+        "errors": []
+      },
+      {
+        "width": 568,
+        "height": 320,
+        "theme": "dark",
+        "overflow": false,
+        "labelClearsHeader": true,
+        "controlsFit": true,
+        "errors": []
+      }
+    ],
+    "isolatedScrollRecheck": {
+      "url": "http://127.0.0.1:3105/experience",
+      "errors": [],
+      "cases": [
+        {
+          "at": 0.68,
+          "elapsedMs": 30,
+          "time": 4.452918,
+          "duration": 6.583333,
+          "paused": true,
+          "hidden": false,
+          "active": "03Facade & finish"
+        },
+        {
+          "at": 0.2,
+          "elapsedMs": 16,
+          "time": 1.308421,
+          "duration": 6.583333,
+          "paused": true,
+          "hidden": false,
+          "active": "01The drawing"
+        },
+        {
+          "at": 0.9,
+          "elapsedMs": 25,
+          "time": 5.893181,
+          "duration": 6.583333,
+          "paused": true,
+          "hidden": false,
+          "active": "03Facade & finish"
+        },
+        {
+          "at": 1,
+          "elapsedMs": 16,
+          "time": 6.546162,
+          "duration": 6.583333,
+          "paused": true,
+          "hidden": false,
+          "active": "04The finished project"
+        },
+        {
+          "at": 0,
+          "elapsedMs": 16,
+          "time": 0,
+          "duration": 6.583333,
+          "paused": true,
+          "hidden": false,
+          "active": "01The drawing"
+        },
+        {
+          "at": 0.3,
+          "elapsedMs": 24,
+          "time": 1.966033,
+          "duration": 6.583333,
+          "paused": true,
+          "hidden": false,
+          "active": "02Storefront & glazing"
+        },
+        {
+          "at": 0.68,
+          "elapsedMs": 25,
+          "time": 4.452918,
+          "duration": 6.583333,
+          "paused": true,
+          "hidden": false,
+          "active": "03Facade & finish"
+        }
+      ],
+      "idleSeeks": 0
+    },
+    "scopedAxe": {
+      "violations": [],
+      "incomplete": ["color-contrast"]
+    },
+    "fallbacks": [
+      "Reduced motion: manual stage selection without native-scroll seeking",
+      "No JavaScript: complete poster and all stage descriptions",
+      "Video failure: compact static references"
+    ],
+    "note": "One delayed update during concurrent browser work passed isolated production forward/backward recheck; no repeatable media failure."
+  },
+  "productionPageChecks": [
+    {
+      "theme": "light",
+      "overflow": false,
+      "h1Count": 1,
+      "robots": "noindex, nofollow",
+      "choices": [
+        {
+          "href": "#residential-experience",
+          "visible": true
+        },
+        {
+          "href": "#commercial-experience",
+          "visible": true
+        }
+      ],
+      "webglCanvases": 0,
+      "errors": [],
+      "axe": {
+        "violations": [],
+        "passes": 24
+      },
+      "requestsAtOpening": [
+        "http://127.0.0.1:3105/_next/image?url=%2Fimages%2Fexperience%2Fliving-panorama.webp&w=640&q=75"
+      ]
+    },
+    {
+      "theme": "dark",
+      "overflow": false,
+      "h1Count": 1,
+      "robots": "noindex, nofollow",
+      "choices": [
+        {
+          "href": "#residential-experience",
+          "visible": true
+        },
+        {
+          "href": "#commercial-experience",
+          "visible": true
+        }
+      ],
+      "webglCanvases": 0,
+      "errors": [],
+      "axe": {
+        "violations": [],
+        "passes": 24
+      },
+      "requestsAtOpening": [
+        "http://127.0.0.1:3105/_next/image?url=%2Fimages%2Fexperience%2Fliving-panorama.webp&w=640&q=75"
+      ]
+    },
+    {
+      "mode": "no-js",
+      "textRooms": ["Living room", "Kitchen", "Bathroom"],
+      "links": [
+        "/projects/upper-west-side-apartment",
+        "/projects/upper-west-side-apartment",
+        "/projects/upper-west-side-apartment",
+        "/projects/plainview-kitchen",
+        "/projects/upper-west-side-apartment",
+        "/projects/plainview-kitchen",
+        "/projects/tribeca-apartment",
+        "/projects/tribeca-apartment",
+        "/projects/tribeca-apartment",
+        "/projects/raising-canes-forest-hills",
+        "/projects/raising-canes-forest-hills",
+        "/projects/upper-west-side-apartment",
+        "/projects/raising-canes-forest-hills"
+      ],
+      "overflow": false
+    }
+  ],
+  "seo": {
+    "prototypeNoindex": true,
+    "googlebotNoindex": true,
+    "excludedFromSitemap": true,
+    "normalServiceAndProjectAnchors": true,
+    "publishedProjectsOnly": true,
+    "scopeAudited": "Commercial scope limited to documented exterior storefront/facade. Residential concepts labeled imagined; actual portfolio remains CompanyCam photography."
+  },
+  "limitations": [
+    "Local desktop/mobile Chrome checks are not real-device Safari or Android field testing.",
+    "Lighthouse is a local simulated mobile lab result, not measured field Core Web Vitals.",
+    "Residential concepts and commercial animation are illustrative generated assets; room navigation is not free walking.",
+    "Experience scene configuration is currently curated in code, not admin-editable."
+  ],
+  "evidenceDirectories": [
+    "/tmp/reliant-room-qa",
+    "/tmp/reliant-commercial-sequence-qa-actual",
+    "/tmp/reliant-commercial-sequence-desktop-final",
+    "/tmp/reliant-experience-production-qa"
+  ],
+  "lighthouse": {
+    "version": "13.4.1",
+    "categories": {
+      "performance": 90,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 69
+    },
+    "metrics": {
+      "first-contentful-paint": 1527.3845999999999,
+      "largest-contentful-paint": 3608.1410000000005,
+      "total-blocking-time": 12.5,
+      "cumulative-layout-shift": 0.001421359044486089,
+      "speed-index": 1527.3845999999999
+    },
+    "replayLabelAudit": 1,
+    "seoNote": "The review route intentionally forbids indexing; its SEO score is reduced by this restriction."
+  }
+}

@@ -1,0 +1,337 @@
+.uf-brand-hero {
+  background: var(--rf-bg);
+  color: var(--rf-ink);
+}
+.uf-brand-stage {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 620px;
+  height: calc(100svh - 200px);
+  padding: 32px var(--rf-gutter) 42px;
+  overflow: hidden;
+  color: var(--rf-photo-ink);
+  background: var(--rf-photo-frame);
+}
+.uf-brand-photographs {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 0.48fr;
+  gap: 0;
+  background: var(--rf-photo-frame);
+}
+.uf-brand-photographs:has(> :only-child) {
+  grid-template-columns: 1fr;
+}
+.uf-brand-photo-commercial {
+  border-left: 2px solid #2463eb;
+}
+.uf-brand-photo {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+}
+.uf-brand-photo img {
+  object-fit: cover;
+  object-position: 50% 47%;
+}
+.uf-brand-photo-commercial img {
+  object-position: 54% 42%;
+}
+.uf-brand-stage::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgb(var(--rf-photo-tint) / 0.82),
+    rgb(var(--rf-photo-tint) / 0.15) 34%,
+    rgb(var(--rf-photo-tint) / 0.22) 48%,
+    rgb(var(--rf-photo-tint) / 0.96) 100%
+  );
+  pointer-events: none;
+}
+.uf-brand-signature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.uf-brand-name {
+  display: block;
+  font-size: clamp(100px, 13.9vw, 226px);
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.065em;
+  text-transform: uppercase;
+  margin-left: -0.065em;
+}
+.uf-brand-trade {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 14px;
+  font-size: 13px;
+  letter-spacing: 0.48em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.uf-brand-trade::before {
+  content: "";
+  width: 45px;
+  height: 3px;
+  background: var(--rf-accent);
+}
+.uf-brand-message {
+  max-width: 960px;
+  padding-top: 100px;
+}
+.rf-site .uf-brand-message h1 {
+  max-width: 900px;
+  font-size: clamp(34px, 3.15vw, 49px);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+  text-wrap: balance;
+}
+.uf-brand-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 36px;
+  margin-top: 29px;
+}
+.uf-brand-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  min-height: 54px;
+  padding-left: 20px;
+  border: 1px solid #90b2ff;
+  background: #195bdf;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background 180ms;
+}
+.uf-brand-primary > span {
+  display: grid;
+  place-items: center;
+  align-self: stretch;
+  width: 52px;
+  border-left: 1px solid #ffffff55;
+}
+.uf-brand-primary svg,
+.uf-brand-work svg,
+.uf-brand-introduction svg {
+  flex-shrink: 0;
+  transition: transform 220ms;
+}
+.uf-brand-primary:hover {
+  background: #134abd;
+}
+.uf-brand-primary:hover svg,
+.uf-brand-introduction a:hover svg {
+  transform: translate(3px, -3px);
+}
+.uf-brand-primary:active,
+.uf-brand-work:active {
+  transform: translateY(1px);
+}
+.uf-brand-work {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 38px;
+  min-height: 54px;
+  border-bottom: 1px solid var(--rf-photo-line);
+  color: var(--rf-photo-ink);
+  font-size: 12px;
+  font-weight: 600;
+}
+.uf-brand-work:hover svg {
+  transform: translateY(4px);
+}
+.uf-brand-introduction {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  align-items: center;
+  gap: 8%;
+  min-height: 200px;
+  padding-block: 34px;
+  border-bottom: 1px solid var(--rf-line);
+}
+.uf-brand-introduction > p {
+  max-width: 650px;
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--rf-muted);
+}
+.uf-brand-introduction nav {
+  display: flex;
+  flex-direction: column;
+}
+.uf-brand-introduction a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  min-height: 56px;
+  font-size: 16px;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--rf-ink);
+  border-bottom: 1px solid var(--rf-line);
+}
+.uf-brand-introduction a:last-child {
+  border-bottom: 0;
+}
+.uf-brand-introduction a:hover {
+  color: var(--rf-accent);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .uf-brand-photo img {
+    animation: uf-brand-settle 1200ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  }
+  .uf-brand-signature {
+    animation: uf-brand-arrive 700ms ease both;
+  }
+  .uf-brand-message {
+    animation: uf-brand-arrive 800ms 100ms ease both;
+  }
+}
+@keyframes uf-brand-settle {
+  from {
+    transform: scale(1.045);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes uf-brand-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (min-width: 1001px) and (max-width: 1250px) {
+  .uf-brand-name {
+    font-size: 13vw;
+  }
+  .uf-brand-introduction {
+    gap: 5%;
+  }
+  .uf-brand-introduction a {
+    font-size: 14px;
+  }
+}
+@media (max-width: 1000px) {
+  .uf-brand-hero {
+    padding-top: 84px;
+  }
+  .uf-brand-stage {
+    min-height: 620px;
+    height: calc(100svh - 84px);
+    padding: 32px var(--rf-gutter) 36px;
+  }
+  .uf-brand-name {
+    font-size: 19vw;
+  }
+  .uf-brand-message {
+    max-width: 730px;
+  }
+  .rf-site .uf-brand-message h1 {
+    font-size: clamp(34px, 5vw, 48px);
+  }
+  .uf-brand-introduction {
+    gap: 5%;
+  }
+}
+@media (max-width: 600px) {
+  .uf-brand-stage {
+    min-height: 570px;
+    height: calc(100svh - 84px);
+    max-height: 740px;
+    padding-top: 28px;
+  }
+  .uf-brand-name {
+    font-size: 19.6vw;
+  }
+  .uf-brand-trade {
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .uf-brand-trade::before {
+    width: 25px;
+    height: 2px;
+  }
+  .uf-brand-photographs {
+    grid-template-columns: 1fr 0.43fr;
+    gap: 0;
+  }
+  .uf-brand-photo-home img {
+    object-position: 53% 50%;
+  }
+  .uf-brand-photo-commercial img {
+    object-position: 50% 45%;
+  }
+  .uf-brand-stage::after {
+    background: linear-gradient(
+      180deg,
+      rgb(var(--rf-photo-tint) / 0.82),
+      rgb(var(--rf-photo-tint) / 0.05) 27%,
+      rgb(var(--rf-photo-tint) / 0.24) 42%,
+      rgb(var(--rf-photo-tint) / 0.97) 100%
+    );
+  }
+  .rf-site .uf-brand-message h1 {
+    max-width: 480px;
+    font-size: clamp(30px, 8.2vw, 42px);
+    line-height: 1.13;
+  }
+  .uf-brand-actions {
+    gap: 19px;
+    margin-top: 26px;
+  }
+  .uf-brand-primary {
+    gap: 16px;
+    min-height: 50px;
+    padding-left: 14px;
+    font-size: 11px;
+  }
+  .uf-brand-primary > span {
+    width: 42px;
+  }
+  .uf-brand-work {
+    gap: 14px;
+    min-height: 50px;
+    font-size: 11px;
+  }
+  .uf-brand-work svg {
+    width: 18px;
+  }
+  .uf-brand-introduction {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding-block: 33px 25px;
+  }
+  .uf-brand-introduction > p {
+    font-size: 13px;
+    line-height: 1.85;
+  }
+  .uf-brand-introduction a {
+    min-height: 58px;
+    font-size: 17px;
+  }
+}

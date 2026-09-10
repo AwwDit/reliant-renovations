@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Reliant — Visual direction study</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      :root {
+        color-scheme: light;
+        --ink: #202725;
+        --muted: #58625e;
+        --rule: #d5dbd7;
+        --accent: #1756b8;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 95px;
+      }
+      body {
+        margin: 0;
+        background: #f3f5f3;
+        color: var(--ink);
+        font:
+          16px/1.65 -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Arial,
+          sans-serif;
+      }
+      a {
+        color: inherit;
+        text-underline-offset: 4px;
+      }
+      a:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 6px;
+      }
+      .skip {
+        position: fixed;
+        left: 20px;
+        top: -100px;
+        z-index: 20;
+        padding: 12px;
+        background: white;
+      }
+      .skip:focus {
+        top: 10px;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        padding: 18px max(24px, calc((100vw - 1480px) / 2));
+        border-bottom: 1px solid var(--rule);
+        background: #f3f5f3f5;
+      }
+      header > a {
+        font-size: 13px;
+        font-weight: 650;
+        letter-spacing: 0.035em;
+        text-decoration: none;
+      }
+      header > a span {
+        color: var(--muted);
+        font-weight: 400;
+      }
+      nav {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      nav a {
+        font-size: 12px;
+        text-decoration: none;
+      }
+      nav a:hover {
+        color: var(--accent);
+      }
+      main {
+        width: min(1480px, calc(100% - 48px));
+        margin: auto;
+      }
+      .intro {
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 10%;
+        align-items: end;
+        padding: 80px 0 58px;
+      }
+      .eyebrow {
+        margin: 0 0 19px;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      h1 {
+        max-width: 760px;
+        margin: 0;
+        font-size: clamp(42px, 5.3vw, 80px);
+        font-weight: 450;
+        line-height: 1.05;
+        letter-spacing: -0.055em;
+      }
+      .intro-copy p {
+        margin: 0 0 18px;
+      }
+      .note {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .study {
+        margin: 0 0 88px;
+      }
+      .study-title {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: baseline;
+        padding: 18px 0;
+        border-top: 1px solid var(--rule);
+      }
+      .study-title h2 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 550;
+        letter-spacing: -0.02em;
+      }
+      .study-title span {
+        margin-right: 20px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 400;
+      }
+      .study-title a {
+        font-size: 12px;
+        white-space: nowrap;
+      }
+      figure {
+        margin: 0;
+      }
+      .artboard {
+        display: block;
+        text-decoration: none;
+        line-height: 0;
+      }
+      .artboard img {
+        width: 100%;
+        height: auto;
+        display: block;
+        background: #e6ebe7;
+      }
+      figcaption {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7%;
+        padding: 24px 0 0;
+      }
+      figcaption p {
+        margin: 0;
+        font-size: 14px;
+      }
+      figcaption strong {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+      .system {
+        padding: 0 0 70px;
+      }
+      .system h2 {
+        margin: 0 0 16px;
+        font-size: clamp(30px, 3vw, 48px);
+        line-height: 1.12;
+        letter-spacing: -0.04em;
+        font-weight: 450;
+      }
+      .system > p {
+        max-width: 780px;
+      }
+      .route {
+        display: grid;
+        grid-template-columns: 190px 1fr 1fr;
+        gap: 32px;
+        padding: 23px 0;
+        border-top: 1px solid var(--rule);
+      }
+      .route h3 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .route p {
+        margin: 0;
+        font-size: 14px;
+      }
+      .route p:last-child {
+        color: var(--muted);
+      }
+      .sequence {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 42px;
+        margin: 36px 0;
+      }
+      .sequence div {
+        border-top: 1px solid var(--ink);
+        padding-top: 18px;
+      }
+      .sequence h3 {
+        font-size: 16px;
+        margin: 0 0 8px;
+      }
+      .sequence p {
+        font-size: 14px;
+        margin: 0;
+      }
+      .production {
+        background: #202925;
+        color: #f1f4f1;
+        padding: 36px;
+        margin: 25px 0 75px;
+      }
+      .production h2 {
+        font-size: 21px;
+        font-weight: 450;
+        margin: 0 0 12px;
+      }
+      .production p {
+        max-width: 900px;
+        margin: 0 0 14px;
+        font-size: 14px;
+      }
+      .production a {
+        margin-right: 22px;
+        display: inline-block;
+      }
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 24px 0 40px;
+        border-top: 1px solid var(--rule);
+        color: var(--muted);
+        font-size: 12px;
+      }
+      @media (max-width: 760px) {
+        html {
+          scroll-padding-top: 115px;
+        }
+        header {
+          padding: 16px 20px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+        nav {
+          gap: 22px;
+        }
+        main {
+          width: calc(100% - 40px);
+        }
+        .intro {
+          grid-template-columns: 1fr;
+          gap: 28px;
+          padding: 45px 0 38px;
+        }
+        .intro-copy {
+          max-width: 580px;
+        }
+        .intro-copy p {
+          font-size: 14px;
+        }
+        .study {
+          margin-bottom: 54px;
+        }
+        .study-title {
+          gap: 12px;
+        }
+        .study-title h2 {
+          font-size: 15px;
+        }
+        .study-title span {
+          margin-right: 10px;
+        }
+        .study-title a {
+          font-size: 11px;
+        }
+        figcaption {
+          grid-template-columns: 1fr;
+          gap: 16px;
+          padding-top: 17px;
+        }
+        .route {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+        .sequence {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+        .system {
+          padding-bottom: 30px;
+        }
+        .production {
+          padding: 24px;
+          margin-bottom: 45px;
+        }
+        footer {
+          flex-direction: column;
+          gap: 8px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+      @media print {
+        header {
+          position: static;
+        }
+        .intro {
+          padding-top: 24px;
+        }
+        .study,
+        .route,
+        .production {
+          break-inside: avoid;
+        }
+        .study {
+          margin-bottom: 35px;
+        }
+        .production {
+          color: var(--ink);
+          background: transparent;
+          border: 1px solid var(--rule);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to the design study</a>
+    <header>
+      <a href="#main">RELIANT <span>/ Visual direction study</span></a>
+      <nav aria-label="Design studies">
+        <a href="#home">Home</a>
+        <a href="#residential">Residential</a>
+        <a href="#commercial">Commercial</a>
+        <a href="#whole-site">Whole site</a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="intro" aria-labelledby="title">
+        <div>
+          <p class="eyebrow">Proposed direction / September 2026</p>
+          <h1>A website you<br />move through.</h1>
+        </div>
+        <div class="intro-copy">
+          <p>
+            The architecture fills the screen. Movement reveals the work.
+            Residential and commercial have distinct experiences within one
+            clear, consistent website.
+          </p>
+          <p class="note">
+            Three visual references and a whole-site blueprint. These are
+            proposed designs; the controls pictured in the artboards are
+            illustrations. Open any image to inspect it at full size.
+          </p>
+        </div>
+      </section>
+      <section id="home" class="study" aria-labelledby="home-title">
+        <div class="study-title">
+          <h2 id="home-title"><span>01</span>Two clear entrances</h2>
+          <a href="assets/01-home.png">Open full-size study ↗</a>
+        </div>
+        <figure>
+          <a
+            class="artboard"
+            href="assets/01-home.png"
+            aria-label="Open the homepage visual study at full size"
+            ><img
+              src="assets/01-home.webp"
+              width="1586"
+              height="992"
+              fetchpriority="high"
+              alt="Proposed homepage: a deep residential doorway view on the left and a shaded commercial storefront CAD view on the right, with clear Residential and Commercial entrances."
+          /></a>
+          <figcaption>
+            <p>
+              <strong>The first decision is obvious.</strong>Residential and
+              commercial are equally visible. The approved CAD logo draws
+              briefly in the opening brand treatment while both destinations
+              remain available.
+            </p>
+            <p>
+              <strong>Proposed motion</strong>Choosing a division moves into
+              that space. The global navigation and direct project links remain
+              available throughout. The static layout works without playing an
+              entrance animation.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+      <section
+        id="residential"
+        class="study"
+        aria-labelledby="residential-title"
+      >
+        <div class="study-title">
+          <h2 id="residential-title">
+            <span>02</span>A home that explains the services
+          </h2>
+          <a href="assets/02-residential.png">Open full-size study ↗</a>
+        </div>
+        <figure>
+          <a
+            class="artboard"
+            href="assets/02-residential.png"
+            aria-label="Open the residential visual study at full size"
+            ><img
+              src="assets/02-residential.webp"
+              width="1536"
+              height="1024"
+              loading="lazy"
+              alt="Proposed immersive residential screen: a foreground oak doorway frames a living room and a kitchen beyond, with a millwork annotation, guided and free exploration choices, and a chapter rail."
+          /></a>
+          <figcaption>
+            <p>
+              <strong>One connected, imagined apartment.</strong>Entry, living
+              room, kitchen, bedroom and bathroom each reveal relevant services.
+              The same model supports a guided story and choosing your own
+              route. Every service can link to real completed work.
+            </p>
+            <p>
+              <strong>Proposed motion</strong>The camera travels at eye level
+              through actual door openings. Selecting millwork moves closer to
+              the cabinetry; selecting the kitchen takes a walkable route there.
+              Room and chapter labels in this early artboard are provisional.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+      <section id="commercial" class="study" aria-labelledby="commercial-title">
+        <div class="study-title">
+          <h2 id="commercial-title">
+            <span>03</span>The work, through the drawing
+          </h2>
+          <a href="assets/03-commercial.png">Open full-size study ↗</a>
+        </div>
+        <figure>
+          <a
+            class="artboard"
+            href="assets/03-commercial.png"
+            aria-label="Open the commercial visual study at full size"
+            ><img
+              src="assets/03-commercial.webp"
+              width="1586"
+              height="992"
+              loading="lazy"
+              alt="Proposed commercial screen: a human-scale shaded CAD storefront with precise selected-edge annotations, a concise glazing service explanation, and drawing-to-real-project chapters."
+          /></a>
+          <figcaption>
+            <p>
+              <strong>Scale, material and construction detail.</strong>A shaded
+              architectural model reveals the storefront, glazing, facade panels
+              and finish transitions. One selected component and one service
+              explanation hold attention at a time.
+            </p>
+            <p>
+              <strong>Proposed motion</strong>Scroll or select a chapter to move
+              from the drawing to the storefront and facade details, then the
+              real project photograph. The CAD interpretation is illustrative;
+              the final case study records Reliant’s documented scope.
+            </p>
+          </figcaption>
+        </figure>
+      </section>
+      <section id="whole-site" class="system" aria-labelledby="system-title">
+        <p class="eyebrow">The whole website</p>
+        <h2>One visual language.<br />A clear purpose for every page.</h2>
+        <p>
+          White navigation, precise sans-serif type, restrained cobalt selection
+          states and a graphite chapter rail connect the site. Photography and
+          the space supply the depth. Existing page addresses and project
+          publishing controls remain part of the plan.
+        </p>
+        <div class="route">
+          <h3>Home</h3>
+          <p>
+            Two architectural entrances; a brief CAD brand introduction; direct
+            access to the portfolio.
+          </p>
+          <p>
+            Visitors can choose their division immediately, including while the
+            logo draws.
+          </p>
+        </div>
+        <div class="route">
+          <h3>Residential</h3>
+          <p>
+            An eye-level apartment journey with Guided tour and Explore freely.
+            Readable service information follows the experience.
+          </p>
+          <p>
+            Kitchen, bathroom and whole-home renovation paths lead to genuine
+            case studies. Basements and exteriors have their own project links.
+          </p>
+        </div>
+        <div class="route">
+          <h3>Commercial</h3>
+          <p>
+            A full-viewport drawing experience with four chapters: Drawing,
+            Storefront, Facade &amp; finish, Real project.
+          </p>
+          <p>
+            Other commercial capabilities are supported by their relevant actual
+            projects. Cane’s exterior scope stays accurately bounded.
+          </p>
+        </div>
+        <div class="route">
+          <h3>Projects</h3>
+          <p>
+            A photography-led index with persistent Residential and Commercial
+            filters, readable project names and locations.
+          </p>
+          <p>
+            Visitors can browse the work directly. Viewing a tour is never
+            required to find a project.
+          </p>
+        </div>
+        <div class="route">
+          <h3>Project details</h3>
+          <p>
+            Real photography fills a restrained viewer. A consistent edge rail
+            supplies image navigation, project name, scope and inquiry access.
+          </p>
+          <p>
+            Every case study retains its own page, documented scope, accessible
+            gallery and links to related work.
+          </p>
+        </div>
+        <div class="route">
+          <h3>About</h3>
+          <p>
+            A quiet company story with real photography and concise process
+            information, using the same typography and precise spacing.
+          </p>
+          <p>
+            Trust comes from documented work and factual company information.
+          </p>
+        </div>
+        <div class="route">
+          <h3>Contact</h3>
+          <p>
+            A focused inquiry page with a clear residential or commercial
+            context and an easy-to-use form.
+          </p>
+          <p>
+            The site’s contact destination stays visible from every experience
+            and project page.
+          </p>
+        </div>
+        <div class="sequence">
+          <div>
+            <h3>Mobile</h3>
+            <p>
+              Touch-first room destinations and a compact chapter rail. The home
+              presents both divisions clearly. Readable service text and project
+              links remain outside the scene.
+            </p>
+          </div>
+          <div>
+            <h3>Motion</h3>
+            <p>
+              Camera travel has a destination and a reason. Reduced motion uses
+              direct changes of view. Ordinary page scrolling resumes beyond the
+              experience.
+            </p>
+          </div>
+          <div>
+            <h3>Search &amp; access</h3>
+            <p>
+              Services, headings and project links render as HTML. The scene
+              enhances those pages. Existing URLs, metadata, publication rules
+              and the prelaunch indexing gate are preserved.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="production" aria-labelledby="production-title">
+        <h2>What the next build needs</h2>
+        <p>
+          A connected apartment model with consistent doorways, furniture,
+          lighting and valid camera routes is the first production asset. The
+          present panorama viewer does not supply that geometry. The commercial
+          model also needs identifiable facade components for the proposed
+          close-up and assembly views.
+        </p>
+        <p>
+          These AI-generated images establish art direction. Production will use
+          the approved original transparent logos and CAD monogram, live HTML
+          text, and real photographs for the portfolio. The existing public site
+          has not been changed by this study.
+        </p>
+        <p>
+          <a href="experience-blueprint.md">Full experience blueprint</a
+          ><a href="3d-asset-feasibility.md">3D asset feasibility</a
+          ><a href="prompts.json">Image prompts &amp; references</a>
+        </p>
+      </section>
+      <footer>
+        <span>Reliant Renovations / Visual direction study</span
+        ><span
+          >Three generated references · Built-in image generation · 07 September
+          2026</span
+        >
+      </footer>
+    </main>
+  </body>
+</html>

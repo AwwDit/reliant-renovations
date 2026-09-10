@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-07",
+  "asset": "/images/experience/residential-entry.webp",
+  "purpose": "Imagined residential entrance, used as a homepage illustration and the apartment entry poster",
+  "tool": "Built-in image_gen.imagegen",
+  "reference": "docs/visual-direction/assets/02-residential.png",
+  "sourceOutput": "/Users/paulcastonguay/.codex/generated_images/01a078d4-cc97-7cd0-8a62-ad677c5062b9/exec-387db475-6369-449c-879d-de9a3b9ade21.png",
+  "processing": "WebP quality 93, original 1536x1024 dimensions. Served directly to avoid a second lossy hero conversion.",
+  "prompt": "Use case: precise-object-edit. Turn this residential website artboard into ONLY the full-bleed architectural interior photograph, a production background asset. Remove every piece of website UI, masthead, logo, words, service annotation, controls and bottom navigation. Extend the actual room architecture naturally into the removed UI regions. Preserve the same elegant connected apartment, same camera view through a close dark oak wall on LEFT with ceiling beam foreground, living room middle distance and kitchen far right, credible depth, beautiful natural daylight, white plaster, oak built-ins, pale upholstery, actual perspective and materials. Refine photographic quality and detail. Output a high-resolution 3:2 landscape architectural photo, no borders and no text of any kind. This is an imagined concept interior, not a real completed project.",
+  "truthfulness": "The entrance is an illustrative image. The connected Three.js apartment is authored separately and is not a client-property reconstruction. Completed-project galleries use actual CompanyCam photography."
+}

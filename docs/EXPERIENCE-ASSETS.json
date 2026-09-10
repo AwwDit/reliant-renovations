@@ -1,0 +1,136 @@
+{
+  "createdAt": "2026-09-07",
+  "route": "/experience",
+  "residentialSharedPrompt": "Create a single seamless 360-degree by 180-degree EQUIRECTANGULAR PANORAMA texture for an immersive spherical virtual-room viewer, not a normal wide-angle photograph, not a collage, no frame, no text. The entire horizontal span represents a full 360 degree turn. Left and right image edges are the same direction and must join seamlessly; straight room geometry stretches at the edges and ceiling/floor converge toward zenith/nadir across the top/bottom as in a true lat-long environment map. Camera is at adult eye height 1.6m in the center of one spacious realistic room. Front of room at center of panorama. Architectural photography, extremely photorealistic physically plausible surfaces, soft daylight, gentle practical lighting, realistic shadows and measured premium renovation quality. This is an imaginary residential design concept, no logos, no people, no giant fantasy windows or impossible cantilevers. A coherent New York renovation show home with warm natural oak, soft white painted walls, muted stone, dark hardware and understated brass accents. ",
+  "authorization": "User expressly authorized uploads of Upper West Side living-room, Tribeca bathroom and Raising Cane’s storefront photos on 2026-09-07. Prior kitchen upload also completed. Authorized references were uploaded; this initial residential concept set was generated from text before those additional uploads completed.",
+  "uploadedReferences": [
+    {
+      "source": "/images/projects/upper-west-side-apartment/06.webp",
+      "mediaId": "73e69f7c-de8f-43d7-bf7f-aac23204b686",
+      "usedInThisConceptSet": false
+    },
+    {
+      "source": "/images/projects/upper-west-side-apartment/01.webp",
+      "mediaId": "058083bc-b753-437e-be22-51dcb41e10eb",
+      "usedInThisConceptSet": false
+    },
+    {
+      "source": "/images/projects/tribeca-apartment/01.webp",
+      "mediaId": "59d4a94c-377c-445d-a0c1-1ee6145596f5",
+      "usedInThisConceptSet": false
+    },
+    {
+      "source": "/images/projects/raising-canes-forest-hills/01.webp",
+      "mediaId": "efb59a98-d86b-4e84-95b6-5573ad58ab5b",
+      "usedInThisConceptSet": true
+    }
+  ],
+  "residential": [
+    {
+      "id": "living",
+      "path": "/images/experience/living-panorama.webp",
+      "kind": "Generated imagined residential concept; not a real project photograph",
+      "provider": "Higgsfield",
+      "actualModel": "nano_banana_2",
+      "jobId": "fcb38a2f-3fd4-4786-961b-0b81a20deb45",
+      "sourceUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3GVysAtWuF8X6eIEWNCucW1quOo/hf_20260907_180324_fcb38a2f-3fd4-4786-961b-0b81a20deb45.png",
+      "sourceDimensions": [6336, 2688],
+      "deliveryWidth": 4096,
+      "encoding": "WebP quality 88",
+      "referenceImagesUsed": [],
+      "prompt": "LIVING ROOM: large oak built-in cabinetry and low shelving on the FRONT wall at panorama center with a discreet inset television, a comfortable light oatmeal fabric sofa opposite it behind the camera, sculptural dark navy armchair to the right front, natural oak plank flooring and carefully finished white baseboards, two tall believable windows on LEFT wall with sheer curtains and mature trees outside, broad open doorway to kitchen on RIGHT wall. Layered recessed ceiling lights plus wall sconces. Warm, refined, quiet afternoon. Show walls, complete ceiling and full floor in the spherical map.",
+      "projection": "Partial spherical look-around; configured 180° horizontal, 100° vertical. Not seamless 360°.",
+      "deliveryDimensions": [4096, 1738],
+      "bytes": 457894
+    },
+    {
+      "id": "kitchen",
+      "path": "/images/experience/kitchen-panorama.webp",
+      "kind": "Generated imagined residential concept; not a real project photograph",
+      "provider": "Higgsfield",
+      "actualModel": "nano_banana_2",
+      "jobId": "2a2cae47-37f1-49f8-b330-4d7a7bfb180c",
+      "sourceUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3GVysAtWuF8X6eIEWNCucW1quOo/hf_20260907_180324_2a2cae47-37f1-49f8-b330-4d7a7bfb180c.png",
+      "sourceDimensions": [6336, 2688],
+      "deliveryWidth": 4096,
+      "encoding": "WebP quality 88",
+      "referenceImagesUsed": [],
+      "prompt": "KITCHEN: large but attainable renovated apartment kitchen with flat natural-oak lower cabinets, soft-white uppers, pale stone backsplash and countertops, a central compact waterfall stone island just in front of viewer, a realistic black kitchen faucet on sink counter centered on FRONT wall, integrated appliances, a full-height pantry on RIGHT wall, window on LEFT wall, open doorway back to living room behind viewer. Oak flooring continuous from living room, subtle under-cabinet lighting, two understated pendant lamps, realistic cabinet joinery. All objects maintain scale and real wall connections. Show walls, complete ceiling and full floor.",
+      "projection": "Partial spherical look-around; configured 180° horizontal, 100° vertical. Not seamless 360°.",
+      "deliveryDimensions": [4096, 1738],
+      "bytes": 356028
+    },
+    {
+      "id": "bathroom",
+      "path": "/images/experience/bathroom-panorama.webp",
+      "kind": "Generated imagined residential concept; not a real project photograph",
+      "provider": "Higgsfield",
+      "actualModel": "nano_banana_2",
+      "jobId": "867a43a3-055d-4889-83a7-a9f7cf10c860",
+      "sourceUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3GVysAtWuF8X6eIEWNCucW1quOo/hf_20260907_180324_867a43a3-055d-4889-83a7-a9f7cf10c860.png",
+      "sourceDimensions": [6336, 2688],
+      "deliveryWidth": 4096,
+      "encoding": "WebP quality 88",
+      "referenceImagesUsed": [],
+      "prompt": "BATHROOM: generous but believable renovated bathroom, FRONT wall at panorama center has a beautiful natural-oak vanity with vertically fluted doors, pale stone countertop, undermount sink, brushed-brass faucet, two brass wall sconces flanking a rectangular mirror. To LEFT a walk-in shower with frameless glass, muted stone tile walls and niche. To RIGHT white painted walls and a towel rail with clean white towels, a discreet door. Small black-and-white mosaic floor, no bathtub. Soft daylight through small frosted window, warm practical light. Show all walls, full ceiling and floor in lat-long spherical projection.",
+      "projection": "Partial spherical look-around; configured 180° horizontal, 100° vertical. Not seamless 360°.",
+      "deliveryDimensions": [4096, 1738],
+      "bytes": 463818
+    }
+  ],
+  "commercial": {
+    "projectSlug": "raising-canes-forest-hills",
+    "scope": "Exterior glass storefront, metal and ACM facade panels, transitions and trim. No claim to restaurant interior buildout.",
+    "cad": {
+      "path": "/images/experience/commercial-cad.webp",
+      "provider": "Higgsfield",
+      "model": "gpt_image_2",
+      "jobId": "d5046e0e-59bd-4e22-9a61-a97e183fdcc4",
+      "sourceUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3GVysAtWuF8X6eIEWNCucW1quOo/hf_20260907_180630_d5046e0e-59bd-4e22-9a61-a97e183fdcc4.png",
+      "prompt": "Using the reference photo as an exact camera and architectural composition lock, convert the real Raising Cane's storefront into a premium 3D architectural CAD/BIM viewport render. This is the START frame for a CAD-to-completed-storefront transformation. Preserve the exact perspective, framing, storefront position, glazing mullions, projecting fascia and canopy, proportions of the large letter signage and all visible actual building geometry. The scene is full-scale street architecture seen from human eye level, NOT a tabletop miniature or floating dollhouse. Depict the architectural surfaces as precise matte warm-white/light-gray solid volumes with fine graphite visible-edge linework and physically convincing ambient occlusion and contact shadows. Glazing is faint translucent neutral gray showing structural depth. Most surfaces are opaque shaded solids, NOT a simple outline or an edge-filter of the photo. Surrounding street context is unobtrusive pale-gray clay geometry. Remove people, cars, cones and foreground temporary items from this illustrative drawing frame. Blank pale-gray overcast sky. Keep signage as exact uncolored raised letter geometry; no new text, no annotations, no numbers, no grid, no blueprint paper, no neon, no cursor, no diagram labels. Professional Autodesk/Revit hidden-line plus shaded technical perspective output, sophisticated realistic depth. Preserve the original 3:4 aspect ratio and camera perfectly.",
+      "reference": "efb59a98-d86b-4e84-95b6-5573ad58ab5b",
+      "encoding": "WebP width1600 quality88",
+      "deliveryDimensions": [1600, 2143],
+      "bytes": 325546
+    },
+    "video": {
+      "path": "/experience/commercial-transformation.mp4",
+      "provider": "Higgsfield",
+      "model": "minimax_h3",
+      "jobId": "d6869f4a-365d-49cf-830c-87abaf2b3ce6",
+      "sourceUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3GVysAtWuF8X6eIEWNCucW1quOo/hf_20260907_181634_d6869f4a-365d-49cf-830c-87abaf2b3ce6.mp4",
+      "params": {
+        "model": "minimax_h3",
+        "resolution": "2K",
+        "aspect_ratio": "3:4",
+        "duration": 6,
+        "count": 1,
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "d5046e0e-59bd-4e22-9a61-a97e183fdcc4"
+          },
+          {
+            "role": "end_image",
+            "value": "efb59a98-d86b-4e84-95b6-5573ad58ab5b"
+          }
+        ],
+        "prompt": "A refined architectural visualization of this exact Raising Cane's storefront becoming its completed real-world project. Begin with the supplied full-scale shaded white BIM/CAD model and finish exactly on the supplied completed storefront photograph. Keep the same camera angle, geometry, scale, crop and perspective throughout, as if the camera is locked on a tripod. Hold the clean solid CAD study briefly, then progressively resolve the large glazing panels into realistic transparent glass, the metal facade and ACM panel surfaces into their finished colors and materials, the sign into its exact original red/white appearance, and finally resolve the surrounding sidewalk, sky and people into the exact supplied final photograph. Continuous believable material development over four seconds with subtle physically realistic ambient shadows. Hold completed photo for final second. Sophisticated architecture studio presentation; a smoothly evolving rendered building, no flying or assembling parts, no toy miniature, no extrusions, no jigsaw blocks, no dissolving geometry, no camera orbit or zoom, no paper grid, no blueprint background, no animated cursor, no dimension labels, no invented words or distorted signage. The source and final building silhouette and windows stay precisely aligned. No audio, no music."
+      },
+      "durationSeconds": 6.583333,
+      "dimensions": [1080, 1440],
+      "framesPerSecond": 24,
+      "bytes": 5293034,
+      "encoding": "H.264 yuv420p CRF23 keyframes every6frames, faststart, no audio",
+      "kind": "Illustrative architectural transformation anchored by a real final-photo reference; not historical construction footage."
+    }
+  },
+  "logo": {
+    "contours": "lib/experience-logo-paths.ts",
+    "source": "Existing approved exact logo contour trace",
+    "finalLight": "/images/brand/reliant-color-transparent.png",
+    "finalDark": "/images/brand/reliant-white-transparent.png",
+    "inc": "Existing approved regular-weight INC in white version preserved"
+  },
+  "sourceArchivalNote": "Original large image/video files kept outside public during development at /tmp/reliant-experience-sources. Source URLs and generation IDs above allow re-download; only optimized delivery files are required by the app."
+}

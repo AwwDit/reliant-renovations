@@ -1,0 +1,207 @@
+{
+  "viewports": [
+    {
+      "theme": "light",
+      "width": 1440,
+      "division": "Residential",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "division": "Commercial",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "division": "Residential",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "division": "Commercial",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "division": "Residential",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "division": "Commercial",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "division": "Residential",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "division": "Commercial",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "division": "Residential",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "division": "Commercial",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "division": "Residential",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "division": "Commercial",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "division": "Residential",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "division": "Commercial",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "division": "Residential",
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "division": "Commercial",
+      "overflow": false,
+      "violations": []
+    }
+  ],
+  "projects": [
+    {
+      "division": "Residential",
+      "title": "Upper West Side Apartment",
+      "photos": 3
+    },
+    {
+      "division": "Residential",
+      "title": "Tribeca Apartment",
+      "photos": 3
+    },
+    {
+      "division": "Residential",
+      "title": "Plainview Kitchen",
+      "photos": 3
+    },
+    {
+      "division": "Residential",
+      "title": "Hicksville Basement",
+      "photos": 3
+    },
+    {
+      "division": "Residential",
+      "title": "Kings Park Exterior",
+      "photos": 3
+    },
+    {
+      "division": "Commercial",
+      "title": "Raising Cane’s",
+      "photos": 3
+    },
+    {
+      "division": "Commercial",
+      "title": "Harbor Freight",
+      "photos": 3
+    },
+    {
+      "division": "Commercial",
+      "title": "Chick-fil-A",
+      "photos": 3
+    },
+    {
+      "division": "Commercial",
+      "title": "Lidl Staten Island",
+      "photos": 3
+    },
+    {
+      "division": "Commercial",
+      "title": "Lidl Harlem",
+      "photos": 3
+    }
+  ],
+  "errors": [],
+  "seo": {
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "worldShell": false,
+    "generatedMedia": 0,
+    "conceptInSitemap": false
+  },
+  "motion": {
+    "pointer": {
+      "x": "0.6121862489410124",
+      "frame": "matrix3d(0.996195, 0, -0.0871557, 0, 0, 1, 0, 0, 0.0871557, 0, 0.996195, 0, 7.34623, -3.83308, 35, 1)"
+    },
+    "reduced": "none"
+  },
+  "modalViolations": [],
+  "noJS": {
+    "h1": 1,
+    "projectLinks": 10
+  },
+  "lighthouse": {
+    "environment": "Local production build, simulated mobile. Lab results, not field data.",
+    "scores": {
+      "performance": 0.91,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 0.66
+    },
+    "metrics": {
+      "first-contentful-paint": "1.4 s",
+      "largest-contentful-paint": "3.5 s",
+      "total-blocking-time": "20 ms",
+      "cumulative-layout-shift": "0.001"
+    },
+    "notes": [
+      "Noindex is intentional for the isolated concept route; this lowers Lighthouse SEO score.",
+      "LCP is 3.5 seconds in this lab run, above the 2.5-second target. Global inherited CSS/font delivery remains a rollout optimization."
+    ]
+  }
+}

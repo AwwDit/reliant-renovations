@@ -1,0 +1,189 @@
+{
+  "sourceDocument": "Reliant_Renovations_Website_Designer_Package.docx",
+  "sourceSections": ["5. Commercial Portfolio", "6. Residential Portfolio"],
+  "notes": [
+    "Project titles, category headings, descriptions and scope items are verbatim from the supplied document.",
+    "The document provides no separate subtitle fields or project result paragraphs. These fields are intentionally empty.",
+    "The centered italic text following each scope list is a photography caption and is not used as a result claim."
+  ],
+  "projects": [
+    {
+      "id": "8310b735-2c9a-51e9-b450-14c0ddefaba5",
+      "slug": "chick-fil-a-kingston",
+      "title": "Chick-fil-A - Ground-Up Carpentry and Interior Buildout",
+      "subtitle": "",
+      "category": "GROUND-UP COMMERCIAL CONSTRUCTION",
+      "description": "Reliant Renovations completed the comprehensive carpentry and interior-finish package for the ground-up construction of a new restaurant, carrying its scope from initial wood framing through completed interior finishes.",
+      "result": "",
+      "scope": [
+        "Complete wood stick framing",
+        "Installation of structural roof trusses and roof framing",
+        "Framing of all interior partitions and soffits",
+        "Drywall installation, taping, spackling and finishing",
+        "Interior painting",
+        "Suspended ceiling-grid installation",
+        "Wall wainscoting and stainless-steel trim",
+        "Interior door installation",
+        "Coordination with the project team and other trades"
+      ]
+    },
+    {
+      "id": "a24a0fde-1f30-5ebd-ad72-ea8305fd5026",
+      "slug": "lidl-staten-island",
+      "title": "Lidl Staten Island - Masonry and Exterior Restoration",
+      "subtitle": "",
+      "category": "COMMERCIAL RETAIL RENOVATION",
+      "description": "Reliant Renovations completed masonry, exterior EIFS repair and concrete-floor finishing work at an existing retail location, including extensive interior and exterior repairs.",
+      "result": "",
+      "scope": [
+        "Project masonry scope",
+        "Exterior EIFS facade repairs and restoration",
+        "Numerous interior masonry repairs",
+        "Masonry work and repairs within the elevator shaft",
+        "Grinding and sealing of basement and cellar concrete floors",
+        "Coordination of multiple interior and exterior scopes"
+      ]
+    },
+    {
+      "id": "25fc77f4-6772-5b6d-bf4b-e12c456168ca",
+      "slug": "raising-canes-forest-hills",
+      "title": "Raising Cane's - Storefront and Exterior Facade",
+      "subtitle": "",
+      "category": "COMMERCIAL RESTAURANT RENOVATION",
+      "description": "Reliant Renovations completed the glass storefront and exterior facade package for an urban Raising Cane's restaurant location.",
+      "result": "",
+      "scope": [
+        "Glass storefront installation",
+        "Exterior metal-panel installation",
+        "ACM composite-panel facade installation",
+        "Field coordination of storefront and facade transitions",
+        "Associated exterior trim and finish work"
+      ]
+    },
+    {
+      "id": "9a81aae2-1785-5014-a55a-9a171059b133",
+      "slug": "harbor-freight-bronx",
+      "title": "Harbor Freight - Interior and Exterior Retail Refresh",
+      "subtitle": "",
+      "category": "COMMERCIAL RETAIL RENOVATION",
+      "description": "Reliant Renovations completed a comprehensive interior and exterior refresh of an operating retail location. The work was phased and performed during off-hours to minimize disruption to store operations.",
+      "result": "",
+      "scope": [
+        "Repainting of the entire retail interior",
+        "Construction of new interior partitions",
+        "Removal of designated exterior doors and infill with concrete masonry units",
+        "Preparation and repainting of the entire building exterior",
+        "Installation of new exterior bollards",
+        "Associated patching, preparation and finish work",
+        "Off-hours coordination around active store operations"
+      ]
+    },
+    {
+      "id": "4f391daf-b4ff-566e-92f7-894b74f232ee",
+      "slug": "lidl-harlem",
+      "title": "Lidl Harlem - Flooring and Selective Demolition",
+      "subtitle": "",
+      "category": "COMMERCIAL RETAIL RENOVATION",
+      "description": "Reliant Renovations completed a multi-phase demolition and polished-concrete flooring package within an existing supermarket. All work was performed during off-hours to accommodate store operations.",
+      "result": "",
+      "scope": [
+        "Demolition and removal of existing first-floor flooring",
+        "Demolition and removal of existing cellar-level flooring",
+        "Selective demolition of interior partitions",
+        "Preparation of exposed concrete surfaces",
+        "Polished concrete flooring throughout the first floor and cellar",
+        "Off-hours coordination to minimize operational disruption"
+      ]
+    },
+    {
+      "id": "d79a6ca3-1520-5a57-b46e-cec273f5a9e9",
+      "slug": "upper-west-side-apartment",
+      "title": "Upper West Side Full Apartment Renovation",
+      "subtitle": "",
+      "category": "RESIDENTIAL - FULL APARTMENT RENOVATION",
+      "description": "Reliant Renovations completed a full apartment renovation incorporating a custom millwork kitchen, bathroom renovation, new hardwood floors, custom doors and comprehensive finish work.",
+      "result": "",
+      "scope": [
+        "Complete apartment renovation",
+        "Custom millwork kitchen and cabinetry",
+        "Bathroom renovation",
+        "Installation of new hardwood flooring",
+        "Custom interior doors and millwork details",
+        "Complete apartment painting and finish work",
+        "Coordination of all required trades"
+      ]
+    },
+    {
+      "id": "7b804f3f-f072-5c4a-aed4-fcf39570abff",
+      "slug": "plainview-kitchen",
+      "title": "Plainview Kitchen and Open-Concept Renovation",
+      "subtitle": "",
+      "category": "RESIDENTIAL - KITCHEN AND FIRST-FLOOR RENOVATION",
+      "description": "Reliant Renovations completed a comprehensive kitchen and first-floor renovation designed to create a more open and functional living environment.",
+      "result": "",
+      "scope": [
+        "Removal of walls and installation of a structural steel header to open the floor plan",
+        "Relocation of plumbing for the new kitchen layout",
+        "Supply and installation of custom kitchen cabinetry",
+        "Fabrication and installation of a custom range hood",
+        "Custom island accent feature",
+        "New hardwood flooring in the kitchen",
+        "Refinishing of existing hardwood flooring throughout adjoining areas",
+        "Repainting of the entire first floor",
+        "Complete kitchen renovation from demolition through final finishes"
+      ]
+    },
+    {
+      "id": "4dce6d00-bab2-5b3d-a81f-a05c224b6ce6",
+      "slug": "tribeca-apartment",
+      "title": "Tribeca Apartment and Bathroom Renovation",
+      "subtitle": "",
+      "category": "RESIDENTIAL - APARTMENT RENOVATION",
+      "description": "Reliant Renovations renovated two bathrooms and refreshed the full apartment through comprehensive painting and hardwood-floor refinishing.",
+      "result": "",
+      "scope": [
+        "Complete renovation of two bathrooms",
+        "New bathroom tile, fixtures and finish work",
+        "Preparation and repainting throughout the apartment",
+        "Refinishing of existing hardwood flooring",
+        "Associated carpentry, patching and trade coordination"
+      ]
+    },
+    {
+      "id": "38e6f59f-d3df-52c2-bc8a-9625a16b3960",
+      "slug": "hicksville-basement",
+      "title": "Hicksville Full Basement Renovation",
+      "subtitle": "",
+      "category": "RESIDENTIAL - BASEMENT RENOVATION",
+      "description": "Reliant Renovations transformed the existing basement into a completely finished living space, managing the project from its original condition through final completion.",
+      "result": "",
+      "scope": [
+        "Complete basement renovation from demolition through finishes",
+        "New interior framing and layout",
+        "Finished walls and ceilings",
+        "Electrical and lighting improvements",
+        "Interior doors, trim and finish carpentry",
+        "Flooring installation",
+        "Complete painting and finish work",
+        "Coordination of all required trades"
+      ]
+    },
+    {
+      "id": "e9eea623-a7b2-5ce7-8f44-de1069ea817f",
+      "slug": "kings-park-exterior",
+      "title": "Kings Park Exterior Transformation",
+      "subtitle": "",
+      "category": "RESIDENTIAL - EXTERIOR RENOVATION",
+      "description": "Reliant Renovations completed a full exterior renovation that modernized the home and improved its building envelope.",
+      "result": "",
+      "scope": [
+        "Removal of existing siding and windows",
+        "Supply and installation of new exterior siding",
+        "Supply and installation of new windows throughout the home",
+        "Installation of new exterior stone finishes",
+        "Interior patching, preparation and painting around replaced windows",
+        "Associated exterior trim and finish work"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "viewports": [
+    {
+      "width": 1440,
+      "filter": "all",
+      "count": 10,
+      "aligned": true
+    },
+    {
+      "width": 1440,
+      "filter": "commercial",
+      "count": 5,
+      "aligned": true
+    },
+    {
+      "width": 1440,
+      "filter": "residential",
+      "count": 5,
+      "aligned": true
+    },
+    {
+      "width": 768,
+      "filter": "all",
+      "count": 10,
+      "aligned": true
+    },
+    {
+      "width": 768,
+      "filter": "commercial",
+      "count": 5,
+      "aligned": true
+    },
+    {
+      "width": 768,
+      "filter": "residential",
+      "count": 5,
+      "aligned": true
+    },
+    {
+      "width": 390,
+      "filter": "all",
+      "count": 10,
+      "aligned": true
+    },
+    {
+      "width": 390,
+      "filter": "commercial",
+      "count": 5,
+      "aligned": true
+    },
+    {
+      "width": 390,
+      "filter": "residential",
+      "count": 5,
+      "aligned": true
+    },
+    {
+      "width": 320,
+      "filter": "all",
+      "count": 10,
+      "aligned": true
+    },
+    {
+      "width": 320,
+      "filter": "commercial",
+      "count": 5,
+      "aligned": true
+    },
+    {
+      "width": 320,
+      "filter": "residential",
+      "count": 5,
+      "aligned": true
+    }
+  ],
+  "errors": []
+}

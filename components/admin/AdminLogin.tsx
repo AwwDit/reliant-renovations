@@ -1,0 +1,146 @@
+"use client";
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { ArrowRight, LockKey, Eye, EyeSlash } from "@phosphor-icons/react";
+import { ThemeToggle } from "@/components/theme-toggle";
+
+export function AdminAuthShell({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="ad-auth-wrap">
+      <header className="ad-auth-header">
+        <Link className="ad-auth-brand" href="/">
+          <Image
+            src="/images/brand/reliant-color-transparent.png"
+            alt="Reliant Renovations Inc."
+            width={142}
+            height={100}
+            className="ad-brand-image"
+          />
+        </Link>
+        <ThemeToggle />
+      </header>
+      <main className="ad-auth-layout">
+        <figure className="ad-auth-visual">
+          <Image
+            src="/images/projects/upper-west-side-apartment/01.webp"
+            alt="Custom wood kitchen cabinetry and sink in an Upper West Side apartment"
+            fill
+            sizes="(max-width: 860px) 100vw, 45vw"
+          />
+          <figcaption>
+            <span>Upper West Side apartment</span>
+            <span>Residential</span>
+          </figcaption>
+        </figure>
+        <div className="ad-auth-panel">
+          <div className="ad-auth-content">{children}</div>
+          <footer className="ad-auth-footer">
+            RELIANT RENOVATIONS · OWNER ACCESS
+          </footer>
+        </div>
+      </main>
+    </div>
+  );
+}
+
+export function AdminLogin() {
+  const router = useRouter();
+  const [password, setPassword] = useState("");
+  const [visible, setVisible] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+  async function submit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setBusy(true);
+    setError("");
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || "Unable to sign in.");
+      router.refresh();
+    } catch (error) {
+      setError(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again.",
+      );
+      setBusy(false);
+    }
+  }
+  return (
+    <AdminAuthShell>
+      <section className="ad-auth-card" aria-labelledby="admin-login-title">
+        <div className="ad-auth-kicker">
+          <div className="ad-eyebrow">OWNER WORKSPACE</div>
+          <LockKey size={20} aria-hidden="true" />
+        </div>
+        <h1 id="admin-login-title">Welcome back.</h1>
+        <p>
+          Good work deserves to be seen. Sign in to manage your projects and new
+          inquiries.
+        </p>
+        <form onSubmit={submit} aria-busy={busy}>
+          <label className="ad-label" htmlFor="admin-password">
+            Password
+          </label>
+          <div className="ad-password">
+            <input
+              id="admin-password"
+              type={visible ? "text" : "password"}
+              autoComplete="current-password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              required
+              maxLength={512}
+              aria-invalid={error ? true : undefined}
+              aria-describedby={error ? "admin-login-error" : undefined}
+              autoFocus
+            />
+            <button
+              type="button"
+              className="ad-icon-button"
+              aria-label={visible ? "Hide password" : "Show password"}
+              aria-pressed={visible}
+              onClick={() => setVisible(!visible)}
+            >
+              {visible ? (
+                <EyeSlash size={19} aria-hidden="true" />
+              ) : (
+                <Eye size={19} aria-hidden="true" />
+              )}
+            </button>
+          </div>
+          {error && (
+            <p className="ad-error" id="admin-login-error" role="alert">
+              {error}
+            </p>
+          )}
+          <button
+            className="ad-button ad-primary ad-auth-submit"
+            disabled={busy}
+          >
+            {busy ? "Signing in…" : "Sign in"}
+            <span className="ad-button-icon" aria-hidden="true">
+              <ArrowRight size={19} />
+            </span>
+          </button>
+          <Link
+            className="ad-text-link ad-auth-forgot"
+            href="/admin/forgot-password"
+          >
+            Forgot your password?
+          </Link>
+        </form>
+        <Link className="ad-text-link" href="/">
+          ← Back to the website
+        </Link>
+      </section>
+    </AdminAuthShell>
+  );
+}

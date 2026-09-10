@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+.env*
+!.env.example
+data/
+public/uploads/
+*.tsbuildinfo
+test-results/
+playwright-report/
+.DS_Store
+
+# Generated visual checks and email previews; keep source assets and design notes.
+docs/*-2026/*.png
+docs/*-2026/*checks.json
+docs/*-2026/*lighthouse*
+docs/*-2026/previews/

@@ -1,0 +1,267 @@
+{
+  "reviewFile": "file:///Users/paulcastonguay/Git/reliant-renos/docs/visual-direction/index.html",
+  "checkedAt": "2026-09-07T19:44:36.942Z",
+  "views": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "overflow": false,
+      "images": [
+        {
+          "src": "assets/01-home.webp",
+          "complete": true,
+          "naturalWidth": 1586,
+          "naturalHeight": 992,
+          "attributeWidth": 1586,
+          "attributeHeight": 992
+        },
+        {
+          "src": "assets/02-residential.webp",
+          "complete": true,
+          "naturalWidth": 1536,
+          "naturalHeight": 1024,
+          "attributeWidth": 1536,
+          "attributeHeight": 1024
+        },
+        {
+          "src": "assets/03-commercial.webp",
+          "complete": true,
+          "naturalWidth": 1586,
+          "naturalHeight": 992,
+          "attributeWidth": 1586,
+          "attributeHeight": 992
+        }
+      ],
+      "anchors": [
+        {
+          "href": "#main",
+          "targetExists": true
+        },
+        {
+          "href": "#main",
+          "targetExists": true
+        },
+        {
+          "href": "#home",
+          "targetExists": true
+        },
+        {
+          "href": "#residential",
+          "targetExists": true
+        },
+        {
+          "href": "#commercial",
+          "targetExists": true
+        },
+        {
+          "href": "#whole-site",
+          "targetExists": true
+        }
+      ],
+      "errors": [],
+      "navChecks": [
+        {
+          "href": "#home",
+          "hash": "#home",
+          "targetTop": 94.828125,
+          "headerBottom": 58.4375
+        },
+        {
+          "href": "#residential",
+          "hash": "#residential",
+          "targetTop": 95.453125,
+          "headerBottom": 58.4375
+        },
+        {
+          "href": "#commercial",
+          "hash": "#commercial",
+          "targetTop": 94.515625,
+          "headerBottom": 58.4375
+        },
+        {
+          "href": "#whole-site",
+          "hash": "#whole-site",
+          "targetTop": 95.234375,
+          "headerBottom": 58.4375
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "images": [
+        {
+          "src": "assets/01-home.webp",
+          "complete": true,
+          "naturalWidth": 1586,
+          "naturalHeight": 992,
+          "attributeWidth": 1586,
+          "attributeHeight": 992
+        },
+        {
+          "src": "assets/02-residential.webp",
+          "complete": true,
+          "naturalWidth": 1536,
+          "naturalHeight": 1024,
+          "attributeWidth": 1536,
+          "attributeHeight": 1024
+        },
+        {
+          "src": "assets/03-commercial.webp",
+          "complete": true,
+          "naturalWidth": 1586,
+          "naturalHeight": 992,
+          "attributeWidth": 1586,
+          "attributeHeight": 992
+        }
+      ],
+      "anchors": [
+        {
+          "href": "#main",
+          "targetExists": true
+        },
+        {
+          "href": "#main",
+          "targetExists": true
+        },
+        {
+          "href": "#home",
+          "targetExists": true
+        },
+        {
+          "href": "#residential",
+          "targetExists": true
+        },
+        {
+          "href": "#commercial",
+          "targetExists": true
+        },
+        {
+          "href": "#whole-site",
+          "targetExists": true
+        }
+      ],
+      "errors": [],
+      "navChecks": [
+        {
+          "href": "#home",
+          "hash": "#home",
+          "targetTop": 115.21875,
+          "headerBottom": 86.234375
+        },
+        {
+          "href": "#residential",
+          "hash": "#residential",
+          "targetTop": 114.71875,
+          "headerBottom": 86.234375
+        },
+        {
+          "href": "#commercial",
+          "hash": "#commercial",
+          "targetTop": 114.578125,
+          "headerBottom": 86.234375
+        },
+        {
+          "href": "#whole-site",
+          "hash": "#whole-site",
+          "targetTop": 114.921875,
+          "headerBottom": 86.234375
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "file": "assets/01-home.png",
+      "width": 1586,
+      "height": 992,
+      "format": "png",
+      "bytes": 2007711
+    },
+    {
+      "file": "assets/01-home.webp",
+      "width": 1586,
+      "height": 992,
+      "format": "webp",
+      "bytes": 195090
+    },
+    {
+      "file": "assets/02-residential.png",
+      "width": 1536,
+      "height": 1024,
+      "format": "png",
+      "bytes": 1928685
+    },
+    {
+      "file": "assets/02-residential.webp",
+      "width": 1536,
+      "height": 1024,
+      "format": "webp",
+      "bytes": 148110
+    },
+    {
+      "file": "assets/03-commercial.png",
+      "width": 1586,
+      "height": 992,
+      "format": "png",
+      "bytes": 1781343
+    },
+    {
+      "file": "assets/03-commercial.webp",
+      "width": 1586,
+      "height": 992,
+      "format": "webp",
+      "bytes": 141628
+    }
+  ],
+  "localReferences": [
+    {
+      "url": "file:///Users/paulcastonguay/Git/reliant-renos/docs/visual-direction/assets/01-home.png",
+      "exists": true
+    },
+    {
+      "url": "file:///Users/paulcastonguay/Git/reliant-renos/docs/visual-direction/assets/01-home.webp",
+      "exists": true
+    },
+    {
+      "url": "file:///Users/paulcastonguay/Git/reliant-renos/docs/visual-direction/assets/02-residential.png",
+      "exists": true
+    },
+    {
+      "url": "file:///Users/paulcastonguay/Git/reliant-renos/docs/visual-direction/assets/02-residential.webp",
+      "exists": true
+    },
+    {
+      "url": "file:///Users/paulcastonguay/Git/reliant-renos/docs/visual-direction/assets/03-commercial.png",
+      "exists": true
+    },
+    {
+      "url": "file:///Users/paulcastonguay/Git/reliant-renos/docs/visual-direction/assets/03-commercial.webp",
+      "exists": true
+    },
+    {
+      "url": "file:///Users/paulcastonguay/Git/reliant-renos/docs/visual-direction/experience-blueprint.md",
+      "exists": true
+    },
+    {
+      "url": "file:///Users/paulcastonguay/Git/reliant-renos/docs/visual-direction/3d-asset-feasibility.md",
+      "exists": true
+    },
+    {
+      "url": "file:///Users/paulcastonguay/Git/reliant-renos/docs/visual-direction/prompts.json",
+      "exists": true
+    }
+  ],
+  "contentReview": {
+    "honest": true,
+    "evidence": [
+      "Intro explicitly describes proposed designs and illustrated controls.",
+      "Production section explicitly calls images AI-generated art direction.",
+      "Production section says the present panorama viewer does not supply connected geometry.",
+      "Connected apartment and component-based commercial models are described as assets the next build needs."
+    ],
+    "live3DClaim": false
+  },
+  "passed": true
+}

@@ -1,0 +1,30 @@
+{
+  "license": "CC0",
+  "licenseUrl": "https://polyhaven.com/license",
+  "assets": [
+    {
+      "file": "wood-color.webp",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_floor/wood_floor_diff_1k.jpg",
+      "license": "CC0",
+      "source": "https://polyhaven.com/a/wood_floor",
+      "originalFile": "docs/source-assets/apartment/wood-color.jpg",
+      "processing": "Original 1024x1024 dimensions; WebP quality 91 (color/roughness) or 96 (normal)."
+    },
+    {
+      "file": "wood-normal.webp",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_floor/wood_floor_nor_gl_1k.jpg",
+      "license": "CC0",
+      "source": "https://polyhaven.com/a/wood_floor",
+      "originalFile": "docs/source-assets/apartment/wood-normal.jpg",
+      "processing": "Original 1024x1024 dimensions; WebP quality 91 (color/roughness) or 96 (normal)."
+    },
+    {
+      "file": "wood-roughness.webp",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_floor/wood_floor_rough_1k.jpg",
+      "license": "CC0",
+      "source": "https://polyhaven.com/a/wood_floor",
+      "originalFile": "docs/source-assets/apartment/wood-roughness.jpg",
+      "processing": "Original 1024x1024 dimensions; WebP quality 91 (color/roughness) or 96 (normal)."
+    }
+  ]
+}

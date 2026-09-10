@@ -1,0 +1,149 @@
+{
+  "date": "2026-09-07",
+  "buildId": "noewOd9VV5vM3r9y0QbJh",
+  "preview": "http://localhost:3000",
+  "newGenerationCredits": 0,
+  "checks": {
+    "build": "npm run build passed, including TypeScript",
+    "lint": "npm run lint passed; final changed header/background files also passed scoped ESLint",
+    "unitTests": {
+      "command": "npm test",
+      "passed": 11,
+      "newCoverage": "Published-source removal, no invented residential links, owner-managed basement/exterior images"
+    },
+    "integration": {
+      "command": "npm run test:integration",
+      "passedAssertions": 54,
+      "scope": "Public routes, prelaunch indexing, authentication, project CRUD, ordering, uploads, inquiry storage and privacy; disposable database with email disabled"
+    },
+    "atlasAndCases": {
+      "viewportThemeRouteChecks": 12,
+      "axeChecks": 30,
+      "axeViolations": 0,
+      "interactions": [
+        "URL-backed filters and selection",
+        "Browser Back restores selection",
+        "Photo deep links and Back",
+        "Scope and full-photo dialog Escape/focus",
+        "No-JS project and photo links"
+      ],
+      "evidence": "/tmp/reliant-world-atlas-qa/"
+    },
+    "supportingRoutes": {
+      "viewportThemeQueryChecks": 16,
+      "axeViolations": 0,
+      "interactions": [
+        "Correct contact query type",
+        "Prior scene persists into contact",
+        "Unchanged form fields and order",
+        "No-JS content",
+        "About anchor landing correction"
+      ],
+      "evidence": "/tmp/reliant-world-support-qa/"
+    },
+    "homeAndDivisions": {
+      "reports": [
+        {
+          "label": "desktop-residential",
+          "violations": [],
+          "overflow": false
+        },
+        {
+          "label": "desktop-service-drawer",
+          "violations": [],
+          "overflow": false
+        },
+        {
+          "label": "desktop-commercial",
+          "violations": [],
+          "overflow": false
+        },
+        {
+          "label": "chapterGeometry",
+          "top": 0,
+          "panelBottom": 840,
+          "railTop": 888,
+          "video": {
+            "paused": true,
+            "time": 4.15,
+            "error": null,
+            "ready": 4
+          }
+        },
+        {
+          "label": "light-mobile-/",
+          "violations": [],
+          "overflow": false
+        },
+        {
+          "label": "light-mobile-/residential#kitchen",
+          "violations": [],
+          "overflow": false
+        },
+        {
+          "label": "light-mobile-/commercial",
+          "violations": [],
+          "overflow": false
+        },
+        {
+          "label": "light-mobile-navigation",
+          "violations": [],
+          "overflow": false
+        },
+        {
+          "label": "dark-mobile-/",
+          "violations": [],
+          "overflow": false
+        },
+        {
+          "label": "dark-mobile-/residential#kitchen",
+          "violations": [],
+          "overflow": false
+        },
+        {
+          "label": "dark-mobile-/commercial",
+          "violations": [],
+          "overflow": false
+        },
+        {
+          "label": "dark-mobile-navigation",
+          "violations": [],
+          "overflow": false
+        }
+      ],
+      "errors": []
+    },
+    "fallbackNavigation": {
+      "noJsNavigationLinks": 6,
+      "noJsRouteNavigation": "passed",
+      "noJsDeadMenuOrThemeButtons": 0,
+      "overflow": false,
+      "jsMenu": "passed",
+      "errors": []
+    }
+  },
+  "sourceSha256": {
+    "app/(site)/layout.tsx": "816d0a9ef66494f5b8203a4a2544036290058afe9eb66ba8b7339becdede81e1",
+    "app/(site)/page.tsx": "ec1fec6ea3e345bfa662648f3973207b313612bb541d5c167e45a57d9090ec66",
+    "app/(site)/world-site.css": "a1fb78839dbf13915c2b8787f682d9a4c1a387b0d93dadeb6b007bb9e61a9948",
+    "components/site-header.tsx": "c0d06a87e0ebe5e02844e50f3f6b012d019051e4e31a2d6c453bd4369e09ea9f",
+    "components/site-footer.tsx": "1cf620a0db57e7f44a69682797a73ee59e91402a8786803a09989816a4656bf9",
+    "components/division-page.tsx": "cc28daae122d3839d2f36484b1cf703411f9729de12fdabb99f524c9a66b1950",
+    "lib/world-journeys.ts": "ba1208b6d7b9348af8bb00dd9128a30364d115f5014afbedf507c4536ce8f4c1",
+    "components/world/world-page.tsx": "be157f8db9d13209278429cfa2c27095deeae2471a1bf0736580d849211d3cae",
+    "components/world/world-support.css": "defb552de441d3e647711340a5707cc619fbcb4f2f91afa543e67658e7f47beb",
+    "components/world/world-types.ts": "2adee74e4c2f608a53a0736afc126d5fac0fd503f7bccf3b2b6d2eda04c9c912",
+    "components/world/world-home.tsx": "b51665bd5381237740278a9efc3952947d5205372e7a976b362a11276fa2a37c",
+    "components/world/project-atlas.css": "9b182c3a57b81f16f8b6e2e72aae6ff4287748b82c99e2755511ff7c108a0750",
+    "components/world/division-journey.tsx": "1cf447e265a560507af33dd2f685edeb9ceef371c472828e807b154a292e76ce",
+    "components/world/world-shell.css": "25c4b44a071c21bfe13ad47bb2baebd056e3dc02a8b158bc923f791460b6ad04",
+    "components/world/world-shell.tsx": "cc48390f9437904e20fb11f0de28b76588ebf5aa210a77eb9eb1f6f86a5c0149",
+    "components/world/division-journey.css": "b7d7fcbcb381771b7eafc86214fca4f158539fcb2d6691a65a7f387465144710",
+    "components/world/project-atlas.tsx": "35258ccdb79b5a7e29eb947dfc51f63bb99649a6eb3cbc366ce8abf1278cb2e2"
+  },
+  "limitations": [
+    "Residential rooms are discrete photographic concept chapters; no continuous multi-room film or freely navigable 3D property is claimed.",
+    "Commercial CAD is an illustration; completed stages and cases use real project photography.",
+    "Browser/lab checks are not field Core Web Vitals or live search ranking measurements."
+  ]
+}

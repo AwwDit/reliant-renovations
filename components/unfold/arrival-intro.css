@@ -1,0 +1,136 @@
+.uf-arrival {
+  position: fixed;
+  z-index: 90;
+  inset: 0;
+  display: none;
+  pointer-events: none;
+  color: var(--rf-ink);
+}
+
+.uf-arrival[data-active="true"] {
+  display: block;
+  /* Independent recovery if animation JavaScript stops unexpectedly. */
+  animation: uf-arrival-release 0s 4.2s forwards;
+}
+
+.uf-arrival[hidden] {
+  display: none !important;
+}
+
+.uf-arrival-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.uf-arrival-drawing {
+  fill: none;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.uf-arrival-drawing :is(line, path) {
+  vector-effect: non-scaling-stroke;
+}
+
+.uf-arrival-accent {
+  stroke: var(--rf-accent-text);
+  stroke-width: 0.9;
+  opacity: 0.68;
+}
+
+.uf-arrival-axis {
+  stroke: var(--rf-line-strong);
+  stroke-width: 0.8;
+  opacity: 0.8;
+}
+
+.uf-arrival-guide {
+  stroke: var(--rf-muted);
+  stroke-width: 0.7;
+  opacity: 0.54;
+}
+
+.uf-arrival-fine {
+  stroke: var(--rf-muted);
+  stroke-width: 0.6;
+  opacity: 0.32;
+}
+
+.uf-arrival-edge {
+  stroke: var(--rf-soft);
+  stroke-width: 1;
+  opacity: 0.8;
+}
+
+.uf-arrival-lettering {
+  fill: none;
+  stroke: var(--rf-ink);
+  stroke-width: 1.2;
+  paint-order: stroke;
+  vector-effect: non-scaling-stroke;
+}
+
+.uf-arrival-hatch {
+  stroke: none;
+}
+
+.uf-arrival-hatch-line {
+  stroke: var(--rf-muted);
+  stroke-width: 0.7;
+}
+
+.uf-arrival-logo-study .uf-arrival-edge {
+  stroke-width: 0.85;
+}
+
+.uf-arrival-skip {
+  position: absolute;
+  right: max(22px, env(safe-area-inset-right));
+  bottom: max(22px, env(safe-area-inset-bottom));
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--rf-line-strong);
+  border-radius: 0;
+  background: var(--rf-bg);
+  color: var(--rf-ink);
+  font:
+    600 12px/1.4 "Manrope",
+    Arial,
+    sans-serif;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.uf-arrival-skip:hover {
+  border-color: var(--rf-accent-text);
+}
+
+.uf-arrival-skip:focus-visible {
+  outline: 2px solid var(--rf-focus);
+  outline-offset: 4px;
+}
+
+@keyframes uf-arrival-release {
+  to {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uf-arrival {
+    display: none !important;
+    animation: none !important;
+  }
+}
+
+@media print {
+  .uf-arrival {
+    display: none !important;
+  }
+}
