@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/site-image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowRight, LockKey, Eye, EyeSlash } from "@phosphor-icons/react";

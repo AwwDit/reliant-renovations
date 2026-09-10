@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/site-image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";

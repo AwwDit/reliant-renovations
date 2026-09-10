@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/site-image";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "@phosphor-icons/react";

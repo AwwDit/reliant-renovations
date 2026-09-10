@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useState, type RefObject } from "react";
-import Image from "next/image";
+import Image from "@/components/site-image";
 import * as Dialog from "@radix-ui/react-dialog";
 import {
   ArrowDown,
@@ -509,7 +509,9 @@ export function ProjectEditor({
                               "Project photo awaiting alternative text"
                             }
                             fill
-                            unoptimized
+                            unoptimized={
+                              !isCloudinaryProjectUrl(image.src, cloudName)
+                            }
                             sizes="180px"
                           />
                           <span>

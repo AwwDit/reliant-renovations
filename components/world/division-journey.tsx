@@ -6,7 +6,7 @@ import {
   useState,
   useSyncExternalStore,
 } from "react";
-import Image from "next/image";
+import Image from "@/components/site-image";
 import Link from "next/link";
 import * as Dialog from "@radix-ui/react-dialog";
 import {

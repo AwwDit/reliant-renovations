@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/site-image";
 import Link from "next/link";
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import { ThemeToggle } from "@/components/theme-toggle";

@@ -5,8 +5,9 @@ const config: NextConfig = {
   poweredByHeader: false,
   turbopack: { root: process.cwd() },
   serverExternalPackages: ["mongodb"],
+  env: { NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: cloudName },
   images: {
-    formats: ["image/avif", "image/webp"],
+    formats: ["image/webp"],
     minimumCacheTTL: 3600,
     maximumRedirects: 0,
     remotePatterns: [

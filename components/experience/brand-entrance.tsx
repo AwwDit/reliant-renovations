@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
+import Image from "@/components/site-image";
 import { ArrowCounterClockwise } from "@phosphor-icons/react";
 import {
   rrProfiles,

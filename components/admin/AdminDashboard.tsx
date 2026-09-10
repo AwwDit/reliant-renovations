@@ -1,7 +1,7 @@
 "use client";
 import { useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+import Image from "@/components/site-image";
 import Link from "next/link";
 import {
   ArrowDown,
@@ -24,6 +24,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import type { Division, Inquiry, Project } from "@/lib/types";
 import { ProjectEditor } from "./ProjectEditor";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { isCloudinaryProjectUrl } from "@/lib/media-urls";
 
 export async function adminRequest(url: string, options?: RequestInit) {
   const response = await fetch(url, options);
@@ -397,7 +398,12 @@ export function AdminDashboard({
                           src={project.images[0].src}
                           alt={project.images[0].alt}
                           fill
-                          unoptimized
+                          unoptimized={
+                            !isCloudinaryProjectUrl(
+                              project.images[0].src,
+                              cloudName,
+                            )
+                          }
                           sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, (max-width: 1600px) 40vw, 640px"
                         />
                       ) : (

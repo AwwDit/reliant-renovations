@@ -41,6 +41,12 @@ The application does not list, modify, or remove assets belonging to other proje
 
 The inquiry download route checks the owner's existing session before retrieving the original file through a signed server request. It returns the bytes with private/no-store caching and attachment headers. The browser does not receive Cloudinary credentials or a reusable public attachment URL. [Cloudinary media access control](https://cloudinary.com/documentation/control_access_to_media)
 
+## Responsive image delivery
+
+The shared `components/site-image.tsx` component keeps Next.js responsive image sizing, lazy loading, and fetch priorities, but sends public project photos directly to Cloudinary. Cloudinary creates and caches the requested width with automatic format/quality selection and no upscaling. This removes a second download and image-encoding step on the App Platform server. Original URLs in MongoDB stay unchanged. [Cloudinary image transformations](https://cloudinary.com/documentation/image_transformations)
+
+Only canonical public project URLs in the configured account use this loader. Local logos and local uploads retain Next.js optimization with WebP output; authenticated inquiry files retain the existing protected route. The build supplies the public cloud name to the browser automatically, so no additional environment variables or credentials are required. Google reviews also render in a separate server Suspense boundary so their API response cannot delay the homepage photographs.
+
 ## Migrate the current catalog and attachments
 
 Run this from the repository on the computer that still has **both** the bundled `public/images/` files and the old `DATA_DIR/uploads/` files. `MONGODB_URI` and `MONGODB_DB` must point to the current catalog you intend to migrate. The command loads Next.js environment files, including `.env.local`; environment values already supplied by the shell take precedence.

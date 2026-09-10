@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import Image from "@/components/site-image";
 import { useRef, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X, ArrowLeft, ArrowRight, ArrowsOut } from "@phosphor-icons/react";

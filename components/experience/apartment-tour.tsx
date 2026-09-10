@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/site-image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import "./apartment-tour.css";

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/site-image";
 import { useEffect, type ReactNode } from "react";
 import { useWorldContext, worldImageStyle } from "./world-shell";
 import type { WorldScene } from "./world-types";

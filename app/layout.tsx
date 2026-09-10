@@ -32,6 +32,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <link rel="preconnect" href="https://res.cloudinary.com" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){var t;try{t=localStorage.getItem("reliant-theme")}catch(e){}document.documentElement.dataset.theme=t==="light"||t==="dark"?t:"dark"})()`,
