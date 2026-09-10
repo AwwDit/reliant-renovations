@@ -17,7 +17,7 @@ async function imageData(relativePath: string) {
 }
 
 async function generate() {
-  const [residential, commercial, logo, medium, bold] = await Promise.all([
+  const [residential, commercial, logo, medium] = await Promise.all([
     imageData("images/projects/plainview-kitchen/01.webp"),
     imageData("images/projects/raising-canes-forest-hills/01.webp"),
     imageData("images/brand/reliant-color-transparent.png"),
@@ -25,12 +25,6 @@ async function generate() {
       path.join(
         root,
         "node_modules/@fontsource/manrope/files/manrope-latin-500-normal.woff",
-      ),
-    ),
-    readFile(
-      path.join(
-        root,
-        "node_modules/@fontsource/manrope/files/manrope-latin-800-normal.woff",
       ),
     ),
   ]);
@@ -96,34 +90,6 @@ async function generate() {
           opacity: 0.8,
         }}
       />
-      <div
-        style={{
-          position: "absolute",
-          left: 51,
-          top: 40,
-          fontSize: 142,
-          fontWeight: 800,
-          letterSpacing: "-0.065em",
-          lineHeight: 1,
-        }}
-      >
-        RELIANT
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          left: 60,
-          top: 202,
-          display: "flex",
-          alignItems: "center",
-          gap: 23,
-        }}
-      >
-        <div style={{ width: 48, height: 3, background: "#2463eb" }} />
-        <div style={{ fontSize: 19, fontWeight: 500, letterSpacing: "0.4em" }}>
-          RENOVATIONS INC.
-        </div>
-      </div>
       <img
         src={logo}
         alt="Reliant Renovations Inc."
@@ -131,7 +97,7 @@ async function generate() {
         height={121}
         style={{
           position: "absolute",
-          right: 54,
+          left: 60,
           top: 54,
           objectFit: "contain",
         }}
@@ -159,12 +125,6 @@ async function generate() {
           name: "Manrope",
           data: Uint8Array.from(medium).buffer,
           weight: 500,
-          style: "normal",
-        },
-        {
-          name: "Manrope",
-          data: Uint8Array.from(bold).buffer,
-          weight: 800,
           style: "normal",
         },
       ],

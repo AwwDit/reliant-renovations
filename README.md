@@ -58,7 +58,7 @@ To replay the homepage arrival animation during review, open `/?intro=1` (for ex
 
 The homepage and general pages share a branded 1200 × 630 JPEG containing the original logo, real residential/commercial project photography, and the approved homepage headline. Individual project links retain their own project photograph. The preview is a bundled static asset, so messaging apps can fetch it without image generation or database access.
 
-Run `npm run social:preview` to regenerate `public/images/social/reliant-share-v1.jpg` after changing its layout or approved copy. The generator reads bundled originals and fonts; no credentials or external services are required. When replacing published artwork, bump the filename in `lib/social-preview.ts` and include the new JPEG in the deployment.
+Run `npm run social:preview` to regenerate `public/images/social/reliant-share-v3.jpg` after changing its layout or approved copy. The generator reads bundled originals and fonts; no credentials or external services are required. When replacing published artwork, bump the filename in `lib/social-preview.ts` and include the new JPEG in the deployment.
 
 Set `NEXT_PUBLIC_SITE_URL` to the public HTTPS origin (for example, `https://reliantrenovationsinc.com`) at build time and runtime so the absolute sharing-image URL is reachable. After deploying, test a newly sent link in Messages. Existing previews may remain cached by the receiving app.
 
