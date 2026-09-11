@@ -9,21 +9,21 @@ import { projectMediaSource } from "@/lib/project-media";
 
 export function AdminAuthShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="ad-auth-wrap">
-      <header className="ad-auth-header">
-        <Link className="ad-auth-brand" href="/">
+    <div className="rr-admin-auth-wrap">
+      <header className="rr-admin-auth-header">
+        <Link className="rr-admin-auth-brand" href="/">
           <Image
             src="/images/brand/reliant-color-transparent.png"
             alt="Reliant Renovations Inc."
             width={142}
             height={100}
-            className="ad-brand-image"
+            className="rr-admin-brand-image"
           />
         </Link>
         <ThemeToggle />
       </header>
-      <main className="ad-auth-layout">
-        <figure className="ad-auth-visual">
+      <main className="rr-admin-auth-layout">
+        <figure className="rr-admin-auth-visual">
           <Image
             src={projectMediaSource(
               "/images/projects/upper-west-side-apartment/01.webp",
@@ -37,9 +37,9 @@ export function AdminAuthShell({ children }: { children: React.ReactNode }) {
             <span>Residential</span>
           </figcaption>
         </figure>
-        <div className="ad-auth-panel">
-          <div className="ad-auth-content">{children}</div>
-          <footer className="ad-auth-footer">
+        <div className="rr-admin-auth-panel">
+          <div className="rr-admin-auth-content">{children}</div>
+          <footer className="rr-admin-auth-footer">
             RELIANT RENOVATIONS · ADMIN ACCESS
           </footer>
         </div>
@@ -85,9 +85,9 @@ export function AdminLogin({
   }
   return (
     <AdminAuthShell>
-      <section className="ad-auth-card" aria-labelledby="admin-login-title">
-        <div className="ad-auth-kicker">
-          <div className="ad-eyebrow">ADMIN WORKSPACE</div>
+      <section className="rr-admin-auth-card" aria-labelledby="admin-login-title">
+        <div className="rr-admin-auth-kicker">
+          <div className="rr-admin-eyebrow">ADMIN WORKSPACE</div>
           <LockKey size={20} aria-hidden="true" />
         </div>
         <h1 id="admin-login-title">Welcome back.</h1>
@@ -97,13 +97,13 @@ export function AdminLogin({
         </p>
         <form onSubmit={submit} aria-busy={busy}>
           {passwordChanged && (
-            <p className="ad-login-status" role="status">
+            <p className="rr-admin-login-status" role="status">
               Your password has changed. Sign in with your new password.
             </p>
           )}
           {!ownerSignIn && (
-            <div className="ad-login-email">
-              <label className="ad-label" htmlFor="admin-email">
+            <div className="rr-admin-login-email">
+              <label className="rr-admin-label" htmlFor="admin-email">
                 Email address
               </label>
               <input
@@ -121,15 +121,15 @@ export function AdminLogin({
             </div>
           )}
           {ownerSignIn && (
-            <p className="ad-login-owner-note">
+            <p className="rr-admin-login-owner-note">
               Use the original owner password. Additional admins sign in with
               their email address.
             </p>
           )}
-          <label className="ad-label" htmlFor="admin-password">
+          <label className="rr-admin-label" htmlFor="admin-password">
             Password
           </label>
-          <div className="ad-password">
+          <div className="rr-admin-password">
             <input
               id="admin-password"
               name="password"
@@ -145,7 +145,7 @@ export function AdminLogin({
             />
             <button
               type="button"
-              className="ad-icon-button"
+              className="rr-admin-icon-button"
               aria-label={visible ? "Hide password" : "Show password"}
               aria-pressed={visible}
               onClick={() => setVisible(!visible)}
@@ -159,28 +159,28 @@ export function AdminLogin({
             </button>
           </div>
           {error && (
-            <p className="ad-error" id="admin-login-error" role="alert">
+            <p className="rr-admin-error" id="admin-login-error" role="alert">
               {error}
             </p>
           )}
           <button
-            className="ad-button ad-primary ad-auth-submit"
+            className="rr-admin-button rr-admin-primary rr-admin-auth-submit"
             disabled={busy}
           >
             {busy ? "Signing in…" : "Sign in"}
-            <span className="ad-button-icon" aria-hidden="true">
+            <span className="rr-admin-button-icon" aria-hidden="true">
               <ArrowRight size={19} />
             </span>
           </button>
           <Link
-            className="ad-text-link ad-auth-forgot"
+            className="rr-admin-text-link rr-admin-auth-forgot"
             href="/admin/forgot-password"
           >
             Forgot your password?
           </Link>
           <button
             type="button"
-            className="ad-login-mode"
+            className="rr-admin-login-mode"
             aria-pressed={ownerSignIn}
             disabled={busy}
             onClick={() => {
@@ -194,7 +194,7 @@ export function AdminLogin({
               : "Existing owner sign-in"}
           </button>
         </form>
-        <Link className="ad-text-link" href="/">
+        <Link className="rr-admin-text-link" href="/">
           ← Back to the website
         </Link>
       </section>

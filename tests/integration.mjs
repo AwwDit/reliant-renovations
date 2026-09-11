@@ -162,7 +162,7 @@ try {
   check(
     admin.ok &&
       adminHtml.includes('id="admin-content"') &&
-      adminHtml.includes('class="ad-project-grid"'),
+      adminHtml.includes('class="rr-admin-project-grid"'),
     "Authenticated owner dashboard renders",
   );
   const data = await (await request("/api/projects")).json();
@@ -348,13 +348,13 @@ try {
   const inboxLink = await request("/admin?view=inquiries");
   check(
     inboxLink.ok &&
-      (await inboxLink.text()).includes('class="ad-inquiry-list"'),
+      (await inboxLink.text()).includes('class="rr-admin-inquiry-list"'),
     "Email deep link opens the authenticated inquiry inbox",
   );
   const unknownAdminView = await request("/admin?view=unknown");
   check(
     unknownAdminView.ok &&
-      (await unknownAdminView.text()).includes('class="ad-project-grid"'),
+      (await unknownAdminView.text()).includes('class="rr-admin-project-grid"'),
     "Unknown admin view safely opens Projects",
   );
   check(

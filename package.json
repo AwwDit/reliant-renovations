@@ -16,6 +16,7 @@
     "social:animate": "node --import tsx scripts/generate-social-animation.tsx",
     "media:migrate": "node --conditions=react-server --import tsx scripts/migrate-media-to-cloudinary.ts",
     "test:integration": "node tests/integration.mjs",
+    "test:admin-browser": "node tests/admin-browser.mjs",
     "format": "prettier --write app components lib scripts tests docs README.md next.config.ts eslint.config.mjs package.json tsconfig.json",
     "db:local": "node scripts/start-local-mongodb.mjs",
     "db:migrate": "node --import tsx scripts/migrate-sqlite-to-mongodb.ts"

@@ -21,11 +21,11 @@ function PasswordField({
 }) {
   const [visible, setVisible] = useState(false);
   return (
-    <div className="ad-account-field">
-      <label className="ad-label" htmlFor={id}>
+    <div className="rr-admin-account-field">
+      <label className="rr-admin-label" htmlFor={id}>
         {label}
       </label>
-      <div className="ad-password">
+      <div className="rr-admin-password">
         <input
           id={id}
           name={name}
@@ -38,7 +38,7 @@ function PasswordField({
         />
         <button
           type="button"
-          className="ad-icon-button"
+          className="rr-admin-icon-button"
           aria-label={`${visible ? "Hide" : "Show"} ${label.toLowerCase()}`}
           aria-pressed={visible}
           disabled={disabled}
@@ -208,24 +208,24 @@ export function AdminAccounts({
   }
 
   return (
-    <div className="ad-accounts">
-      <section className="ad-account-self" aria-labelledby="your-account-title">
-        <div className="ad-account-identity">
-          <span className="ad-eyebrow">Your account</span>
+    <div className="rr-admin-accounts">
+      <section className="rr-admin-account-self" aria-labelledby="your-account-title">
+        <div className="rr-admin-account-identity">
+          <span className="rr-admin-eyebrow">Your account</span>
           <h2 id="your-account-title">{currentAdmin.name}</h2>
-          <p className="ad-account-email">
+          <p className="rr-admin-account-email">
             {currentAdmin.email || "Original owner sign-in"}
           </p>
-          <span className="ad-account-role">{owner ? "Owner" : "Admin"}</span>
-          <p className="ad-account-explanation">
+          <span className="rr-admin-account-role">{owner ? "Owner" : "Admin"}</span>
+          <p className="rr-admin-account-explanation">
             {owner
               ? "You manage projects, photographs, inquiries, and access to this workspace."
               : "You can manage projects, photographs, and inquiries. The owner manages admin accounts."}
           </p>
         </div>
-        <div className="ad-account-password">
+        <div className="rr-admin-account-password">
           <h2>Change your password</h2>
-          <p className="ad-muted" id="account-password-hint">
+          <p className="rr-admin-muted" id="account-password-hint">
             Use 12–512 characters. You’ll sign in again on all your devices.
           </p>
           <form
@@ -246,7 +246,7 @@ export function AdminAccounts({
               current
               disabled={busy}
             />
-            <div className="ad-account-form-grid">
+            <div className="rr-admin-account-form-grid">
               <PasswordField
                 id="account-new-password"
                 name="password"
@@ -261,12 +261,12 @@ export function AdminAccounts({
               />
             </div>
             {passwordError && (
-              <p className="ad-error" role="alert">
+              <p className="rr-admin-error" role="alert">
                 {passwordError}
               </p>
             )}
             <button
-              className="ad-button ad-secondary"
+              className="rr-admin-button rr-admin-secondary"
               disabled={busy}
               type="submit"
             >
@@ -277,18 +277,18 @@ export function AdminAccounts({
       </section>
 
       {owner && (
-        <section className="ad-account-team" aria-labelledby="admin-team-title">
-          <div className="ad-account-heading">
+        <section className="rr-admin-account-team" aria-labelledby="admin-team-title">
+          <div className="rr-admin-account-heading">
             <div>
-              <span className="ad-eyebrow">Workspace access</span>
+              <span className="rr-admin-eyebrow">Workspace access</span>
               <h2 id="admin-team-title">Admins</h2>
-              <p className="ad-muted">
+              <p className="rr-admin-muted">
                 Each admin has their own sign-in and password recovery.
               </p>
             </div>
             <button
               ref={addButton}
-              className="ad-button ad-primary"
+              className="rr-admin-button rr-admin-primary"
               type="button"
               disabled={busy || loading || !!loadError}
               aria-expanded={showAdd}
@@ -299,33 +299,33 @@ export function AdminAccounts({
               }}
             >
               {showAdd ? "Close form" : "Add admin"}
-              <span className="ad-button-icon" aria-hidden="true">
+              <span className="rr-admin-button-icon" aria-hidden="true">
                 {showAdd ? <X size={19} /> : <Plus size={19} />}
               </span>
             </button>
           </div>
           {notice && (
-            <p className="ad-alert" role="status">
+            <p className="rr-admin-alert" role="status">
               {notice}
             </p>
           )}
           {showAdd && (
             <form
               id="add-admin-form"
-              className="ad-account-add"
+              className="rr-admin-account-add"
               onSubmit={addAccount}
               aria-busy={busy}
               aria-labelledby="add-admin-title"
             >
               <h3 id="add-admin-title">Add an admin</h3>
-              <p className="ad-muted">
+              <p className="rr-admin-muted">
                 This account can update projects, photographs, and inquiries.
                 Share the credentials securely; an invitation email won’t be
                 sent.
               </p>
-              <div className="ad-account-form-grid">
-                <div className="ad-account-field">
-                  <label className="ad-label" htmlFor="new-admin-name">
+              <div className="rr-admin-account-form-grid">
+                <div className="rr-admin-account-field">
+                  <label className="rr-admin-label" htmlFor="new-admin-name">
                     Full name
                   </label>
                   <input
@@ -339,8 +339,8 @@ export function AdminAccounts({
                     disabled={busy}
                   />
                 </div>
-                <div className="ad-account-field">
-                  <label className="ad-label" htmlFor="new-admin-email">
+                <div className="rr-admin-account-field">
+                  <label className="rr-admin-label" htmlFor="new-admin-email">
                     Email address
                   </label>
                   <input
@@ -366,16 +366,16 @@ export function AdminAccounts({
                   disabled={busy}
                 />
               </div>
-              <p className="ad-muted">
+              <p className="rr-admin-muted">
                 Use 12–512 characters for the password.
               </p>
               {addError && (
-                <p className="ad-error" role="alert">
+                <p className="rr-admin-error" role="alert">
                   {addError}
                 </p>
               )}
               <button
-                className="ad-button ad-primary"
+                className="rr-admin-button rr-admin-primary"
                 disabled={busy}
                 type="submit"
               >
@@ -385,17 +385,17 @@ export function AdminAccounts({
             </form>
           )}
           {loading ? (
-            <p className="ad-muted" role="status">
+            <p className="rr-admin-muted" role="status">
               Loading accounts…
             </p>
           ) : loadError ? (
-            <div className="ad-account-load-error">
-              <p className="ad-error" role="alert">
+            <div className="rr-admin-account-load-error">
+              <p className="rr-admin-error" role="alert">
                 {loadError}
               </p>
               <button
                 type="button"
-                className="ad-button ad-secondary"
+                className="rr-admin-button rr-admin-secondary"
                 onClick={() => {
                   setLoading(true);
                   setLoadError("");
@@ -406,25 +406,25 @@ export function AdminAccounts({
               </button>
             </div>
           ) : (
-            <ul className="ad-account-list">
+            <ul className="rr-admin-account-list">
               {accounts.map((account) => (
                 <li
                   key={account.id}
-                  className={`ad-account-row${account.active ? "" : " is-disabled"}`}
+                  className={`rr-admin-account-row${account.active ? "" : " is-disabled"}`}
                 >
-                  <div className="ad-account-person">
+                  <div className="rr-admin-account-person">
                     <strong>
                       {account.name}
                       {account.id === currentAdmin.id && <small> You</small>}
                     </strong>
                     <span>{account.email || "Original owner sign-in"}</span>
                   </div>
-                  <div className="ad-account-access">
-                    <span className="ad-account-role">
+                  <div className="rr-admin-account-access">
+                    <span className="rr-admin-account-role">
                       {account.role === "owner" ? "Owner" : "Admin"}
                     </span>
                     <span
-                      className={`ad-publication ${account.active ? "is-published" : ""}`}
+                      className={`rr-admin-publication ${account.active ? "is-published" : ""}`}
                     >
                       <span />
                       {account.active ? "Active" : "Disabled"}
@@ -433,7 +433,7 @@ export function AdminAccounts({
                   {account.role !== "owner" && (
                     <button
                       id={`account-access-${account.id}`}
-                      className="ad-button ad-secondary"
+                      className="rr-admin-button rr-admin-secondary"
                       type="button"
                       disabled={busy}
                       aria-label={`${account.active ? "Disable" : "Enable"} access for ${account.name}`}
@@ -461,7 +461,7 @@ export function AdminAccounts({
                   {pendingDisable === account.id && (
                     <div
                       id={`confirm-disable-${account.id}`}
-                      className="ad-account-confirm"
+                      className="rr-admin-account-confirm"
                       role="group"
                       aria-label={`Confirm disabling ${account.name}`}
                     >
@@ -471,7 +471,7 @@ export function AdminAccounts({
                       </p>
                       <div>
                         <button
-                          className="ad-button ad-account-disable"
+                          className="rr-admin-button rr-admin-account-disable"
                           type="button"
                           disabled={busy}
                           onClick={() => void setAccountActive(account, false)}
@@ -479,7 +479,7 @@ export function AdminAccounts({
                           Confirm disable
                         </button>
                         <button
-                          className="ad-button ad-secondary"
+                          className="rr-admin-button rr-admin-secondary"
                           type="button"
                           disabled={busy}
                           onClick={() => {
@@ -499,7 +499,7 @@ export function AdminAccounts({
             </ul>
           )}
           {accountError && (
-            <p className="ad-error" role="alert">
+            <p className="rr-admin-error" role="alert">
               {accountError}
             </p>
           )}

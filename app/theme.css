@@ -506,7 +506,7 @@ html[data-theme="light"] .lightbox-caption {
 /* Autofill and native field states must match the selected page palette. */
 .contact-form input:-webkit-autofill,
 .admin-root input:-webkit-autofill,
-.ad-editor input:-webkit-autofill {
+.rr-admin-editor input:-webkit-autofill {
   -webkit-text-fill-color: var(--rf-ink);
   box-shadow: 0 0 0 1000px var(--rf-surface) inset;
   caret-color: var(--rf-accent-text);

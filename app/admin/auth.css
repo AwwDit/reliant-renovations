@@ -1,10 +1,10 @@
-.ad-auth-wrap {
+.rr-admin-auth-wrap {
   min-height: 100vh;
   min-height: 100svh;
   background: var(--rf-bg);
 }
 
-.ad-auth-header {
+.rr-admin-auth-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,26 +14,26 @@
   background: var(--rf-chrome);
 }
 
-.ad-auth-brand {
+.rr-admin-auth-brand {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
 }
 
-.ad-auth-brand .ad-brand-image {
+.rr-admin-auth-brand .rr-admin-brand-image {
   display: block;
   width: 112px;
   height: auto;
   object-fit: contain;
 }
 
-.ad-auth-layout {
+.rr-admin-auth-layout {
   display: grid;
   grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
   min-height: calc(100svh - 112px);
 }
 
-.ad-auth-visual {
+.rr-admin-auth-visual {
   position: relative;
   isolation: isolate;
   min-height: 680px;
@@ -43,12 +43,12 @@
   background: var(--rf-photo-frame);
 }
 
-.ad-auth-visual > img {
+.rr-admin-auth-visual > img {
   object-fit: cover;
   object-position: 50% 54%;
 }
 
-.ad-auth-visual::after {
+.rr-admin-auth-visual::after {
   content: "";
   position: absolute;
   z-index: 1;
@@ -61,7 +61,7 @@
   pointer-events: none;
 }
 
-.ad-auth-visual figcaption {
+.rr-admin-auth-visual figcaption {
   position: absolute;
   z-index: 2;
   right: 34px;
@@ -80,7 +80,7 @@
   line-height: 1.6;
 }
 
-.ad-auth-visual figcaption > span:last-child {
+.rr-admin-auth-visual figcaption > span:last-child {
   color: var(--rf-photo-muted);
   font-size: 10px;
   font-weight: 500;
@@ -88,7 +88,7 @@
   text-transform: uppercase;
 }
 
-.ad-auth-panel {
+.rr-admin-auth-panel {
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -96,7 +96,7 @@
   background: var(--rf-bg);
 }
 
-.ad-auth-content {
+.rr-admin-auth-content {
   display: flex;
   align-items: center;
   flex: 1;
@@ -106,12 +106,12 @@
   padding-bottom: 58px;
 }
 
-.ad-auth-card {
+.rr-admin-auth-card {
   width: 100%;
   min-width: 0;
 }
 
-.ad-auth-kicker {
+.rr-admin-auth-kicker {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -121,7 +121,7 @@
   color: var(--rf-muted);
 }
 
-.ad-auth-kicker::before {
+.rr-admin-auth-kicker::before {
   content: "";
   width: 22px;
   height: 2px;
@@ -129,11 +129,11 @@
   background: var(--rf-accent);
 }
 
-.ad-auth-kicker .ad-eyebrow {
+.rr-admin-auth-kicker .rr-admin-eyebrow {
   flex: 1;
 }
 
-.admin-root .ad-auth-card h1 {
+.admin-root .rr-admin-auth-card h1 {
   max-width: 440px;
   margin: 27px 0 20px;
   color: var(--rf-ink);
@@ -144,22 +144,22 @@
   text-wrap: balance;
 }
 
-.admin-root .ad-auth-card > p {
+.admin-root .rr-admin-auth-card > p {
   max-width: 370px;
   color: var(--rf-muted);
   font-size: 14px;
   line-height: 1.8;
 }
 
-.ad-auth-card form {
+.rr-admin-auth-card form {
   margin-top: 36px;
 }
 
-.ad-password {
+.rr-admin-password {
   position: relative;
 }
 
-.admin-root .ad-password > input {
+.admin-root .rr-admin-password > input {
   min-height: 58px;
   padding: 14px 65px 14px 16px;
   border: 1px solid var(--rf-line-strong);
@@ -168,11 +168,11 @@
   font-size: 16px;
 }
 
-.admin-root .ad-password > input:focus {
+.admin-root .rr-admin-password > input:focus {
   border-color: var(--rf-focus);
 }
 
-.ad-password > .ad-icon-button {
+.rr-admin-password > .rr-admin-icon-button {
   position: absolute;
   top: 7px;
   right: 7px;
@@ -184,51 +184,51 @@
   border-radius: 0;
 }
 
-.ad-auth-submit {
+.rr-admin-auth-submit {
   justify-content: space-between;
   width: 100%;
   min-height: 54px;
   margin-top: 18px;
 }
 
-.ad-auth-card > .ad-text-link {
+.rr-admin-auth-card > .rr-admin-text-link {
   min-height: 44px;
   margin-top: 22px;
 }
 
-.ad-auth-forgot {
+.rr-admin-auth-forgot {
   justify-content: center;
   width: 100%;
   min-height: 44px;
   margin-top: 9px;
 }
 
-.ad-login-email {
+.rr-admin-login-email {
   margin-bottom: 22px;
 }
 
-.admin-root .ad-login-email input {
+.admin-root .rr-admin-login-email input {
   min-height: 58px;
   padding: 14px 16px;
   font-size: 16px;
 }
 
-.ad-login-owner-note,
-.ad-login-status {
+.rr-admin-login-owner-note,
+.rr-admin-login-status {
   margin-bottom: 22px !important;
   color: var(--rf-muted);
   font-size: 12px;
   line-height: 1.8;
 }
 
-.ad-login-status {
+.rr-admin-login-status {
   padding: 14px 16px;
   border-left: 2px solid var(--rf-success);
   background: var(--rf-surface);
   color: var(--rf-ink);
 }
 
-.ad-login-mode {
+.rr-admin-login-mode {
   display: block;
   width: 100%;
   min-height: 44px;
@@ -242,16 +242,16 @@
   text-underline-offset: 4px;
 }
 
-.ad-login-mode:hover {
+.rr-admin-login-mode:hover {
   color: var(--rf-ink);
 }
 
-.admin-root .ad-auth-recovery h1 {
+.admin-root .rr-admin-auth-recovery h1 {
   font-size: clamp(40px, 4vw, 60px);
   line-height: 1.07;
 }
 
-.admin-root .ad-recovery-email {
+.admin-root .rr-admin-recovery-email {
   min-height: 58px;
   padding: 14px 16px;
   border: 1px solid var(--rf-line-strong);
@@ -260,18 +260,18 @@
   font-size: 16px;
 }
 
-.ad-recovery-field + .ad-recovery-field {
+.rr-admin-recovery-field + .rr-admin-recovery-field {
   margin-top: 21px;
 }
 
-.ad-auth-card .ad-recovery-hint {
+.rr-admin-auth-card .rr-admin-recovery-hint {
   margin: 0 0 20px;
   color: var(--rf-muted);
   font-size: 12px;
   line-height: 1.7;
 }
 
-.ad-recovery-status {
+.rr-admin-recovery-status {
   display: flex;
   align-items: flex-start;
   gap: 13px;
@@ -280,28 +280,28 @@
   border-bottom: 1px solid var(--rf-line);
 }
 
-.ad-recovery-status > svg {
+.rr-admin-recovery-status > svg {
   flex-shrink: 0;
   margin-top: 2px;
   color: var(--rf-success);
 }
 
-.ad-recovery-status > p {
+.rr-admin-recovery-status > p {
   color: var(--rf-soft);
   font-size: 14px;
   line-height: 1.8;
 }
 
-.admin-root .ad-auth-card > .ad-recovery-note {
+.admin-root .rr-admin-auth-card > .rr-admin-recovery-note {
   margin-top: 19px;
   font-size: 12px;
 }
 
-.ad-recovery-actions {
+.rr-admin-recovery-actions {
   margin-top: 22px;
 }
 
-.ad-auth-footer {
+.rr-admin-auth-footer {
   display: flex;
   align-items: center;
   width: 100%;
@@ -315,12 +315,12 @@
   letter-spacing: 0.12em;
 }
 
-.admin-root .ad-auth-setup h1 {
+.admin-root .rr-admin-auth-setup h1 {
   font-size: clamp(40px, 3.8vw, 58px);
   line-height: 1.07;
 }
 
-.ad-setup-steps {
+.rr-admin-setup-steps {
   display: grid;
   gap: 0;
   margin: 29px 0 0;
@@ -332,7 +332,7 @@
   line-height: 1.8;
 }
 
-.ad-setup-steps > li {
+.rr-admin-setup-steps > li {
   position: relative;
   min-height: 60px;
   padding: 16px 0 16px 36px;
@@ -340,7 +340,7 @@
   counter-increment: auth-step;
 }
 
-.ad-setup-steps > li::before {
+.rr-admin-setup-steps > li::before {
   content: counter(auth-step, decimal-leading-zero);
   position: absolute;
   top: 19px;
@@ -351,7 +351,7 @@
   line-height: 1.8;
 }
 
-.ad-auth-card .ad-callout {
+.rr-admin-auth-card .rr-admin-callout {
   margin-top: 12px;
   padding: 17px 19px;
   border-left: 2px solid var(--rf-accent);
@@ -363,39 +363,39 @@
 }
 
 @media (min-width: 861px) and (max-height: 760px) {
-  .ad-auth-panel {
+  .rr-admin-auth-panel {
     padding-top: 36px;
   }
-  .ad-auth-content {
+  .rr-admin-auth-content {
     padding-bottom: 36px;
   }
-  .ad-auth-visual {
+  .rr-admin-auth-visual {
     min-height: 590px;
   }
 }
 
 @media (max-width: 860px) {
-  .ad-auth-header {
+  .rr-admin-auth-header {
     min-height: 96px;
     padding: 12px 24px;
   }
-  .ad-auth-brand .ad-brand-image {
+  .rr-admin-auth-brand .rr-admin-brand-image {
     width: 96px;
   }
-  .ad-auth-layout {
+  .rr-admin-auth-layout {
     grid-template-columns: minmax(0, 1fr);
     min-height: calc(100svh - 96px);
   }
-  .ad-auth-panel {
+  .rr-admin-auth-panel {
     grid-row: 1;
     min-height: calc(100svh - 96px);
     padding: 44px 32px 0;
   }
-  .ad-auth-content {
+  .rr-admin-auth-content {
     max-width: 480px;
     padding-bottom: 40px;
   }
-  .ad-auth-visual {
+  .rr-admin-auth-visual {
     width: 100%;
     min-width: 0;
     height: clamp(260px, 52.63vw, 420px);
@@ -404,51 +404,51 @@
     border-top: 2px solid var(--rf-accent);
     border-right: 0;
   }
-  .ad-auth-visual > img {
+  .rr-admin-auth-visual > img {
     object-position: 50% 65%;
   }
-  .ad-auth-visual figcaption {
+  .rr-admin-auth-visual figcaption {
     inset: auto 24px 24px;
   }
 }
 
 @media (max-width: 480px) {
-  .ad-auth-header {
+  .rr-admin-auth-header {
     min-height: 88px;
     padding: 10px 24px;
   }
-  .ad-auth-brand .ad-brand-image {
+  .rr-admin-auth-brand .rr-admin-brand-image {
     width: 88px;
   }
-  .ad-auth-layout,
-  .ad-auth-panel {
+  .rr-admin-auth-layout,
+  .rr-admin-auth-panel {
     min-height: calc(100svh - 88px);
   }
-  .ad-auth-panel {
+  .rr-admin-auth-panel {
     padding: 36px 24px 0;
   }
-  .ad-auth-content {
+  .rr-admin-auth-content {
     padding-bottom: 30px;
   }
-  .ad-auth-kicker {
+  .rr-admin-auth-kicker {
     padding-bottom: 16px;
   }
-  .admin-root .ad-auth-card h1 {
+  .admin-root .rr-admin-auth-card h1 {
     margin-top: 22px;
     font-size: 48px;
   }
-  .admin-root .ad-auth-setup h1 {
+  .admin-root .rr-admin-auth-setup h1 {
     font-size: 41px;
   }
-  .ad-auth-card form {
+  .rr-admin-auth-card form {
     margin-top: 29px;
   }
-  .ad-auth-footer {
+  .rr-admin-auth-footer {
     min-height: 60px;
     font-size: 8px;
     letter-spacing: 0.1em;
   }
-  .ad-auth-visual {
+  .rr-admin-auth-visual {
     min-height: 260px;
   }
 }

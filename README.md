@@ -141,6 +141,8 @@ npm run test:integration
 
 Tests require the local replica set, or an explicit `MONGODB_TEST_URI`. Every database test creates a uniquely named disposable database and restricts cleanup to that name. The integration check starts a disposable production server on an available port with random temporary credentials and external email disabled. It tests real routes, auth, public visibility, uploads, inquiries and private attachments. The local preview data is untouched. A production build is required first.
 
+Run `npm run test:admin-browser` after building to check the actual login labels, a newly created admin's project dashboard/editor, and account forms at desktop/mobile sizes in both themes with representative ad-blocker cosmetic filters enabled. This also uses a disposable MongoDB database and production server with email disabled. Install Chromium with `npx playwright install chromium`, or set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` to an existing compatible Chromium executable.
+
 ## Remaining launch inputs
 
 - Original vector logo for future large-format use. The selected CompanyCam images have been retrieved and replaced the document reference crops; see the asset provenance for exact dimensions.

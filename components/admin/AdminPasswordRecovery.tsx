@@ -59,11 +59,11 @@ export function AdminForgotPassword() {
   return (
     <AdminAuthShell>
       <section
-        className="ad-auth-card ad-auth-recovery"
+        className="rr-admin-auth-card rr-admin-auth-recovery"
         aria-labelledby="admin-forgot-title"
       >
-        <div className="ad-auth-kicker">
-          <div className="ad-eyebrow">ADMIN ACCESS</div>
+        <div className="rr-admin-auth-kicker">
+          <div className="rr-admin-eyebrow">ADMIN ACCESS</div>
           <EnvelopeSimple size={20} aria-hidden="true" />
         </div>
         <h1 id="admin-forgot-title" ref={heading} tabIndex={-1}>
@@ -71,18 +71,18 @@ export function AdminForgotPassword() {
         </h1>
         {sent ? (
           <>
-            <div className="ad-recovery-status" role="status">
+            <div className="rr-admin-recovery-status" role="status">
               <CheckCircle size={24} aria-hidden="true" />
               <p>{message}</p>
             </div>
-            <p className="ad-recovery-note">
+            <p className="rr-admin-recovery-note">
               Check your inbox and spam folder. Use the link in the email to
               choose a new password.
             </p>
-            <div className="ad-recovery-actions">
+            <div className="rr-admin-recovery-actions">
               <button
                 type="button"
-                className="ad-button ad-secondary"
+                className="rr-admin-button rr-admin-secondary"
                 onClick={() => setSent(false)}
               >
                 Send another link
@@ -96,11 +96,11 @@ export function AdminForgotPassword() {
               send instructions to reset your password.
             </p>
             <form onSubmit={submit} aria-busy={busy}>
-              <label className="ad-label" htmlFor="admin-recovery-email">
+              <label className="rr-admin-label" htmlFor="admin-recovery-email">
                 Email address
               </label>
               <input
-                className="ad-recovery-email"
+                className="rr-admin-recovery-email"
                 id="admin-recovery-email"
                 name="email"
                 type="email"
@@ -113,24 +113,24 @@ export function AdminForgotPassword() {
                 aria-describedby={error ? "admin-forgot-error" : undefined}
               />
               {error && (
-                <p className="ad-error" id="admin-forgot-error" role="alert">
+                <p className="rr-admin-error" id="admin-forgot-error" role="alert">
                   {error}
                 </p>
               )}
               <button
                 type="submit"
-                className="ad-button ad-primary ad-auth-submit"
+                className="rr-admin-button rr-admin-primary rr-admin-auth-submit"
                 disabled={busy}
               >
                 {busy ? "Sending…" : "Send reset link"}
-                <span className="ad-button-icon" aria-hidden="true">
+                <span className="rr-admin-button-icon" aria-hidden="true">
                   <ArrowRight size={19} />
                 </span>
               </button>
             </form>
           </>
         )}
-        <Link className="ad-text-link" href="/admin">
+        <Link className="rr-admin-text-link" href="/admin">
           Back to sign in
         </Link>
       </section>
@@ -159,11 +159,11 @@ function PasswordField({
 }) {
   const [visible, setVisible] = useState(false);
   return (
-    <div className="ad-recovery-field">
-      <label className="ad-label" htmlFor={id}>
+    <div className="rr-admin-recovery-field">
+      <label className="rr-admin-label" htmlFor={id}>
         {label}
       </label>
-      <div className="ad-password">
+      <div className="rr-admin-password">
         <input
           ref={inputRef}
           id={id}
@@ -181,7 +181,7 @@ function PasswordField({
         />
         <button
           type="button"
-          className="ad-icon-button"
+          className="rr-admin-icon-button"
           aria-label={`${visible ? "Hide" : "Show"} ${label.toLowerCase()}`}
           aria-pressed={visible}
           onClick={() => setVisible(!visible)}
@@ -298,11 +298,11 @@ export function AdminResetPassword() {
   return (
     <AdminAuthShell>
       <section
-        className="ad-auth-card ad-auth-recovery"
+        className="rr-admin-auth-card rr-admin-auth-recovery"
         aria-labelledby="admin-reset-title"
       >
-        <div className="ad-auth-kicker">
-          <div className="ad-eyebrow">ADMIN ACCESS</div>
+        <div className="rr-admin-auth-kicker">
+          <div className="rr-admin-eyebrow">ADMIN ACCESS</div>
           <LockKey size={20} aria-hidden="true" />
         </div>
         <h1 id="admin-reset-title" ref={heading} tabIndex={-1}>
@@ -314,16 +314,16 @@ export function AdminResetPassword() {
         </h1>
         {success ? (
           <>
-            <div className="ad-recovery-status" role="status">
+            <div className="rr-admin-recovery-status" role="status">
               <CheckCircle size={24} aria-hidden="true" />
               <p>
                 Your password has been updated. Sign in with your new password
                 to access your workspace.
               </p>
             </div>
-            <Link className="ad-button ad-primary ad-auth-submit" href="/admin">
+            <Link className="rr-admin-button rr-admin-primary rr-admin-auth-submit" href="/admin">
               Sign in
-              <span className="ad-button-icon" aria-hidden="true">
+              <span className="rr-admin-button-icon" aria-hidden="true">
                 <ArrowRight size={19} />
               </span>
             </Link>
@@ -335,15 +335,15 @@ export function AdminResetPassword() {
               email to continue.
             </p>
             <Link
-              className="ad-button ad-primary ad-auth-submit"
+              className="rr-admin-button rr-admin-primary rr-admin-auth-submit"
               href="/admin/forgot-password"
             >
               Request a new link
-              <span className="ad-button-icon" aria-hidden="true">
+              <span className="rr-admin-button-icon" aria-hidden="true">
                 <ArrowRight size={19} />
               </span>
             </Link>
-            <Link className="ad-text-link" href="/admin">
+            <Link className="rr-admin-text-link" href="/admin">
               Back to sign in
             </Link>
           </>
@@ -353,7 +353,7 @@ export function AdminResetPassword() {
           <>
             <p>Choose a new password for your admin account.</p>
             <form onSubmit={submit} aria-busy={busy}>
-              <p className="ad-recovery-hint" id="admin-reset-requirements">
+              <p className="rr-admin-recovery-hint" id="admin-reset-requirements">
                 Use 12–512 characters.
               </p>
               <PasswordField
@@ -383,22 +383,22 @@ export function AdminResetPassword() {
                 inputRef={confirmationInput}
               />
               {error && (
-                <p className="ad-error" id="admin-reset-error" role="alert">
+                <p className="rr-admin-error" id="admin-reset-error" role="alert">
                   {error}
                 </p>
               )}
               <button
                 type="submit"
-                className="ad-button ad-primary ad-auth-submit"
+                className="rr-admin-button rr-admin-primary rr-admin-auth-submit"
                 disabled={busy}
               >
                 {busy ? "Updating…" : "Reset password"}
-                <span className="ad-button-icon" aria-hidden="true">
+                <span className="rr-admin-button-icon" aria-hidden="true">
                   <ArrowRight size={19} />
                 </span>
               </button>
             </form>
-            <Link className="ad-text-link" href="/admin">
+            <Link className="rr-admin-text-link" href="/admin">
               Back to sign in
             </Link>
           </>

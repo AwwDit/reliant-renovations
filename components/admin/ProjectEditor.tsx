@@ -177,9 +177,9 @@ export function ProjectEditor({
       }}
     >
       <Dialog.Portal>
-        <Dialog.Overlay className="ad-dialog-overlay" />
+        <Dialog.Overlay className="rr-admin-dialog-overlay" />
         <Dialog.Content
-          className="ad-editor"
+          className="rr-admin-editor"
           onCloseAutoFocus={(event) => {
             event.preventDefault();
             const opener = returnFocusRef.current;
@@ -188,9 +188,9 @@ export function ProjectEditor({
               document.getElementById("admin-content")?.focus();
           }}
         >
-          <header className="ad-editor-heading">
+          <header className="rr-admin-editor-heading">
             <div>
-              <div className="ad-eyebrow">PROJECT EDITOR</div>
+              <div className="rr-admin-eyebrow">PROJECT EDITOR</div>
               <Dialog.Title>
                 {project ? project.title : "Add project"}
               </Dialog.Title>
@@ -201,19 +201,19 @@ export function ProjectEditor({
               </Dialog.Description>
             </div>
             <Dialog.Close
-              className="ad-icon-button"
+              className="rr-admin-icon-button"
               aria-label="Close project editor"
               disabled={busy || uploading}
             >
               <X size={24} />
             </Dialog.Close>
           </header>
-          <form onSubmit={submit} className="ad-editor-form">
-            <div className="ad-editor-scroll">
-              <div className="ad-editor-column">
-                <section className="ad-editor-section">
+          <form onSubmit={submit} className="rr-admin-editor-form">
+            <div className="rr-admin-editor-scroll">
+              <div className="rr-admin-editor-column">
+                <section className="rr-admin-editor-section">
                   <h3>Project details</h3>
-                  <label className="ad-field">
+                  <label className="rr-admin-field">
                     <span>
                       Project title <i>*</i>
                     </span>
@@ -243,7 +243,7 @@ export function ProjectEditor({
                       }}
                     />
                   </label>
-                  <label className="ad-field">
+                  <label className="rr-admin-field">
                     <span>Subtitle</span>
                     <input
                       value={form.subtitle}
@@ -254,8 +254,8 @@ export function ProjectEditor({
                       }
                     />
                   </label>
-                  <div className="ad-field-row">
-                    <label className="ad-field">
+                  <div className="rr-admin-field-row">
+                    <label className="rr-admin-field">
                       <span>
                         Division <i>*</i>
                       </span>
@@ -272,7 +272,7 @@ export function ProjectEditor({
                         <option value="residential">Residential</option>
                       </select>
                     </label>
-                    <label className="ad-field">
+                    <label className="rr-admin-field">
                       <span>
                         Category <i>*</i>
                       </span>
@@ -288,7 +288,7 @@ export function ProjectEditor({
                       />
                     </label>
                   </div>
-                  <label className="ad-field">
+                  <label className="rr-admin-field">
                     <span>
                       Location <i>*</i>
                     </span>
@@ -304,9 +304,9 @@ export function ProjectEditor({
                     />
                   </label>
                 </section>
-                <section className="ad-editor-section">
+                <section className="rr-admin-editor-section">
                   <h3>Description &amp; scope</h3>
-                  <label className="ad-field">
+                  <label className="rr-admin-field">
                     <span>
                       Description <i>*</i>
                     </span>
@@ -326,7 +326,7 @@ export function ProjectEditor({
                       understand your work.
                     </small>
                   </label>
-                  <label className="ad-field">
+                  <label className="rr-admin-field">
                     <span>The result</span>
                     <textarea
                       value={form.result}
@@ -336,7 +336,7 @@ export function ProjectEditor({
                       onChange={(event) => update("result", event.target.value)}
                     />
                   </label>
-                  <label className="ad-field">
+                  <label className="rr-admin-field">
                     <span>Scope of work</span>
                     <textarea
                       value={scope}
@@ -349,13 +349,13 @@ export function ProjectEditor({
                     <small>One item per line. Up to 30 items.</small>
                   </label>
                 </section>
-                <section className="ad-editor-section">
+                <section className="rr-admin-editor-section">
                   <h3>Website settings</h3>
-                  <label className="ad-field">
+                  <label className="rr-admin-field">
                     <span>
                       URL slug <i>*</i>
                     </span>
-                    <div className="ad-slug-field">
+                    <div className="rr-admin-slug-field">
                       <span>/projects/</span>
                       <input
                         value={form.slug}
@@ -376,7 +376,7 @@ export function ProjectEditor({
                         : "Choose a short, descriptive address. It becomes permanent when you save."}
                     </small>
                   </label>
-                  <label className="ad-toggle-row">
+                  <label className="rr-admin-toggle-row">
                     <div>
                       <strong>Publish project</strong>
                       <small>Make this project visible on the website.</small>
@@ -388,9 +388,9 @@ export function ProjectEditor({
                         update("published", event.target.checked)
                       }
                     />
-                    <span className="ad-toggle" aria-hidden="true" />
+                    <span className="rr-admin-toggle" aria-hidden="true" />
                   </label>
-                  <label className="ad-toggle-row">
+                  <label className="rr-admin-toggle-row">
                     <div>
                       <strong>Feature on the homepage</strong>
                       <small>
@@ -404,11 +404,11 @@ export function ProjectEditor({
                         update("featured", event.target.checked)
                       }
                     />
-                    <span className="ad-toggle" aria-hidden="true" />
+                    <span className="rr-admin-toggle" aria-hidden="true" />
                   </label>
                   {project?.published && (
                     <a
-                      className="ad-text-link"
+                      className="rr-admin-text-link"
                       href={`/projects/${project.slug}`}
                       target="_blank"
                       rel="noreferrer"
@@ -419,17 +419,17 @@ export function ProjectEditor({
                   )}
                 </section>
               </div>
-              <div className="ad-editor-column ad-gallery-column">
-                <section className="ad-editor-section">
+              <div className="rr-admin-editor-column rr-admin-gallery-column">
+                <section className="rr-admin-editor-section">
                   <h3>
                     Project photography<small>{form.images.length}/30</small>
                   </h3>
-                  <p className="ad-gallery-help">
+                  <p className="rr-admin-gallery-help">
                     The first image is your project cover. Arrange the rest to
                     take visitors through the space.
                   </p>
                   <input
-                    className="ad-visually-hidden"
+                    className="rr-admin-visually-hidden"
                     ref={fileInput}
                     type="file"
                     accept="image/jpeg,image/png,image/webp"
@@ -440,12 +440,12 @@ export function ProjectEditor({
                   />
                   <button
                     type="button"
-                    className="ad-upload-area"
+                    className="rr-admin-upload-area"
                     onClick={() => fileInput.current?.click()}
                     disabled={uploading || busy}
                   >
                     <CloudArrowUp size={26} aria-hidden="true" />
-                    <span className="ad-upload-copy">
+                    <span className="rr-admin-upload-copy">
                       <strong>
                         {uploading
                           ? "Uploading photography…"
@@ -453,21 +453,21 @@ export function ProjectEditor({
                       </strong>
                       <small>JPG, PNG or WebP · Up to 10 MB each</small>
                     </span>
-                    <span className="ad-upload-action" aria-hidden="true">
+                    <span className="rr-admin-upload-action" aria-hidden="true">
                       <Plus size={18} />
                     </span>
                   </button>
                   <button
                     type="button"
-                    className="ad-url-toggle"
+                    className="rr-admin-url-toggle"
                     onClick={() => setShowUrl(!showUrl)}
                   >
                     <LinkSimple size={15} />
                     Or use an existing image URL or path
                   </button>
                   {showUrl && (
-                    <div className="ad-url-panel">
-                      <label className="ad-field">
+                    <div className="rr-admin-url-panel">
+                      <label className="rr-admin-field">
                         <span>Existing image URL or path</span>
                         <input
                           type="text"
@@ -477,7 +477,7 @@ export function ProjectEditor({
                           onChange={(event) => setImageUrl(event.target.value)}
                         />
                       </label>
-                      <label className="ad-field">
+                      <label className="rr-admin-field">
                         <span>Alternative text</span>
                         <input
                           value={imageAlt}
@@ -487,7 +487,7 @@ export function ProjectEditor({
                       </label>
                       <button
                         type="button"
-                        className="ad-button ad-secondary"
+                        className="rr-admin-button rr-admin-secondary"
                         onClick={addImageUrl}
                       >
                         Add image
@@ -495,13 +495,13 @@ export function ProjectEditor({
                       </button>
                     </div>
                   )}
-                  <div className="ad-gallery-items">
+                  <div className="rr-admin-gallery-items">
                     {form.images.map((image, index) => (
                       <div
-                        className="ad-gallery-item"
+                        className="rr-admin-gallery-item"
                         key={`${index}-${image.src}`}
                       >
-                        <div className="ad-gallery-image">
+                        <div className="rr-admin-gallery-image">
                           <Image
                             src={image.src}
                             alt={
@@ -520,8 +520,8 @@ export function ProjectEditor({
                               : String(index + 1).padStart(2, "0")}
                           </span>
                         </div>
-                        <div className="ad-gallery-detail">
-                          <label className="ad-field">
+                        <div className="rr-admin-gallery-detail">
+                          <label className="rr-admin-field">
                             <span>
                               Alternative text <i>*</i>
                             </span>
@@ -544,7 +544,7 @@ export function ProjectEditor({
                               }
                             />
                           </label>
-                          <div className="ad-gallery-controls">
+                          <div className="rr-admin-gallery-controls">
                             <span>
                               {index === 0
                                 ? "Cover image"
@@ -552,7 +552,7 @@ export function ProjectEditor({
                             </span>
                             <button
                               type="button"
-                              className="ad-icon-button"
+                              className="rr-admin-icon-button"
                               aria-label={`Move image ${index + 1} earlier`}
                               disabled={index === 0}
                               onClick={() => moveImage(index, -1)}
@@ -561,7 +561,7 @@ export function ProjectEditor({
                             </button>
                             <button
                               type="button"
-                              className="ad-icon-button"
+                              className="rr-admin-icon-button"
                               aria-label={`Move image ${index + 1} later`}
                               disabled={index === form.images.length - 1}
                               onClick={() => moveImage(index, 1)}
@@ -570,7 +570,7 @@ export function ProjectEditor({
                             </button>
                             <button
                               type="button"
-                              className="ad-icon-button ad-danger"
+                              className="rr-admin-icon-button rr-admin-danger"
                               aria-label={`Remove image ${index + 1}`}
                               onClick={() =>
                                 update(
@@ -589,7 +589,7 @@ export function ProjectEditor({
                     ))}
                   </div>
                   {form.images.length > 0 && (
-                    <p className="ad-footnote">
+                    <p className="rr-admin-footnote">
                       Describe each image for screen readers and search. Avoid
                       repeating the project title as every description.
                     </p>
@@ -597,14 +597,14 @@ export function ProjectEditor({
                 </section>
               </div>
             </div>
-            <footer className="ad-editor-footer">
+            <footer className="rr-admin-editor-footer">
               {error ? (
-                <p className="ad-error" role="alert">
+                <p className="rr-admin-error" role="alert">
                   {error}
                 </p>
               ) : (
-                <span className="ad-save-status">
-                  <span className={form.published ? "ad-dot-blue" : ""} />
+                <span className="rr-admin-save-status">
+                  <span className={form.published ? "rr-admin-dot-blue" : ""} />
                   {form.published
                     ? "Will be visible on the website"
                     : "Saving as a hidden project"}
@@ -613,7 +613,7 @@ export function ProjectEditor({
               <div>
                 <button
                   type="button"
-                  className="ad-button ad-secondary"
+                  className="rr-admin-button rr-admin-secondary"
                   onClick={onClose}
                   disabled={busy || uploading}
                 >
@@ -621,11 +621,11 @@ export function ProjectEditor({
                 </button>
                 <button
                   type="submit"
-                  className="ad-button ad-primary"
+                  className="rr-admin-button rr-admin-primary"
                   disabled={busy || uploading}
                 >
                   {busy ? "Saving…" : "Save project"}
-                  <span className="ad-button-icon" aria-hidden="true">
+                  <span className="rr-admin-button-icon" aria-hidden="true">
                     <Check size={18} />
                   </span>
                 </button>

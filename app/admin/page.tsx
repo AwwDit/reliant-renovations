@@ -16,18 +16,18 @@ export default async function AdminPage({
     return (
       <AdminAuthShell>
         <section
-          className="ad-auth-card ad-auth-setup"
+          className="rr-admin-auth-card rr-admin-auth-setup"
           aria-labelledby="admin-setup-title"
         >
-          <div className="ad-auth-kicker">
-            <div className="ad-eyebrow">OWNER WORKSPACE</div>
+          <div className="rr-admin-auth-kicker">
+            <div className="rr-admin-eyebrow">OWNER WORKSPACE</div>
           </div>
           <h1 id="admin-setup-title">A home for your work.</h1>
           <p>
             Configure the owner account to start managing projects and
             inquiries.
           </p>
-          <ol className="ad-setup-steps">
+          <ol className="rr-admin-setup-steps">
             <li>
               Run <code>npm run admin:setup</code> in the project directory.
             </li>
@@ -37,12 +37,12 @@ export default async function AdminPage({
             </li>
             <li>Restart the application, then refresh this page.</li>
           </ol>
-          <div className="ad-callout">
+          <div className="rr-admin-callout">
             Your dashboard is locked until credentials are configured. Project
             and inquiry data is stored in MongoDB. Uploaded files use the media
             storage configured for this website.
           </div>
-          <Link className="ad-text-link" href="/">
+          <Link className="rr-admin-text-link" href="/">
             ← Back to the website
           </Link>
         </section>
