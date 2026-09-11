@@ -1,4 +1,5 @@
 import { createHash, randomUUID } from "node:crypto";
+import { z } from "zod";
 import type { Inquiry } from "../types";
 import { site } from "../site";
 import {
@@ -88,14 +89,23 @@ export async function sendInquiryEmails(
   }
 }
 
-async function sendOwnerSecurityEmail(
+const securityRecipientSchema = z.string().trim().email().max(254);
+
+async function sendAccountSecurityEmail(
   render: (brand: EmailBrand) => EmailTemplate,
   idempotencyKey: string,
+  recipientEmail?: string,
 ): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY?.trim();
   const from = process.env.INQUIRY_FROM_EMAIL?.trim();
-  const owner = process.env.ADMIN_EMAIL?.trim();
-  if (!apiKey || !from || !owner) return false;
+  // Legacy callers may omit the account; an invalid explicit recipient must
+  // never redirect a password-reset secret to the bootstrap owner address.
+  const rawRecipient =
+    recipientEmail === undefined ? process.env.ADMIN_EMAIL : recipientEmail;
+  if (typeof rawRecipient !== "string" || /[\r\n]/.test(rawRecipient))
+    return false;
+  const recipient = securityRecipientSchema.safeParse(rawRecipient);
+  if (!apiKey || !from || !recipient.success) return false;
   try {
     const template = render({
       siteUrl:
@@ -110,30 +120,37 @@ async function sendOwnerSecurityEmail(
         "Content-Type": "application/json",
         "Idempotency-Key": idempotencyKey,
       },
-      body: JSON.stringify({ from, to: [owner], ...template }),
+      body: JSON.stringify({ from, to: [recipient.data], ...template }),
       signal: AbortSignal.timeout(8000),
     });
     if (!response.ok)
-      console.error("Owner security email provider returned", response.status);
+      console.error("Admin account email provider returned", response.status);
     return response.ok;
   } catch {
-    console.error("Owner security email could not be sent.");
+    console.error("Admin account email could not be sent.");
     return false;
   }
 }
 
-export async function sendPasswordResetEmail(token: string): Promise<boolean> {
+export async function sendPasswordResetEmail(
+  token: string,
+  recipientEmail?: string,
+): Promise<boolean> {
   if (!/^[a-f0-9]{64}$/.test(token)) return false;
   const fingerprint = createHash("sha256").update(token).digest("hex");
-  return sendOwnerSecurityEmail(
+  return sendAccountSecurityEmail(
     (brand) => passwordResetEmail(token, brand),
     `owner-password-reset/${fingerprint}`,
+    recipientEmail,
   );
 }
 
-export async function sendPasswordChangedEmail(): Promise<boolean> {
-  return sendOwnerSecurityEmail(
+export async function sendPasswordChangedEmail(
+  recipientEmail?: string,
+): Promise<boolean> {
+  return sendAccountSecurityEmail(
     passwordChangedEmail,
     `owner-password-changed/${randomUUID()}`,
+    recipientEmail,
   );
 }

@@ -13,7 +13,7 @@ import {
 import { AdminAuthShell } from "./AdminLogin";
 
 const genericConfirmation =
-  "If that address is registered for owner access, you’ll receive a password reset link.";
+  "If that address is registered for an admin account, you’ll receive a password reset link.";
 
 export function AdminForgotPassword() {
   const [email, setEmail] = useState("");
@@ -63,7 +63,7 @@ export function AdminForgotPassword() {
         aria-labelledby="admin-forgot-title"
       >
         <div className="ad-auth-kicker">
-          <div className="ad-eyebrow">OWNER ACCESS</div>
+          <div className="ad-eyebrow">ADMIN ACCESS</div>
           <EnvelopeSimple size={20} aria-hidden="true" />
         </div>
         <h1 id="admin-forgot-title" ref={heading} tabIndex={-1}>
@@ -92,8 +92,8 @@ export function AdminForgotPassword() {
         ) : (
           <>
             <p>
-              Enter the email address associated with owner access. We’ll send
-              instructions to reset your password.
+              Enter the email address associated with your admin account. We’ll
+              send instructions to reset your password.
             </p>
             <form onSubmit={submit} aria-busy={busy}>
               <label className="ad-label" htmlFor="admin-recovery-email">
@@ -302,7 +302,7 @@ export function AdminResetPassword() {
         aria-labelledby="admin-reset-title"
       >
         <div className="ad-auth-kicker">
-          <div className="ad-eyebrow">OWNER ACCESS</div>
+          <div className="ad-eyebrow">ADMIN ACCESS</div>
           <LockKey size={20} aria-hidden="true" />
         </div>
         <h1 id="admin-reset-title" ref={heading} tabIndex={-1}>
@@ -351,7 +351,7 @@ export function AdminResetPassword() {
           <p role="status">Preparing the reset form…</p>
         ) : (
           <>
-            <p>Choose a new password for your owner workspace.</p>
+            <p>Choose a new password for your admin account.</p>
             <form onSubmit={submit} aria-busy={busy}>
               <p className="ad-recovery-hint" id="admin-reset-requirements">
                 Use 12–512 characters.

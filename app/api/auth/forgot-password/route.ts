@@ -15,7 +15,7 @@ function accepted() {
     {
       ok: true,
       message:
-        "If that email matches the owner account, a password-reset link will be sent.",
+        "If that email matches an active admin account, a password-reset link will be sent.",
     },
     { headers: { "Cache-Control": "no-store" } },
   );

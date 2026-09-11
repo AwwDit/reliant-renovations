@@ -90,14 +90,15 @@ async function main() {
       id: "password-reset",
       label: "Password reset",
       audience: "Admin account",
-      trigger: "Sent when the owner requests a password-reset link.",
+      trigger:
+        "Sent when an admin requests a password-reset link for their account.",
       template: passwordResetEmail("e".repeat(64), brand),
     },
     {
       id: "password-changed",
       label: "Password changed",
       audience: "Admin account",
-      trigger: "Sent after the owner successfully resets their password.",
+      trigger: "Sent after an admin successfully resets their own password.",
       template: passwordChangedEmail(brand),
     },
   ];

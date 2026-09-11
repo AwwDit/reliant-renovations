@@ -3,7 +3,7 @@ import "./admin.css";
 import "./editor.css";
 import "./auth.css";
 export const metadata: Metadata = {
-  title: "Owner dashboard | Reliant Renovations",
+  title: "Admin dashboard | Reliant Renovations",
   robots: { index: false, follow: false },
 };
 export const runtime = "nodejs";

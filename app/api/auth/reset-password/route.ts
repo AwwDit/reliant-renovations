@@ -8,7 +8,7 @@ import {
   sessionCookieOptions,
 } from "@/lib/auth";
 import { consumeRateLimit } from "@/lib/db";
-import { completePasswordReset } from "@/lib/owner-auth";
+import { resetAdminPassword } from "@/lib/owner-auth";
 import { sendPasswordChangedEmail } from "@/lib/email/delivery";
 
 export const runtime = "nodejs";
@@ -31,7 +31,7 @@ export async function POST(request: Request) {
     );
   if (!authConfigured())
     return NextResponse.json(
-      { error: "Owner password recovery is currently unavailable." },
+      { error: "Admin password recovery is currently unavailable." },
       { status: 503 },
     );
   try {
@@ -66,8 +66,8 @@ export async function POST(request: Request) {
         { error: "Use a password between 12 and 512 characters." },
         { status: 400 },
       );
-    if (!(await completePasswordReset(body.token, body.password)))
-      return invalidLink();
+    const account = await resetAdminPassword(body.token, body.password);
+    if (!account) return invalidLink();
     const response = NextResponse.json(
       {
         ok: true,
@@ -81,11 +81,11 @@ export async function POST(request: Request) {
       maxAge: 0,
     });
     after(async () => {
-      await sendPasswordChangedEmail();
+      if (account.email) await sendPasswordChangedEmail(account.email);
     });
     return response;
   } catch {
-    console.error("Owner password reset could not be completed.");
+    console.error("Admin password reset could not be completed.");
     return NextResponse.json(
       {
         error:

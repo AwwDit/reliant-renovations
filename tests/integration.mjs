@@ -408,6 +408,321 @@ try {
     (await request("/projects/integration-project")).status === 404,
     "Deleted project is no longer public",
   );
+
+  // Each administrator has an independent identity; account management remains
+  // owner-only while project work is available to all active administrators.
+  const ownerCookie = cookie;
+  check(
+    (await fetch(origin + "/api/admin/accounts")).status === 401,
+    "Anonymous users cannot list admin accounts",
+  );
+  const initialAccountsResponse = await request("/api/admin/accounts");
+  check(initialAccountsResponse.ok, "Owner can list admin accounts");
+  const initialAccounts = (await initialAccountsResponse.json()).accounts;
+  check(
+    initialAccounts.length === 1 &&
+      initialAccounts[0].id === "owner" &&
+      initialAccounts[0].role === "owner" &&
+      initialAccounts[0].email === "recovery@example.test",
+    "Existing owner is migrated once into an individual account",
+  );
+  const adminEmail = "project-admin@example.test";
+  const adminPassword = randomBytes(24).toString("hex");
+  const accountInput = {
+    name: "Project Administrator",
+    email: "  PROJECT-ADMIN@EXAMPLE.TEST  ",
+    password: adminPassword,
+  };
+  let accountResponse = await json("/api/admin/accounts", "POST", {
+    ...accountInput,
+    role: "owner",
+  });
+  if (accountResponse.status === 400 || accountResponse.status === 403) {
+    check(
+      !(await databaseClient
+        .db(databaseName)
+        .collection("admin_accounts")
+        .findOne({ email: adminEmail })),
+      "Rejected forged owner role does not create an account",
+    );
+    accountResponse = await json("/api/admin/accounts", "POST", accountInput);
+  }
+  check(accountResponse.status === 201, "Owner can create an additional admin");
+  const accountResult = await accountResponse.json();
+  const managedAccount = accountResult.account;
+  check(
+    managedAccount.role === "admin" && managedAccount.id !== "owner",
+    "Additional accounts cannot acquire the owner role through submitted JSON",
+  );
+  check(
+    managedAccount.email === adminEmail && managedAccount.active === true,
+    "New account email is normalized and the account is active",
+  );
+  check(
+    !/"(?:_id|password|passwordHash|sessionVersion|resetTokenHash|resetExpiresAt)"/.test(
+      JSON.stringify(accountResult),
+    ) && !JSON.stringify(accountResult).includes(adminPassword),
+    "Account creation returns a safe public account without credentials",
+  );
+  check(
+    (
+      await json("/api/admin/accounts", "POST", {
+        ...accountInput,
+        email: adminEmail,
+      })
+    ).status === 409,
+    "Email uniqueness is case-insensitive after normalization",
+  );
+  check(
+    (
+      await json("/api/admin/accounts", "POST", {
+        ...accountInput,
+        email: "invalid-email",
+      })
+    ).status === 400,
+    "Invalid admin email is rejected",
+  );
+  check(
+    (
+      await json("/api/admin/accounts", "POST", {
+        ...accountInput,
+        email: "short-password@example.test",
+        password: "short",
+      })
+    ).status === 400,
+    "New administrator passwords must meet the minimum length",
+  );
+  check(
+    (
+      await fetch(origin + "/api/admin/accounts", {
+        method: "POST",
+        headers: {
+          cookie: ownerCookie,
+          origin: "https://different.example",
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          ...accountInput,
+          email: "cross-origin@example.test",
+        }),
+      })
+    ).status === 403,
+    "Account creation rejects an untrusted origin",
+  );
+  const accountList = (await (await request("/api/admin/accounts")).json())
+    .accounts;
+  check(
+    accountList.length === 2 &&
+      accountList.some((account) => account.id === managedAccount.id),
+    "Owner can retrieve the persisted additional administrator",
+  );
+  check(
+    !/"(?:_id|password|passwordHash|sessionVersion|resetTokenHash|resetExpiresAt)"/.test(
+      JSON.stringify(accountList),
+    ),
+    "The account list never exposes authentication storage fields",
+  );
+  check(
+    (await json("/api/admin/accounts/owner", "PATCH", { active: false }))
+      .status === 403,
+    "Owner account cannot be disabled",
+  );
+  const storedAdmin = await databaseClient
+    .db(databaseName)
+    .collection("admin_accounts")
+    .findOne({ id: managedAccount.id });
+  check(
+    storedAdmin?.role === "admin" &&
+      /^scrypt:/.test(storedAdmin.passwordHash) &&
+      !JSON.stringify(storedAdmin).includes(adminPassword),
+    "Additional administrator persists with a password hash and no raw password",
+  );
+  const adminLogin = await json("/api/auth/login", "POST", {
+    email: " PROJECT-ADMIN@EXAMPLE.TEST ",
+    password: adminPassword,
+  });
+  check(adminLogin.ok, "Additional admin can sign in with email and password");
+  cookie = adminLogin.headers.get("set-cookie")?.split(";")[0] || "";
+  check(
+    cookie.startsWith("reliant_admin="),
+    "Additional admin receives their own session",
+  );
+  const additionalDashboard = await request("/admin");
+  check(
+    additionalDashboard.ok &&
+      (await additionalDashboard.text()).includes('id="admin-content"'),
+    "Additional admin can open the existing dashboard",
+  );
+  check(
+    (await request("/api/admin/accounts")).status === 403,
+    "Additional admin cannot list other admin accounts",
+  );
+  check(
+    (
+      await json("/api/admin/accounts", "POST", {
+        ...accountInput,
+        email: "forbidden-admin@example.test",
+        role: "owner",
+      })
+    ).status === 403,
+    "Additional admin cannot create accounts or grant owner access",
+  );
+  check(
+    (
+      await json(`/api/admin/accounts/${managedAccount.id}`, "PATCH", {
+        active: false,
+      })
+    ).status === 403,
+    "Additional admin cannot change account access",
+  );
+  const adminImageForm = new FormData();
+  adminImageForm.set(
+    "file",
+    new Blob(
+      [await readFile("public/images/projects/plainview-kitchen/01.webp")],
+      {
+        type: "image/webp",
+      },
+    ),
+    "admin-project-photo.webp",
+  );
+  const adminUploadResponse = await request("/api/uploads", {
+    method: "POST",
+    body: adminImageForm,
+  });
+  check(
+    adminUploadResponse.status === 201,
+    "Additional admin can upload project imagery",
+  );
+  const adminUpload = (await adminUploadResponse.json()).src;
+  const adminProjectResponse = await json("/api/projects", "POST", {
+    ...fixture,
+    slug: "additional-admin-project",
+    title: "Additional admin project",
+  });
+  check(
+    adminProjectResponse.status === 201,
+    "Additional admin can create a project",
+  );
+  const adminProject = (await adminProjectResponse.json()).project;
+  const editedAdminProject = {
+    ...adminProject,
+    title: "Updated by additional admin",
+    images: [{ ...adminProject.images[0], src: adminUpload }],
+  };
+  check(
+    (await json(`/api/projects/${adminProject.id}`, "PUT", editedAdminProject))
+      .ok,
+    "Additional admin can replace a project's photos and update its details",
+  );
+  const updatedAdminProject = (
+    await (await request("/api/projects")).json()
+  ).projects.find((item) => item.id === adminProject.id);
+  check(
+    updatedAdminProject?.title === editedAdminProject.title &&
+      updatedAdminProject.images[0].src === adminUpload,
+    "Additional admin's project and photo edits persist",
+  );
+  check(
+    (await request(`/api/projects/${adminProject.id}`, { method: "DELETE" }))
+      .ok,
+    "Additional admin can remove their disposable project",
+  );
+  check(
+    (
+      await json("/api/auth/change-password", "POST", {
+        currentPassword: "incorrect-current-password",
+        password: "valid-new-password-not-applied",
+      })
+    ).status === 400,
+    "Changing a password requires the current account password",
+  );
+  const changedAdminPassword = randomBytes(24).toString("hex");
+  const changeResponse = await json("/api/auth/change-password", "POST", {
+    currentPassword: adminPassword,
+    password: changedAdminPassword,
+  });
+  check(changeResponse.ok, "Additional admin can change their own password");
+  check(
+    /Max-Age=0/i.test(changeResponse.headers.get("set-cookie") || ""),
+    "Account password change clears the browser session cookie",
+  );
+  check(
+    (await request("/api/projects")).status === 401,
+    "Account password change revokes the admin's old session",
+  );
+  cookie = ownerCookie;
+  check(
+    (await request("/api/admin/accounts")).ok,
+    "Changing another admin's password does not revoke the owner's session",
+  );
+  check(
+    (
+      await json("/api/auth/login", "POST", {
+        email: adminEmail,
+        password: adminPassword,
+      })
+    ).status === 401,
+    "Additional admin's previous password no longer signs in",
+  );
+  const changedAdminLogin = await json("/api/auth/login", "POST", {
+    email: adminEmail,
+    password: changedAdminPassword,
+  });
+  check(
+    changedAdminLogin.ok,
+    "Additional admin can sign in with their changed password",
+  );
+  const beforeDisableCookie =
+    changedAdminLogin.headers.get("set-cookie")?.split(";")[0] || "";
+  check(
+    (
+      await json(`/api/admin/accounts/${managedAccount.id}`, "PATCH", {
+        active: false,
+      })
+    ).ok,
+    "Owner can disable an additional administrator",
+  );
+  cookie = beforeDisableCookie;
+  check(
+    (await request("/api/projects")).status === 401,
+    "Disabling an account immediately invalidates its signed session",
+  );
+  check(
+    (
+      await json("/api/auth/login", "POST", {
+        email: adminEmail,
+        password: changedAdminPassword,
+      })
+    ).status === 401,
+    "Disabled account cannot sign in with the correct password",
+  );
+  cookie = ownerCookie;
+  check(
+    (
+      await json(`/api/admin/accounts/${managedAccount.id}`, "PATCH", {
+        active: true,
+      })
+    ).ok,
+    "Owner can re-enable an additional administrator",
+  );
+  cookie = beforeDisableCookie;
+  check(
+    (await request("/api/projects")).status === 401,
+    "Re-enabling an account does not revive a previously invalidated session",
+  );
+  const reenabledLogin = await json("/api/auth/login", "POST", {
+    email: adminEmail,
+    password: changedAdminPassword,
+  });
+  check(
+    reenabledLogin.ok,
+    "Re-enabled administrator can obtain a fresh session",
+  );
+  const survivingAdminCookie =
+    reenabledLogin.headers.get("set-cookie")?.split(";")[0] || "";
+  cookie = ownerCookie;
+
   const forgotResponse = await json("/api/auth/forgot-password", "POST", {
     email: "unregistered@example.test",
   });
@@ -441,17 +756,15 @@ try {
   const resetToken = randomBytes(32).toString("hex");
   await databaseClient
     .db(databaseName)
-    .collection("settings")
+    .collection("admin_accounts")
     .updateOne(
-      { key: "owner-auth" },
+      { id: "owner" },
       {
         $set: {
           resetTokenHash: createHash("sha256").update(resetToken).digest("hex"),
           resetExpiresAt: new Date(Date.now() + 30 * 60 * 1000),
         },
-        $setOnInsert: { sessionVersion: 0 },
       },
-      { upsert: true },
     );
   // An allowed 512-character password can exceed 2 KB after JSON escaping.
   // Reset and login must accept the same bounded password space.
@@ -468,6 +781,14 @@ try {
   check(
     (await request("/api/inquiries")).status === 401,
     "Password reset revokes an existing signed session",
+  );
+  check(
+    (
+      await request("/api/projects", {
+        headers: { cookie: survivingAdminCookie },
+      })
+    ).ok,
+    "Owner password recovery preserves other administrators' sessions",
   );
   check(
     (await json("/api/auth/login", "POST", { password })).status === 401,
@@ -499,7 +820,7 @@ try {
     "Owner can sign out",
   );
   console.log(
-    `Integration passed: ${assertions} assertions across public routes, authentication, project CRUD, ordering, uploads, inquiries and privacy.`,
+    `Integration passed: ${assertions} assertions across public routes, individual admin accounts, authentication, project CRUD, ordering, uploads, inquiries and privacy.`,
   );
 } finally {
   try {

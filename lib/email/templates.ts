@@ -251,9 +251,9 @@ export function passwordResetEmail(
   if (!/^[a-f0-9]{64}$/.test(token))
     throw new Error("Invalid password-reset token.");
   const url = `${originOf(brand)}/admin/reset-password#token=${token}`;
-  const subject = "Reset your owner password | Reliant Renovations";
+  const subject = "Reset your admin password | Reliant Renovations";
   const instructions =
-    "Use the link below to choose a new password for your Reliant Renovations owner dashboard. The link expires in 30 minutes and can be used once.";
+    "Use the link below to choose a new password for your Reliant Renovations admin account. The link expires in 30 minutes and can be used once.";
   const ignore =
     "If you did not request this, you can ignore this email. Your password has not changed.";
   return {
@@ -262,11 +262,11 @@ export function passwordResetEmail(
       brand,
       subject,
       preheader: "Your one-time password-reset link expires in 30 minutes.",
-      section: "Owner access",
+      section: "Admin access",
       heading: "Reset your password.",
       body: `${paragraph(instructions)}${button("Reset password", url)}<div style="padding-top:28px;">${paragraph(ignore)}</div>`,
       footer:
-        "This account email was sent to the configured owner recovery address.",
+        "This account email was sent to the email address for your admin account.",
     }),
     text: [
       "RELIANT RENOVATIONS INC.",
@@ -279,9 +279,9 @@ export function passwordResetEmail(
 }
 
 export function passwordChangedEmail(brand: EmailBrand): EmailTemplate {
-  const subject = "Your owner password was changed | Reliant Renovations";
+  const subject = "Your admin password was changed | Reliant Renovations";
   const message =
-    "The password for your Reliant Renovations owner dashboard has been changed. Previous sign-in sessions have been signed out.";
+    "The password for your Reliant Renovations admin account has been changed. Previous sign-in sessions for this account have been signed out.";
   const unexpected =
     "If you did not make this change, request a new password-reset link to secure your account.";
   const origin = originOf(brand);
@@ -290,12 +290,12 @@ export function passwordChangedEmail(brand: EmailBrand): EmailTemplate {
     html: shell({
       brand,
       subject,
-      preheader: "Your owner dashboard password has been changed.",
-      section: "Owner access",
+      preheader: "Your admin account password has been changed.",
+      section: "Admin access",
       heading: "Password changed.",
       body: `${paragraph(message)}${button("Sign in", `${origin}/admin`)}<div style="padding-top:28px;">${paragraph(unexpected)}<p style="margin:0;font-size:13px;line-height:22px;"><a href="${escapeHtml(origin)}/admin/forgot-password" style="color:#195bdf;text-decoration:underline;">Request a password-reset link</a></p></div>`,
       footer:
-        "This account email was sent to the configured owner recovery address.",
+        "This account email was sent to the email address for your admin account.",
     }),
     text: [
       "RELIANT RENOVATIONS INC.",

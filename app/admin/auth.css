@@ -203,6 +203,49 @@
   margin-top: 9px;
 }
 
+.ad-login-email {
+  margin-bottom: 22px;
+}
+
+.admin-root .ad-login-email input {
+  min-height: 58px;
+  padding: 14px 16px;
+  font-size: 16px;
+}
+
+.ad-login-owner-note,
+.ad-login-status {
+  margin-bottom: 22px !important;
+  color: var(--rf-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.ad-login-status {
+  padding: 14px 16px;
+  border-left: 2px solid var(--rf-success);
+  background: var(--rf-surface);
+  color: var(--rf-ink);
+}
+
+.ad-login-mode {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 8px;
+  padding: 8px;
+  border: 0;
+  background: transparent;
+  color: var(--rf-muted);
+  font-size: 11px !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.ad-login-mode:hover {
+  color: var(--rf-ink);
+}
+
 .admin-root .ad-auth-recovery h1 {
   font-size: clamp(40px, 4vw, 60px);
   line-height: 1.07;

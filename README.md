@@ -1,6 +1,6 @@
 # Reliant Renovations
 
-A Next.js application based on the supplied Reliant Renovations Website Designer Package, with distinct commercial and residential portfolios and an owner dashboard.
+A Next.js application based on the supplied Reliant Renovations Website Designer Package, with distinct commercial and residential portfolios and an admin dashboard.
 
 ## Run locally
 
@@ -46,7 +46,7 @@ If transferring an existing SQLite installation, migrate **before starting the s
 - Project photo uploads validated and converted to WebP, resized to a maximum of 2400 pixels, with EXIF/GPS metadata stripped.
 - Inquiry form with custom keyboard-accessible dropdowns, optional image/PDF attachment, and a private MongoDB-backed owner inbox.
 - Branded HTML and plain-text owner inquiry alerts and customer confirmations through Resend, with an authenticated link directly to the Inquiries tab.
-- Owner password recovery with branded reset and password-change emails, expiring single-use tokens and session revocation after a password change.
+- Separate MongoDB-backed admin accounts with email/password sign-in, owner-managed access, and individual password changes and recovery. Branded reset/change emails use expiring single-use tokens and revoke only the affected account's sessions.
 - Per-page metadata, canonical URLs, truthful organization/project/breadcrumb structured data, dynamic published-project sitemap, robots configuration and prelaunch noindex.
 - Optional Google Analytics loaded only after visitor consent and optional Search Console verification.
 
@@ -64,9 +64,25 @@ Run `npm run social:animate` to regenerate `public/videos/social/reliant-share-v
 
 Set `NEXT_PUBLIC_SITE_URL` to the public HTTPS origin (for example, `https://reliantrenovationsinc.com`) at build time and runtime so the absolute sharing-image and video URLs are reachable. After deploying, test a newly sent homepage link in Messages on an actual iPhone. Animation and autoplay depend on the receiving client and device settings; they are not guaranteed. Existing previews may remain cached by the receiving app.
 
-## Owner handoff
+## Admin accounts
 
-1. Sign in at `/admin` with the configured owner password.
+Each person can use a separate email and password at `/admin`. Every active admin can manage projects, photographs and inquiries. The owner also has account-management controls under **Accounts** to add admins and disable or re-enable access. There is no public registration. New accounts always have the admin role; the original owner cannot be disabled.
+
+To create your own admin without using the owner's login, run this in an interactive terminal from the project folder:
+
+```sh
+npm run admin:add
+```
+
+The command reads the configured `MONGODB_URI` and `MONGODB_DB` (including `.env.local`) and asks for your name, email and a password of at least 12 characters. Password input is hidden and must be confirmed. It creates the account directly in that database and never changes the owner password or sends email. Use the **live site's database settings**, and run somewhere with access to that database, for a login that works on the deployed site. Deploy this version of the application before trying the new login there. Duplicate email addresses are rejected; email sign-in is case-insensitive.
+
+Alternatively, the owner can sign in, open **Accounts → Add admin**, and create an account. All admins can change their own password under **Accounts** or use **Forgot password** at sign-in; account recovery requires the existing Resend configuration. Disabling an admin immediately revokes that account's sessions and reset links. Re-enabling permits a fresh sign-in, and does not restore old sessions.
+
+On first access, the existing owner credentials migrate automatically to `admin_accounts` in MongoDB. The migration preserves the stored password, existing sessions and unexpired reset links. `ADMIN_EMAIL` supplies the initial owner's email; **Existing owner sign-in** on the login screen retains the original password-only login, including when that email was never configured. Keep `ADMIN_PASSWORD_HASH` and `ADMIN_SESSION_SECRET` configured. Once migrated, changing the bootstrap hash does not replace a stored account password; use the account's password-change or recovery flow. If the owner initially had no email, configuring a valid, unused `ADMIN_EMAIL` later enables their email sign-in and recovery. Additional admins' addresses are stored with their individual accounts.
+
+## Project handoff
+
+1. Sign in at `/admin` with your email and password.
 2. Choose **Add project** or **Edit project**. Enter the division, location, scope and project story.
 3. Upload photos and write descriptive alternative text. The first photo becomes the cover. Use the image arrows to reorder the gallery.
 4. Use **Publish project** to control public visibility and **Feature on the homepage** for the homepage's Selected projects section. That section displays the first featured commercial project and the first featured residential project in portfolio order. Keep a project in each division featured for a balanced selection. The hero and specialty-section photographs are separate editorial selections from published projects, with fallbacks when those selections are unavailable.
@@ -85,7 +101,7 @@ After an inquiry is saved, the owner receives its details and a link to `/admin?
 
 Run `npm run email:preview` to open an offline gallery of all four emails, with desktop/mobile views, plain-text versions, and individual downloads. No server or credentials are needed, and nothing is sent. Use `npm run email:preview -- --no-open` to generate the files without opening a browser. See [email templates and configuration](docs/EMAILS.md). Confirm real receipt as part of the authorized launch test.
 
-Set the private `ADMIN_EMAIL` to enable owner password recovery. The login screen links to `/admin/forgot-password`; reset links expire after 30 minutes. A reset stores the new password hash in MongoDB and signs out existing sessions. `ADMIN_PASSWORD_HASH` remains the bootstrap credential until the first reset, after which the MongoDB credential takes precedence. Keep `ADMIN_SESSION_SECRET` and the bootstrap environment values configured.
+Set the private `ADMIN_EMAIL` for the initial owner. Each additional admin uses the email saved in their account for recovery. The login screen links to `/admin/forgot-password`; reset links expire after 30 minutes. A password change stores the new hash in MongoDB and signs out only that account's sessions. The owner does not receive copies of another admin's recovery emails. Keep `ADMIN_SESSION_SECRET` and the bootstrap environment values configured.
 
 For Google reviews, set server-only `GOOGLE_PLACES_API_KEY` and `GOOGLE_PLACES_PLACE_ID`. The example environment contains the verified Reliant Renovations listing ID. Google supplies up to five reviews in relevance order. Requests are made fresh through the server; reviews are not saved to MongoDB or a persistent cache. Missing configuration or an unavailable Google API omits this optional section while the rest of the homepage remains available. See [Google reviews setup](docs/GOOGLE-REVIEWS.md).
 

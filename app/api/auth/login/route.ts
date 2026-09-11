@@ -10,7 +10,7 @@ import {
   verifyPassword,
 } from "@/lib/auth";
 import { consumeRateLimit } from "@/lib/db";
-import { getOwnerCredentials } from "@/lib/owner-auth";
+import { getAdminCredentials } from "@/lib/admin-accounts";
 export const runtime = "nodejs";
 export async function POST(request: Request) {
   if (!sameOrigin(request))
@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     );
   if (!authConfigured())
     return NextResponse.json(
-      { error: "The owner account has not been configured yet." },
+      { error: "Admin access has not been configured yet." },
       { status: 503 },
     );
   let allowed;
@@ -51,27 +51,37 @@ export async function POST(request: Request) {
   } catch (error) {
     return bodyReadError(error);
   }
-  if (!body || typeof body.password !== "string")
+  if (
+    !body ||
+    typeof body.password !== "string" ||
+    (body.email !== undefined &&
+      (typeof body.email !== "string" || body.email.length > 254))
+  )
     return NextResponse.json(
-      { error: "That password is incorrect. Please try again." },
+      { error: "Those sign-in details are incorrect. Please try again." },
       { status: 401 },
     );
   try {
-    const { passwordHash, sessionVersion } = await getOwnerCredentials();
-    if (!verifyPassword(body.password, passwordHash))
+    const account = await getAdminCredentials(body.email);
+    // Unknown accounts still perform the password check before returning the same error.
+    const validPassword = verifyPassword(
+      body.password,
+      account?.passwordHash ?? process.env.ADMIN_PASSWORD_HASH!,
+    );
+    if (!validPassword || !account?.active)
       return NextResponse.json(
-        { error: "That password is incorrect. Please try again." },
+        { error: "Those sign-in details are incorrect. Please try again." },
         { status: 401 },
       );
     const response = NextResponse.json({ ok: true });
     response.cookies.set(
       SESSION_COOKIE,
-      createSession(Date.now(), sessionVersion),
+      createSession(Date.now(), account.sessionVersion, account.id),
       sessionCookieOptions(),
     );
     return response;
   } catch {
-    console.error("Owner sign-in storage is unavailable.");
+    console.error("Admin sign-in storage is unavailable.");
     return NextResponse.json(
       {
         error:

@@ -51,6 +51,20 @@ export async function ensureMongoIndexes(db: Db) {
         { key: { createdAt: -1 } },
       ]),
     db.collection("settings").createIndex({ key: 1 }, { unique: true }),
+    db.collection("admin_accounts").createIndexes([
+      { key: { id: 1 }, unique: true },
+      {
+        key: { email: 1 },
+        unique: true,
+        partialFilterExpression: { email: { $type: "string" } },
+        collation: { locale: "en", strength: 2 },
+      },
+      {
+        key: { resetTokenHash: 1 },
+        unique: true,
+        partialFilterExpression: { resetTokenHash: { $type: "string" } },
+      },
+    ]),
     db.collection("rate_limits").createIndexes([
       { key: { key: 1 }, unique: true },
       { key: { resetAt: 1 }, expireAfterSeconds: 0 },

@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test": "node --conditions=react-server --import tsx --test tests/*.test.ts",
     "admin:setup": "node --import tsx scripts/create-admin.ts",
+    "admin:add": "node --conditions=react-server --import tsx scripts/add-admin.ts",
     "email:preview": "node --import tsx scripts/preview-emails.ts",
     "social:preview": "node --import tsx scripts/generate-social-preview.tsx",
     "social:animate": "node --import tsx scripts/generate-social-animation.tsx",

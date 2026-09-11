@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { authConfigured, isAuthenticated } from "@/lib/auth";
+import { authConfigured, getCurrentAdmin } from "@/lib/auth";
 import { getInquiries, getProjects } from "@/lib/db";
 import { AdminDashboard } from "@/components/admin/AdminDashboard";
 import { AdminAuthShell, AdminLogin } from "@/components/admin/AdminLogin";
@@ -7,7 +7,10 @@ import { mediaCloudName } from "@/lib/media-urls";
 export default async function AdminPage({
   searchParams,
 }: {
-  searchParams: Promise<{ view?: string | string[] }>;
+  searchParams: Promise<{
+    view?: string | string[];
+    password?: string | string[];
+  }>;
 }) {
   if (!authConfigured())
     return (
@@ -45,9 +48,16 @@ export default async function AdminPage({
         </section>
       </AdminAuthShell>
     );
-  if (!(await isAuthenticated())) return <AdminLogin />;
-  const { view } = await searchParams;
-  const initialTab = view === "inquiries" ? "inquiries" : "projects";
+  const currentAdmin = await getCurrentAdmin();
+  const { view, password } = await searchParams;
+  if (!currentAdmin)
+    return <AdminLogin passwordChanged={password === "changed"} />;
+  const initialTab =
+    view === "inquiries"
+      ? "inquiries"
+      : view === "accounts"
+        ? "accounts"
+        : "projects";
   const [projects, inquiries] = await Promise.all([
     getProjects({ includeHidden: true }),
     getInquiries(),
@@ -56,6 +66,7 @@ export default async function AdminPage({
     <AdminDashboard
       key={initialTab}
       initialTab={initialTab}
+      currentAdmin={currentAdmin}
       initialProjects={projects}
       initialInquiries={inquiries}
       cloudName={mediaCloudName()}

@@ -6,7 +6,7 @@ async function main() {
   const terminal = createInterface({ input: stdin, output: stdout });
   try {
     console.log(
-      "Create an owner account. Add the generated values to .env.local or your host environment.",
+      "Generate initial owner credentials. For an additional admin on an existing site, use npm run admin:add instead. Add these bootstrap values to .env.local or your host environment.",
     );
     const password = await terminal.question(
       "Choose a password (12+ characters; input is visible): ",

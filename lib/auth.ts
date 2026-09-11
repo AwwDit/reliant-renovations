@@ -6,6 +6,7 @@ import {
   createHash,
 } from "node:crypto";
 import { cookies } from "next/headers";
+import type { AdminAccount } from "./admin-account-types";
 
 export const SESSION_COOKIE = "reliant_admin";
 const SESSION_SECONDS = 60 * 60 * 12;
@@ -36,57 +37,118 @@ export function verifyPassword(
   const actual = scryptSync(password, salt, 64);
   return timingSafeEqual(actual, Buffer.from(hash, "hex"));
 }
-export function createSession(now = Date.now(), version = 0): string {
+export function createSession(
+  now = Date.now(),
+  version = 0,
+  accountId = "owner",
+): string {
   if (!authConfigured())
     throw new Error("Admin credentials are not configured.");
+  if (
+    !/^[a-zA-Z0-9_-]{1,128}$/.test(accountId) ||
+    !Number.isSafeInteger(version) ||
+    version < 0
+  )
+    throw new Error("Invalid admin session identity.");
   const body = Buffer.from(
     JSON.stringify({
       exp: now + SESSION_SECONDS * 1000,
       nonce: randomBytes(16).toString("hex"),
       version,
+      sub: accountId,
     }),
   ).toString("base64url");
   return `${body}.${createHmac("sha256", process.env.ADMIN_SESSION_SECRET!).update(body).digest("base64url")}`;
 }
-export function verifySession(
+function readSession(
   token: string | undefined,
-  now = Date.now(),
-  version = 0,
-): boolean {
-  if (!authConfigured() || !token || token.length > 1024) return false;
+  now: number,
+): { accountId: string; version: number } | null {
+  if (
+    !authConfigured() ||
+    typeof token !== "string" ||
+    !token ||
+    token.length > 1024
+  )
+    return null;
   const parts = token.split(".");
-  if (parts.length !== 2) return false;
+  if (parts.length !== 2) return null;
   const [body, signature] = parts;
   const expected = createHmac("sha256", process.env.ADMIN_SESSION_SECRET!)
     .update(body)
     .digest();
   const actual = Buffer.from(signature, "base64url");
   if (actual.length !== expected.length || !timingSafeEqual(actual, expected))
-    return false;
+    return null;
   try {
     const payload = JSON.parse(Buffer.from(body, "base64url").toString());
-    return (
-      typeof payload.exp === "number" &&
-      payload.exp > now &&
-      payload.exp <= now + SESSION_SECONDS * 1000 &&
-      (payload.version === undefined ? 0 : payload.version) === version
-    );
+    if (!payload || typeof payload !== "object") return null;
+    const version = payload.version === undefined ? 0 : payload.version;
+    // Cookies from the original owner-only login can never identify another user.
+    const accountId = payload.sub === undefined ? "owner" : payload.sub;
+    if (
+      typeof payload.exp !== "number" ||
+      !Number.isFinite(payload.exp) ||
+      payload.exp <= now ||
+      payload.exp > now + SESSION_SECONDS * 1000 ||
+      !Number.isSafeInteger(version) ||
+      version < 0 ||
+      typeof accountId !== "string" ||
+      !/^[a-zA-Z0-9_-]{1,128}$/.test(accountId)
+    )
+      return null;
+    return { accountId, version };
   } catch {
-    return false;
+    return null;
   }
 }
-export async function isAuthenticated() {
-  if (!authConfigured()) return false;
-  const token = (await cookies()).get(SESSION_COOKIE)?.value;
-  if (!token) return false;
+
+export function verifySession(
+  token: string | undefined,
+  now = Date.now(),
+  version = 0,
+  accountId = "owner",
+): boolean {
+  const session = readSession(token, now);
+  return (
+    session !== null &&
+    session.version === version &&
+    session.accountId === accountId
+  );
+}
+
+export async function getAdminFromSession(
+  token: string | undefined,
+  now = Date.now(),
+): Promise<AdminAccount | null> {
+  const session = readSession(token, now);
+  if (!session) return null;
   try {
-    const { getOwnerCredentials } = await import("./owner-auth");
-    const { sessionVersion } = await getOwnerCredentials();
-    return verifySession(token, Date.now(), sessionVersion);
+    const { getAdminCredentialsById, publicAdminAccount } =
+      await import("./admin-accounts");
+    const account = await getAdminCredentialsById(session.accountId);
+    if (!account?.active || account.sessionVersion !== session.version)
+      return null;
+    return publicAdminAccount(account);
   } catch {
     // Database availability must never bypass session revocation.
-    return false;
+    return null;
   }
+}
+
+export async function getCurrentAdmin(): Promise<AdminAccount | null> {
+  if (!authConfigured()) return null;
+  try {
+    return await getAdminFromSession(
+      (await cookies()).get(SESSION_COOKIE)?.value,
+    );
+  } catch {
+    return null;
+  }
+}
+
+export async function isAuthenticated() {
+  return (await getCurrentAdmin()) !== null;
 }
 export const sessionCookieOptions = () => ({
   httpOnly: true,
@@ -188,6 +250,29 @@ export async function requireAdmin(
     return Response.json(
       { error: "Please sign in to continue." },
       { status: 401 },
+    );
+  if (mutation && !sameOrigin(request))
+    return Response.json(
+      { error: "This request could not be verified." },
+      { status: 403 },
+    );
+  return null;
+}
+
+export async function requireOwner(
+  request: Request,
+  mutation = false,
+): Promise<Response | null> {
+  const account = await getCurrentAdmin();
+  if (!account)
+    return Response.json(
+      { error: "Please sign in to continue." },
+      { status: 401 },
+    );
+  if (account.role !== "owner")
+    return Response.json(
+      { error: "Only the owner can manage admin accounts." },
+      { status: 403 },
     );
   if (mutation && !sameOrigin(request))
     return Response.json(

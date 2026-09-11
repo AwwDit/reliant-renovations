@@ -84,7 +84,7 @@ async function withResetDatabase(t: TestContext, run: () => Promise<void>) {
 }
 
 async function storedOwner() {
-  return (await getDb()).collection("settings").findOne({ key: "owner-auth" });
+  return (await getDb()).collection("admin_accounts").findOne({ id: "owner" });
 }
 
 test("reset tokens are random, hashed at rest and replaced by newer requests", async (t) => {
@@ -96,7 +96,7 @@ test("reset tokens are random, hashed at rest and replaced by newer requests", a
     assert.equal(firstRecord.resetTokenHash, digest(first));
     assert.equal(firstRecord.resetExpiresAt.getTime(), now + resetLifetime);
     assert.ok(!JSON.stringify(firstRecord).includes(first));
-    assert.equal(firstRecord.passwordHash, undefined);
+    assert.equal(firstRecord.passwordHash, bootstrapHash);
     const second = await createPasswordResetToken(now + 1);
     assert.notEqual(second, first);
     assert.equal(
@@ -169,8 +169,8 @@ test("concurrent token issuance keeps one owner record and one usable reset link
       await (
         await getDb()
       )
-        .collection("settings")
-        .countDocuments({ key: "owner-auth" }),
+        .collection("admin_accounts")
+        .countDocuments({ id: "owner" }),
       1,
     );
     const record = (await storedOwner())!;
@@ -313,7 +313,7 @@ test("failed delivery removes its token and unknown email addresses never receiv
     await requestOwnerPasswordReset("other-person@example.test");
     await requestOwnerPasswordReset(process.env.INQUIRY_TO_EMAIL!);
     assert.equal(requests.length, 0);
-    assert.equal(await storedOwner(), null);
+    assert.equal((await storedOwner())?.resetTokenHash, undefined);
     await requestOwnerPasswordReset(" OWNER@EXAMPLE.TEST ");
     assert.equal(requests.length, 1);
     assert.deepEqual(requests[0].to, ["owner@example.test"]);
@@ -411,7 +411,7 @@ test("missing recovery configuration and disabled authentication cannot issue a 
     delete process.env.RESEND_API_KEY;
     await requestOwnerPasswordReset("owner@example.test");
     assert.equal(requests, 0);
-    assert.equal(await storedOwner(), null);
+    assert.equal((await storedOwner())?.resetTokenHash, undefined);
     const token = await createPasswordResetToken();
     process.env.ADMIN_PASSWORD_HASH = "";
     assert.equal(authConfigured(), false);

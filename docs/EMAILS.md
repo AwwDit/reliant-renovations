@@ -17,7 +17,7 @@ Set these in `.env.local` or the production host:
 
 ```env
 RESEND_API_KEY=your-resend-api-key
-ADMIN_EMAIL=your-owner-recovery@your-domain.com
+ADMIN_EMAIL=your-owner@your-domain.com
 INQUIRY_FROM_EMAIL=Reliant Renovations <projects@your-domain.com>
 INQUIRY_TO_EMAIL=your-owner-inbox@your-domain.com
 NEXT_PUBLIC_CONTACT_EMAIL=your-public-contact@your-domain.com
@@ -46,12 +46,14 @@ Run `npm run email:preview -- --no-open` to generate the files without opening a
 
 Browser screenshots verify layout and overflow. They are not substitutes for actual Gmail/Outlook/Apple Mail rendering or a delivery test with the production domain.
 
-## Owner password recovery
+## Admin account password recovery
 
-Two further branded account emails are implemented: **Reset your password** with the one-time recovery link, and **Password changed** with sign-in and recovery actions. They are sent only to the configured private `ADMIN_EMAIL`, using the same verified `INQUIRY_FROM_EMAIL` sender and Resend key. The recovery address is independent of the inquiry inbox and public contact address.
+Two further branded account emails are implemented: **Reset your password** with the one-time recovery link, and **Password changed** with sign-in and recovery actions. Each is sent only to the affected admin account's email address, using the same verified `INQUIRY_FROM_EMAIL` sender and Resend key. Other administrators, the inquiry inbox and the public contact address do not receive a copy. Invalid account email addresses are rejected; they never redirect recovery mail to the owner.
 
-Choose **Forgot password?** on the sign-in screen. `/admin/forgot-password` returns the same confirmation whether or not the submitted address matches. Requests are rate-limited. The reset link expires after 30 minutes; requesting another invalidates the earlier link. Only its hash and expiry are stored in MongoDB. The secret travels in the email link's URL fragment, which is not sent with the page request. Opening the link does not consume it; submitting a valid new password consumes it atomically.
+`ADMIN_EMAIL` identifies the initial owner for account setup; it is not a shared recovery destination for additional administrators. Accounts have their own stored email addresses and password hashes. The delivery helpers retain an `ADMIN_EMAIL` fallback only for older callers that omit the account recipient; the account recovery routes pass the affected account's email explicitly.
 
-Passwords must contain 12–512 characters. A successful reset saves a new password hash in MongoDB, removes the token and invalidates existing owner sessions. It does not sign in automatically. `ADMIN_PASSWORD_HASH` remains the bootstrap fallback until a password has been reset; afterward the stored password takes precedence. Keep the bootstrap environment values and `ADMIN_SESSION_SECRET` configured. Account emails run after the HTTP response, so provider latency does not reveal a matching address. Delivery failure invalidates the matching unsent reset token, and the owner can request another link.
+Choose **Forgot password?** on the sign-in screen and enter your account email. `/admin/forgot-password` returns the same confirmation whether or not the submitted address matches an account. Requests are rate-limited. The reset link expires after 30 minutes; requesting another invalidates the earlier link for that account. Only its hash and expiry are stored in MongoDB. The secret travels in the email link's URL fragment, which is not sent with the page request. Opening the link does not consume it; submitting a valid new password consumes it atomically.
 
-There is still one owner account. Invitations, multiple admin users, email verification and in-app reply sending are outside this flow.
+Passwords must contain 12–512 characters. A successful reset saves a new password hash in MongoDB, removes the token and invalidates existing sessions for that account. Other administrators' passwords and sessions are unchanged. It does not sign in automatically. Keep `ADMIN_SESSION_SECRET` configured. Account emails run after the HTTP response, so provider latency does not reveal a matching address. Delivery failure invalidates the matching unsent reset token, and the account holder can request another link.
+
+Creating an additional admin account does not send an invitation email. The owner creates the account with a name, email address and password in the dashboard, or the site operator uses `npm run admin:add`. Invitation emails, email verification and in-app reply sending are outside this flow.

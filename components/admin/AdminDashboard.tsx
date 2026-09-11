@@ -25,29 +25,30 @@ import type { Division, Inquiry, Project } from "@/lib/types";
 import { ProjectEditor } from "./ProjectEditor";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { isCloudinaryProjectUrl } from "@/lib/media-urls";
+import type { AdminAccount } from "@/lib/admin-account-types";
+import { AdminAccounts } from "./AdminAccounts";
+import { adminRequest } from "./admin-request";
 
-export async function adminRequest(url: string, options?: RequestInit) {
-  const response = await fetch(url, options);
-  const data = await response.json();
-  if (!response.ok)
-    throw new Error(data.error || "Something went wrong. Please try again.");
-  return data;
-}
+export { adminRequest } from "./admin-request";
 export function AdminDashboard({
   initialProjects,
   initialInquiries,
   cloudName,
+  currentAdmin,
   initialTab = "projects",
 }: {
   initialProjects: Project[];
   initialInquiries: Inquiry[];
   cloudName: string;
-  initialTab?: "projects" | "inquiries";
+  currentAdmin: AdminAccount;
+  initialTab?: "projects" | "inquiries" | "accounts";
 }) {
   const router = useRouter();
   const [projects, setProjects] = useState(initialProjects);
   const [inquiries, setInquiries] = useState(initialInquiries);
-  const [tab, setTab] = useState<"projects" | "inquiries">(initialTab);
+  const [tab, setTab] = useState<"projects" | "inquiries" | "accounts">(
+    initialTab,
+  );
   const [division, setDivision] = useState<Division | "all">("all");
   const [query, setQuery] = useState("");
   const [editor, setEditor] = useState<Project | "new" | null>(null);
@@ -206,7 +207,7 @@ export function AdminDashboard({
             <SignOut size={21} />
           </button>
         </div>
-        <span className="ad-sidebar-label">Owner workspace</span>
+        <span className="ad-sidebar-label">Admin workspace</span>
         <nav aria-label="Dashboard">
           <button
             className={`ad-nav-item ${tab === "projects" ? "active" : ""}`}
@@ -237,6 +238,16 @@ export function AdminDashboard({
               {String(unread).padStart(2, "0")}
             </span>
           </button>
+          <button
+            className={`ad-nav-item ${tab === "accounts" ? "active" : ""}`}
+            aria-current={tab === "accounts" ? "page" : undefined}
+            onClick={() => {
+              setTab("accounts");
+              setQuery("");
+            }}
+          >
+            <span className="ad-nav-label">Accounts</span>
+          </button>
         </nav>
         <div className="ad-sidebar-bottom">
           <a href="/" target="_blank" rel="noreferrer">
@@ -249,7 +260,10 @@ export function AdminDashboard({
           </button>
           <div className="ad-owner">
             <div>
-              Owner account<small>Reliant Renovations</small>
+              {currentAdmin.name}
+              <small>
+                {currentAdmin.role === "owner" ? "Owner" : "Admin"} account
+              </small>
             </div>
           </div>
           <div className="ad-appearance">
@@ -262,7 +276,13 @@ export function AdminDashboard({
         <header className="ad-topbar">
           <span>
             Workspace <CaretRight size={12} />{" "}
-            <strong>{tab === "projects" ? "Projects" : "Inquiries"}</strong>
+            <strong>
+              {tab === "projects"
+                ? "Projects"
+                : tab === "inquiries"
+                  ? "Inquiries"
+                  : "Accounts"}
+            </strong>
           </span>
           <a href="/" target="_blank" rel="noreferrer">
             Website live preview <ArrowUpRight size={14} />
@@ -272,17 +292,25 @@ export function AdminDashboard({
           <div className="ad-page-heading">
             <div>
               <h1>
-                {tab === "projects" ? "Projects" : "Inquiries"}
-                <span>
-                  {tab === "projects"
-                    ? projects.length.toString().padStart(2, "0")
-                    : inquiries.length.toString().padStart(2, "0")}
-                </span>
+                {tab === "projects"
+                  ? "Projects"
+                  : tab === "inquiries"
+                    ? "Inquiries"
+                    : "Accounts"}
+                {tab !== "accounts" && (
+                  <span>
+                    {tab === "projects"
+                      ? projects.length.toString().padStart(2, "0")
+                      : inquiries.length.toString().padStart(2, "0")}
+                  </span>
+                )}
               </h1>
               <p>
                 {tab === "projects"
                   ? "Manage project details, photographs, and publishing."
-                  : "Review project requests from your website."}
+                  : tab === "inquiries"
+                    ? "Review project requests from your website."
+                    : "Manage your sign-in and access to this workspace."}
               </p>
             </div>
             {tab === "projects" && (
@@ -559,6 +587,8 @@ export function AdminDashboard({
                 stay in your dashboard.
               </p>
             </>
+          ) : tab === "accounts" ? (
+            <AdminAccounts currentAdmin={currentAdmin} />
           ) : (
             <>
               <div className="ad-inquiry-toolbar">
@@ -635,7 +665,7 @@ export function AdminDashboard({
         </main>
         <footer className="ad-footer">
           <span>RELIANT RENOVATIONS</span>
-          <span>Owner workspace</span>
+          <span>Admin workspace</span>
         </footer>
       </div>
       {editor && (

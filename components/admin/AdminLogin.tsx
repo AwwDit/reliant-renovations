@@ -40,7 +40,7 @@ export function AdminAuthShell({ children }: { children: React.ReactNode }) {
         <div className="ad-auth-panel">
           <div className="ad-auth-content">{children}</div>
           <footer className="ad-auth-footer">
-            RELIANT RENOVATIONS · OWNER ACCESS
+            RELIANT RENOVATIONS · ADMIN ACCESS
           </footer>
         </div>
       </main>
@@ -48,21 +48,28 @@ export function AdminAuthShell({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function AdminLogin() {
+export function AdminLogin({
+  passwordChanged = false,
+}: {
+  passwordChanged?: boolean;
+}) {
   const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [ownerSignIn, setOwnerSignIn] = useState(false);
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (busy) return;
     setBusy(true);
     setError("");
     try {
       const response = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify(ownerSignIn ? { password } : { email, password }),
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "Unable to sign in.");
@@ -80,7 +87,7 @@ export function AdminLogin() {
     <AdminAuthShell>
       <section className="ad-auth-card" aria-labelledby="admin-login-title">
         <div className="ad-auth-kicker">
-          <div className="ad-eyebrow">OWNER WORKSPACE</div>
+          <div className="ad-eyebrow">ADMIN WORKSPACE</div>
           <LockKey size={20} aria-hidden="true" />
         </div>
         <h1 id="admin-login-title">Welcome back.</h1>
@@ -89,12 +96,43 @@ export function AdminLogin() {
           inquiries.
         </p>
         <form onSubmit={submit} aria-busy={busy}>
+          {passwordChanged && (
+            <p className="ad-login-status" role="status">
+              Your password has changed. Sign in with your new password.
+            </p>
+          )}
+          {!ownerSignIn && (
+            <div className="ad-login-email">
+              <label className="ad-label" htmlFor="admin-email">
+                Email address
+              </label>
+              <input
+                id="admin-email"
+                name="email"
+                type="email"
+                autoComplete="username"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                required
+                maxLength={254}
+                disabled={busy}
+                autoFocus
+              />
+            </div>
+          )}
+          {ownerSignIn && (
+            <p className="ad-login-owner-note">
+              Use the original owner password. Additional admins sign in with
+              their email address.
+            </p>
+          )}
           <label className="ad-label" htmlFor="admin-password">
             Password
           </label>
           <div className="ad-password">
             <input
               id="admin-password"
+              name="password"
               type={visible ? "text" : "password"}
               autoComplete="current-password"
               value={password}
@@ -103,7 +141,7 @@ export function AdminLogin() {
               maxLength={512}
               aria-invalid={error ? true : undefined}
               aria-describedby={error ? "admin-login-error" : undefined}
-              autoFocus
+              disabled={busy}
             />
             <button
               type="button"
@@ -111,6 +149,7 @@ export function AdminLogin() {
               aria-label={visible ? "Hide password" : "Show password"}
               aria-pressed={visible}
               onClick={() => setVisible(!visible)}
+              disabled={busy}
             >
               {visible ? (
                 <EyeSlash size={19} aria-hidden="true" />
@@ -139,6 +178,21 @@ export function AdminLogin() {
           >
             Forgot your password?
           </Link>
+          <button
+            type="button"
+            className="ad-login-mode"
+            aria-pressed={ownerSignIn}
+            disabled={busy}
+            onClick={() => {
+              setOwnerSignIn(!ownerSignIn);
+              setPassword("");
+              setError("");
+            }}
+          >
+            {ownerSignIn
+              ? "Sign in with an email address"
+              : "Existing owner sign-in"}
+          </button>
         </form>
         <Link className="ad-text-link" href="/">
           ← Back to the website

@@ -1,65 +1,49 @@
-import { createHash, randomBytes, timingSafeEqual } from "node:crypto";
-import { MongoServerError } from "mongodb";
+import { createHash, randomBytes } from "node:crypto";
 import { authConfigured, hashPassword } from "./auth";
-import { consumeRateLimit, getDb } from "./db";
+import { consumeRateLimit } from "./db";
 import { sendPasswordResetEmail } from "./email/delivery";
+import {
+  adminAccounts,
+  getAdminCredentials,
+  publicAdminAccount,
+} from "./admin-accounts";
 
-interface OwnerAuthSetting {
-  key: "owner-auth";
-  sessionVersion: number;
-  passwordHash?: string;
-  passwordChangedAt?: Date;
-  resetTokenHash?: string;
-  resetExpiresAt?: Date;
-}
-
-const settingKey = "owner-auth" as const;
 const resetLifetime = 30 * 60 * 1000;
-const passwordHashPattern = /^scrypt:[a-f0-9]{32}:[a-f0-9]{128}$/;
 const tokenPattern = /^[a-f0-9]{64}$/i;
 
 function tokenHash(token: string) {
   return createHash("sha256").update(token.toLowerCase()).digest("hex");
 }
 
-async function ownerSettings() {
-  return (await getDb()).collection<OwnerAuthSetting>("settings");
-}
-
+/** Compatibility helper for the bootstrap owner and existing setup scripts. */
 export async function getOwnerCredentials() {
-  if (!authConfigured()) throw new Error("Owner access is not configured.");
-  const stored = await (await ownerSettings()).findOne({ key: settingKey });
-  const sessionVersion = stored?.sessionVersion ?? 0;
-  const passwordHash = stored?.passwordHash ?? process.env.ADMIN_PASSWORD_HASH!;
-  if (
-    !Number.isSafeInteger(sessionVersion) ||
-    sessionVersion < 0 ||
-    !passwordHashPattern.test(passwordHash)
-  )
-    throw new Error("Owner account data is invalid.");
-  return { passwordHash, sessionVersion };
+  const owner = await getAdminCredentials();
+  if (!owner) throw new Error("Owner access is not configured.");
+  return {
+    passwordHash: owner.passwordHash,
+    sessionVersion: owner.sessionVersion,
+  };
 }
 
-/** Only the digest is stored; a new request replaces the previous reset link. */
-export async function createPasswordResetToken(now = Date.now()) {
-  if (!authConfigured()) throw new Error("Owner access is not configured.");
+/** Only the digest is stored; a new request replaces this account's previous link. */
+export async function createPasswordResetToken(
+  now = Date.now(),
+  accountId = "owner",
+) {
   const token = randomBytes(32).toString("hex");
-  const settings = await ownerSettings();
-  const update = {
-    $set: {
-      resetTokenHash: tokenHash(token),
-      resetExpiresAt: new Date(now + resetLifetime),
+  const result = await (
+    await adminAccounts()
+  ).updateOne(
+    { id: accountId, active: true },
+    {
+      $set: {
+        resetTokenHash: tokenHash(token),
+        resetExpiresAt: new Date(now + resetLifetime),
+      },
     },
-    $setOnInsert: { sessionVersion: 0 },
-  };
-  try {
-    await settings.updateOne({ key: settingKey }, update, { upsert: true });
-  } catch (error) {
-    // Two first-time requests can race to create the unique settings record.
-    if (!(error instanceof MongoServerError && error.code === 11000))
-      throw error;
-    await settings.updateOne({ key: settingKey }, update);
-  }
+  );
+  if (result.matchedCount !== 1)
+    throw new Error("This admin account cannot recover access.");
   return token;
 }
 
@@ -67,15 +51,15 @@ export async function createPasswordResetToken(now = Date.now()) {
 export async function discardPasswordResetToken(token: string) {
   if (!tokenPattern.test(token)) return;
   await (
-    await ownerSettings()
+    await adminAccounts()
   ).updateOne(
-    { key: settingKey, resetTokenHash: tokenHash(token) },
+    { resetTokenHash: tokenHash(token) },
     { $unset: { resetTokenHash: "", resetExpiresAt: "" } },
   );
 }
 
-/** One atomic update consumes the link, changes the password and revokes sessions. */
-export async function completePasswordReset(
+/** One atomic update consumes the link, changes its account's password and revokes its sessions. */
+export async function resetAdminPassword(
   token: string,
   password: string,
   now = Date.now(),
@@ -86,12 +70,12 @@ export async function completePasswordReset(
     password.length < 12 ||
     password.length > 512
   )
-    return false;
+    return null;
   const result = await (
-    await ownerSettings()
+    await adminAccounts()
   ).findOneAndUpdate(
     {
-      key: settingKey,
+      active: true,
       resetTokenHash: tokenHash(token),
       resetExpiresAt: { $gt: new Date(now) },
     },
@@ -99,39 +83,49 @@ export async function completePasswordReset(
       $set: {
         passwordHash: hashPassword(password),
         passwordChangedAt: new Date(now),
+        updatedAt: new Date(now),
       },
       $inc: { sessionVersion: 1 },
       $unset: { resetTokenHash: "", resetExpiresAt: "" },
     },
     { returnDocument: "after" },
   );
-  return result !== null;
+  return result ? publicAdminAccount(result) : null;
+}
+
+export async function completePasswordReset(
+  token: string,
+  password: string,
+  now = Date.now(),
+) {
+  return (await resetAdminPassword(token, password, now)) !== null;
 }
 
 /** Run after the generic HTTP response so provider latency cannot reveal a match. */
 export async function requestOwnerPasswordReset(email: string) {
   let token: string | undefined;
   try {
-    if (!authConfigured()) return;
-    const owner = process.env.ADMIN_EMAIL?.trim().toLowerCase();
     if (
-      !owner ||
+      !authConfigured() ||
       !process.env.RESEND_API_KEY?.trim() ||
       !process.env.INQUIRY_FROM_EMAIL?.trim()
     )
       return;
-    const submitted = createHash("sha256")
-      .update(email.trim().toLowerCase())
-      .digest();
-    const expected = createHash("sha256").update(owner).digest();
-    if (!timingSafeEqual(submitted, expected)) return;
-    if (!(await consumeRateLimit("password-reset-owner", 5, 60 * 60 * 1000)))
+    const account = await getAdminCredentials(email);
+    if (!account?.active || !account.email) return;
+    if (
+      !(await consumeRateLimit(
+        `password-reset-account:${account.id}`,
+        5,
+        60 * 60 * 1000,
+      ))
+    )
       return;
-    token = await createPasswordResetToken();
-    if (!(await sendPasswordResetEmail(token)))
+    token = await createPasswordResetToken(Date.now(), account.id);
+    if (!(await sendPasswordResetEmail(token, account.email)))
       await discardPasswordResetToken(token);
   } catch {
     if (token) await discardPasswordResetToken(token).catch(() => {});
-    console.error("Owner password-reset request could not be completed.");
+    console.error("Admin password-reset request could not be completed.");
   }
 }
