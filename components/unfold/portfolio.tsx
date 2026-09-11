@@ -14,12 +14,6 @@ import "./portfolio.css";
 gsap.registerPlugin(Flip, useGSAP);
 
 const nameOf = (project: Project) => project.title;
-const previewPhoto = (project: Project) =>
-  project.slug === "upper-west-side-apartment"
-    ? project.images[5] || project.images[0]
-    : project.slug === "harbor-freight-bronx"
-      ? project.images[3] || project.images[0]
-      : project.images[0];
 
 export function UnfoldPortfolio({
   projects,
@@ -157,7 +151,8 @@ export function UnfoldPortfolio({
       </div>
       <div className="uf-stage">
         {projects.map((project, i) => {
-          const photo = previewPhoto(project);
+          // The first gallery image is the Cover selected in the admin.
+          const photo = project.images[0];
           const expanded = active === i;
           return (
             <article
